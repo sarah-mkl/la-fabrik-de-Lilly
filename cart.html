@@ -39,7 +39,7 @@ function updateCart() {
 
     div.innerHTML = `
       ${item.name} - ${item.price} €
-      <button onclick="removeItem(${index})">❌ Supprimer</button>
+      <button class="delete-btn" onclick="removeItem(${index})"> Supprimer</button>
     `;
 
     container.appendChild(div);
