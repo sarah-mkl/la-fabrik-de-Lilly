@@ -100,3 +100,38 @@ footer {
   color: #777;
   margin-top: 40px;
 }
+/* PAGE PRODUIT */
+.product-page {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.product-card {
+  background: white;
+  padding: 30px;
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.price {
+  font-size: 22px;
+  font-weight: bold;
+  color: #b08968;
+}
+
+.description {
+  margin: 15px 0;
+  color: #555;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin: 5px 0;
+}
