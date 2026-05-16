@@ -65,3 +65,24 @@ h2 {
   text-align: center;
   padding: 50px;
 }
+.hero {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.points {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 20px;
+}
+
+.bloc {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
