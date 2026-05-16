@@ -2,32 +2,56 @@
 <html lang="fr">
 
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Test Boutique</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Fabrik' de Lilly</title>
 
-<link rel="stylesheet" href="style.css">
-
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<h1>La Fabrik' de Lilly</h1>
+<header>
+  <h1>La Fabrik' de Lilly</h1>
+
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="boutique.html">Boutique</a>
+    <a href="cart.html">Panier 🛒</a>
+  </nav>
+</header>
+
+<h2>🧁 Fondants parfumés</h2>
 
 <div class="product-grid">
 
   <div class="product-card">
-    <img src="https://images/fleur de coton.jfif.>
+    <img src="https://images.unsplash.com/photo-1468327768560-75b778cbb551">
 
-    <h3>fleur de coton</h3>
+    <h3>Lavande</h3>
 
     <p>4 €</p>
 
-    <button>Ajouter au panier</button>
+    <button onclick="addToCart('Lavande', 4)">
+      Ajouter au panier
+    </button>
+  </div>
 
+  <div class="product-card">
+    <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946">
+
+    <h3>Jasmin</h3>
+
+    <p>4 €</p>
+
+    <button onclick="addToCart('Jasmin', 4)">
+      Ajouter au panier
+    </button>
   </div>
 
 </div>
+
+<script src="cart.js"></script>
 
 </body>
 </html>
