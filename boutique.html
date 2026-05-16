@@ -2,144 +2,32 @@
 <html lang="fr">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>La Fabrik' de Lilly - Boutique</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Boutique</title>
 
-  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<header>
-  <h1>La Fabrik' de Lilly</h1>
+<h1>La Fabrik' de Lilly</h1>
 
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="boutique.html">Boutique</a>
-    <a href="cart.html">Panier 🛒</a>
-  </nav>
-</header>
+<div class="product-grid">
 
-<!-- 🧁 FONDANTS -->
-<section>
-  <h2>🧁 Fondants parfumés</h2>
+  <div class="product-card">
+    <img src="https://images.unsplash.com/photo-1468327768560-75b778cbb551">
 
-  <div class="product-grid">
+    <h3>Lavande</h3>
 
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9">
-      <h3>Fleur de cerisier</h3>
-      <p>4 €</p>
-      <button onclick="addToCart('Fleur de cerisier', 4)">Ajouter au panier</button>
-    </div>
+    <p>8,90 €</p>
 
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1468327768560-75b778cbb551">
-      <h3>Lavande</h3>
-      <p>4 €</p>
-      <button onclick="addToCart('Lavande', 4)">Ajouter au panier</button>
-    </div>
-
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946">
-      <h3>Jasmin</h3>
-      <p>4 €</p>
-      <button onclick="addToCart('Jasmin', 4)">Ajouter au panier</button>
-    </div>
-
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1516747773440-f4e0d7b0c9b8">
-      <h3>Barbe à papa</h3>
-      <p>4 €</p>
-      <button onclick="addToCart('Barbe à papa', 4)">Ajouter au panier</button>
-    </div>
-
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15">
-      <h3>Fleur de coton</h3>
-      <p>4 €</p>
-      <button onclick="addToCart('Fleur de coton', 4)">Ajouter au panier</button>
-    </div>
+    <button>Ajouter au panier</button>
 
   </div>
-</section>
 
-<!-- 🕯️ BOUGIES -->
-<section>
-  <h2>🕯️ Bougies parfumées</h2>
-
-  <div class="product-grid">
-
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1603006905003-be475563bc59">
-      <h3>Vanille</h3>
-      <p>8 €</p>
-      <button onclick="addToCart('Bougie Vanille', 8)">Ajouter au panier</button>
-    </div>
-
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1602872029708-84c4a5a9a9f1">
-      <h3>Fleur de coton</h3>
-      <p>8 €</p>
-      <button onclick="addToCart('Bougie Fleur de coton', 8)">Ajouter au panier</button>
-    </div>
-
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae">
-      <h3>Bois de oud</h3>
-      <p>8 €</p>
-      <button onclick="addToCart('Bougie Bois de oud', 8)">Ajouter au panier</button>
-    </div>
-
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
-      <h3>Pivoine</h3>
-      <p>8 €</p>
-      <button onclick="addToCart('Bougie Pivoine', 8)">Ajouter au panier</button>
-    </div>
-
-  </div>
-</section>
-
-<!-- 🌬️ SPRAYS -->
-<section>
-  <h2>🌬️ Sprays d’ambiance</h2>
-
-  <div class="product-grid">
-
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd">
-      <h3>Fruits rouges</h3>
-      <p>6 €</p>
-      <button onclick="addToCart('Spray Fruits rouges', 6)">Ajouter au panier</button>
-    </div>
-
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9">
-      <h3>Linge propre</h3>
-      <p>6 €</p>
-      <button onclick="addToCart('Spray Linge propre', 6)">Ajouter au panier</button>
-    </div>
-
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348">
-      <h3>Vanille</h3>
-      <p>6 €</p>
-      <button onclick="addToCart('Spray Vanille', 6)">Ajouter au panier</button>
-    </div>
-
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15">
-      <h3>Fleur de coton</h3>
-      <p>6 €</p>
-      <button onclick="addToCart('Spray Fleur de coton', 6)">Ajouter au panier</button>
-    </div>
-
-  </div>
-</section>
-
-<script src="cart.js"></script>
+</div>
 
 </body>
 </html>
