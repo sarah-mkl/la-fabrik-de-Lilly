@@ -132,3 +132,67 @@ button {
 button:hover {
   background-color: #8b6b4f;
 }
+
+/* GRILLE PRODUITS */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* CARDS PRODUITS */
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.price {
+  color: #b08968;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* BOUTON */
+button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  border: none;
+  background: #b08968;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #8b6b4f;
+}
+
+/* TAGS PARFUMS */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.tags span {
+  background: white;
+  padding: 8px 12px;
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  font-size: 14px;
+}
