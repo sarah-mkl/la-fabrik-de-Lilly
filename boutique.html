@@ -28,21 +28,21 @@
       <h3>🕯️ Bougie 80g</h3>
       <p class="price">8€</p>
       <p>Artisanale, parfumée et douce.</p>
-      <button>Voir produit</button>
+     <button onclick="ajouterAuPanier('Bougie 80g', 8)">Ajouter au panier</button>
     </div>
 
     <div class="card">
       <h3>✨ Fondant 12g</h3>
       <p class="price">4€</p>
       <p>Diffusion intense du parfum.</p>
-      <button>Voir produit</button>
+    <button onclick="ajouterAuPanier('Fondant 12g', 4)">Ajouter au panier</button>
     </div>
 
     <div class="card">
       <h3>🌬️ Spray 50ml</h3>
       <p class="price">6€</p>
       <p>Parfum instantané pour la maison.</p>
-      <button>Voir produit</button>
+     <button onclick="ajouterAuPanier('Spray 50ml', 6)">Ajouter au panier</button>
     </div>
 
   </div>
@@ -84,5 +84,26 @@
 
 </main>
 
+  <script>
+let panier = [];
+
+function ajouterAuPanier(nom, prix) {
+  panier.push({ nom, prix });
+  afficherPanier();
+}
+
+function afficherPanier() {
+  let total = 0;
+  let liste = "";
+
+  panier.forEach(p => {
+    liste += p.nom + " - " + p.prix + "€\n";
+    total += p.prix;
+  });
+
+  alert("🛒 Panier :\n\n" + liste + "\nTotal : " + total + "€");
+}
+</script>
+  
 </body>
 </html>
