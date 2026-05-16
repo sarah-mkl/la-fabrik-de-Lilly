@@ -26,19 +26,38 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 let container = document.getElementById("cart-items");
 let total = 0;
 
-if (cart.length === 0) {
-  container.innerHTML = "<p>Ton panier est vide 🛒</p>";
+function updateCart() {
+  container.innerHTML = "";
+  total = 0;
+
+  if (cart.length === 0) {
+    container.innerHTML = "<p>Ton panier est vide 🛒</p>";
+  }
+
+  cart.forEach((item, index) => {
+    let div = document.createElement("div");
+
+    div.innerHTML = `
+      ${item.name} - ${item.price} €
+      <button onclick="removeItem(${index})">❌ Supprimer</button>
+    `;
+
+    container.appendChild(div);
+    total += item.price;
+  });
+
+  document.getElementById("total").innerHTML =
+    "Total : " + total.toFixed(2) + " €";
+
+  localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-cart.forEach(item => {
-  let div = document.createElement("div");
-  div.innerHTML = item.name + " - " + item.price + " €";
-  container.appendChild(div);
-  total += item.price;
-});
+function removeItem(index) {
+  cart.splice(index, 1);
+  updateCart();
+}
 
-document.getElementById("total").innerHTML =
-  "Total : " + total.toFixed(2) + " €";
+updateCart();
 </script>
 
 </body>
