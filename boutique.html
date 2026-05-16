@@ -111,6 +111,38 @@ function afficherPanier() {
   alert("🛒 Panier :\n\n" + liste + "\nTotal : " + total + "€");
 }
 </script>
-  
+
+  <script>
+let panier = [];
+
+function ajouterAuPanier(nom, prix) {
+  panier.push({ nom, prix });
+  afficherPanier();
+}
+
+function afficherPanier() {
+  let liste = document.getElementById("liste-panier");
+  let totalEl = document.getElementById("total");
+
+  liste.innerHTML = "";
+  let total = 0;
+
+  panier.forEach(item => {
+    let div = document.createElement("div");
+    div.textContent = item.nom + " - " + item.prix + "€";
+    liste.appendChild(div);
+    total += item.prix;
+  });
+
+  totalEl.textContent = total;
+}
+
+function viderPanier() {
+  panier = [];
+  afficherPanier();
+}
+</script>
 </body>
 </html>
+
+
