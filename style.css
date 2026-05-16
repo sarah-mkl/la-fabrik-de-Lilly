@@ -140,3 +140,14 @@ footer {
   color: #777;
   margin-top: 40px;
 }
+/* HERO */
+.hero {
+  padding: 70px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #f7efe8, #fff);
+}
+
+.hero h2 {
+  font-size: 28px;
+  color: #b08968;
+}
