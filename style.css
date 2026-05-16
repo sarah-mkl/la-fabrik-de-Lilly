@@ -1,87 +1,102 @@
-/* STYLE PREMIUM */
+/* =========================
+   STYLE PREMIUM - LA FABRIK' DE LILLY
+========================= */
 
-body{
-  font-family: 'Poppins', sans-serif;
-  background: #fdfaf7;
-  color: #5f5a57;
+/* Police globale */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Base */
+body {
   margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: #fdfaf7;
+  color: #333;
 }
 
-.product-page{
-  padding: 60px 10%;
+/* HEADER */
+header {
+  background: #ffffff;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
 }
 
-.product-container{
-  display: flex;
-  gap: 60px;
-  align-items: flex-start;
-}
-
-.product-image img{
-  width: 450px;
-  border-radius: 25px;
-  background: white;
-  padding: 30px;
-  box-shadow: 0 5px 25px rgba(0,0,0,0.05);
-}
-
-.product-info{
-  max-width: 500px;
-}
-
-.product-info h1{
-  font-size: 38px;
-  margin-bottom: 10px;
-  color: #4d4744;
-}
-
-.price{
+header h1 {
+  margin: 0;
   font-size: 28px;
-  color: #d89ca4;
-  margin-bottom: 25px;
+  letter-spacing: 1px;
 }
 
-.add-cart{
-  background: #c8d5c0;
-  border: none;
-  padding: 15px 30px;
-  border-radius: 50px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-bottom: 30px;
+/* NAVIGATION */
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  margin: 0 10px;
+  font-weight: 500;
   transition: 0.3s;
 }
 
-.add-cart:hover{
-  transform: scale(1.03);
+nav a:hover {
+  color: #b08968;
 }
 
-.short-description{
-  line-height: 1.8;
-  margin-bottom: 25px;
+/* SECTION */
+section {
+  padding: 40px 20px;
+  text-align: center;
 }
 
-details{
-  background: white;
-  padding: 18px;
-  border-radius: 18px;
-  margin-bottom: 15px;
-  box-shadow: 0 3px 15px rgba(0,0,0,0.04);
+section h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
-summary{
+/* CARTES PRODUITS */
+div {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 400px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+div:hover {
+  transform: translateY(-5px);
+}
+
+/* LIENS PRODUITS */
+div a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* BOUTONS (si tu en ajoutes plus tard) */
+button {
+  background: #b08968;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
   cursor: pointer;
-  font-weight: 600;
-  color: #6d6662;
+  transition: 0.3s;
 }
 
-.notes p,
-details p,
-details li{
-  line-height: 1.7;
-  margin-top: 15px;
+button:hover {
+  background: #8f6a4f;
 }
 
-ul{
-  padding-left: 20px;
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #777;
+  margin-top: 40px;
 }
