@@ -151,3 +151,24 @@ footer {
   font-size: 28px;
   color: #b08968;
 }
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* bouton supprimer */
+button:nth-child(2),
+button {
+  margin-left: 10px;
+}
+
+button {
+  background: #b08968;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
