@@ -1,42 +1,43 @@
 body {
   margin: 0;
-  font-family: "Arial", sans-serif;
-  background-color: #fffaf7;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(180deg, #fffaf7, #f7f1ed);
   color: #333;
 }
 
 /* HEADER */
 header {
   text-align: center;
-  padding: 40px 20px;
-  background: linear-gradient(135deg, #f3e6e1, #fffaf7);
+  padding: 45px 20px;
+  background: linear-gradient(135deg, #f3e6e1, #e7d3c9);
+  color: #3a2e2a;
 }
 
 header h1 {
   margin: 0;
-  font-size: 34px;
+  font-size: 36px;
   letter-spacing: 1px;
 }
 
 header p {
-  margin-top: 10px;
+  margin-top: 8px;
   font-size: 16px;
-  color: #666;
+  opacity: 0.8;
 }
 
 /* NAV */
 nav {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  padding: 15px;
-  background-color: white;
+  gap: 15px;
+  padding: 12px;
+  background: white;
   border-bottom: 1px solid #eee;
 }
 
 nav a {
   text-decoration: none;
-  color: #333;
+  color: #3a2e2a;
   font-weight: bold;
   padding: 8px 14px;
   border-radius: 20px;
@@ -44,7 +45,7 @@ nav a {
 }
 
 nav a:hover {
-  background-color: #f3e6e1;
+  background: #f3e6e1;
   color: #000;
 }
 
@@ -52,85 +53,8 @@ nav a:hover {
 h2 {
   text-align: center;
   margin-top: 40px;
-  font-size: 26px;
-}
-
-/* ACCUEIL */
-.accueil {
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.hero {
-  max-width: 700px;
-  margin: auto;
-  padding: 20px;
-  font-size: 18px;
-  color: #555;
-}
-
-/* BLOCS INFO */
-.points {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 30px;
-}
-
-.bloc {
-  background: white;
-  padding: 20px;
-  border-radius: 15px;
-  width: 200px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  transition: 0.3s;
-}
-
-.bloc:hover {
-  transform: translateY(-5px);
-}
-
-/* PRODUITS */
-.produits {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
-}
-
-.produit {
-  background: white;
-  border-radius: 15px;
-  padding: 15px;
-  width: 170px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  transition: 0.3s;
-}
-
-.produit:hover {
-  transform: translateY(-5px);
-}
-
-.produit strong {
-  color: #b08968;
-}
-
-/* BOUTONS (si tu en ajoutes) */
-button {
-  margin-top: 10px;
-  padding: 10px 15px;
-  border: none;
-  background-color: #b08968;
-  color: white;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #8b6b4f;
+  font-size: 28px;
+  color: #3a2e2a;
 }
 
 /* GRILLE PRODUITS */
@@ -138,61 +62,72 @@ button:hover {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
-  padding: 20px;
-  max-width: 900px;
+  padding: 25px;
+  max-width: 1000px;
   margin: auto;
 }
 
 /* CARDS PRODUITS */
 .card {
-  background: white;
+  background: linear-gradient(180deg, #ffffff, #fff6f2);
+  border-radius: 18px;
   padding: 20px;
-  border-radius: 15px;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   transition: 0.3s;
+  border: 1px solid #f0e2dc;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
 }
 
 .price {
   color: #b08968;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 /* BOUTON */
 button {
-  margin-top: 10px;
-  padding: 10px 15px;
+  margin-top: 12px;
+  padding: 10px 16px;
   border: none;
-  background: #b08968;
+  background: linear-gradient(135deg, #b08968, #8b6b4f);
   color: white;
-  border-radius: 20px;
+  border-radius: 25px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 button:hover {
-  background: #8b6b4f;
+  transform: scale(1.05);
+  opacity: 0.9;
 }
 
-/* TAGS PARFUMS */
+/* PARFUMS */
 .tags {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
   padding: 20px;
-  max-width: 900px;
+  max-width: 1000px;
   margin: auto;
 }
 
 .tags span {
-  background: white;
+  background: linear-gradient(135deg, #ffffff, #f3e6e1);
   padding: 8px 12px;
   border-radius: 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   font-size: 14px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  border: 1px solid #f0e2dc;
+}
+
+/* ACCUEIL */
+.accueil {
+  text-align: center;
+  padding: 50px 20px;
 }
