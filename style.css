@@ -1,43 +1,32 @@
-/* =========================
-   LA FABRIK' DE LILLY - STYLE PREMIUM COLORÉ
-========================= */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
-
-/* GLOBAL */
 body {
   margin: 0;
-  padding: 0;
-  font-family: "Poppins", sans-serif;
-  background: linear-gradient(180deg, #fdfaf7, #f7efe8);
+  font-family: Arial, sans-serif;
+  background-color: #fffaf7;
   color: #333;
 }
 
 /* HEADER */
 header {
-  background: #fff;
+  background-color: #f3e6e1;
   padding: 20px;
   text-align: center;
-  border-bottom: 1px solid #eee;
 }
 
 header h1 {
   margin: 0;
-  font-size: 30px;
-  color: #b08968;
+  font-size: 28px;
 }
 
-/* NAV */
+/* MENU */
 nav {
   margin-top: 10px;
 }
 
 nav a {
+  margin: 0 10px;
   text-decoration: none;
-  color: #444;
-  margin: 0 12px;
-  font-weight: 500;
-  transition: 0.3s;
+  color: #333;
+  font-weight: bold;
 }
 
 nav a:hover {
@@ -46,280 +35,42 @@ nav a:hover {
 
 /* TITRES */
 h2 {
-  color: #b08968;
-}
-
-/* SECTIONS */
-section {
-  padding: 40px 20px;
   text-align: center;
+  margin-top: 30px;
 }
 
-/* CARTES PRODUITS (index) */
-div {
-  margin: 20px auto;
-  padding: 20px;
-  max-width: 420px;
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-  transition: 0.3s;
-  border-left: 5px solid #e6c7a7;
-}
-
-div:hover {
-  transform: translateY(-5px);
-}
-
-/* LIENS */
-div a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* BOUTONS */
-button {
-  background: linear-gradient(135deg, #b08968, #d4a373);
-  color: white;
-  border: none;
-  padding: 12px 18px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: 0.3s;
-  margin-top: 10px;
-}
-
-button:hover {
-  transform: scale(1.05);
-}
-
-/* PAGE PRODUIT */
-.product-page {
+/* PRODUITS */
+.produits {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  padding: 40px 20px;
+  gap: 20px;
+  padding: 20px;
 }
 
-.product-card {
-  background: white;
-  padding: 30px;
-  max-width: 500px;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+.produit {
+  background-color: white;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 15px;
+  width: 200px;
   text-align: center;
-  border-top: 6px solid #d4a373;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
-.price {
-  font-size: 24px;
-  font-weight: bold;
+.produit h3 {
+  margin: 10px 0;
+}
+
+/* PRIX */
+.produit strong {
   color: #b08968;
 }
 
-.description {
-  margin: 15px 0;
-  color: #555;
-}
-
-/* LISTE */
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-ul li {
-  margin: 6px 0;
-}
-
-/* FOOTER */
+/* FOOTER (si tu en ajoutes un plus tard) */
 footer {
   text-align: center;
   padding: 20px;
-  font-size: 14px;
-  color: #777;
   margin-top: 40px;
-}
-/* HERO */
-.hero {
-  padding: 70px 20px;
-  text-align: center;
-  background: linear-gradient(135deg, #f7efe8, #fff);
-}
-
-.hero h2 {
-  font-size: 28px;
-  color: #b08968;
-}
-button {
-  cursor: pointer;
-}
-
-button:hover {
-  opacity: 0.9;
-}
-
-/* bouton supprimer */
-button:nth-child(2),
-button {
-  margin-left: 10px;
-}
-
-button {
-  background: #b08968;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 8px;
-}
-.delete-btn {
-  background: #e74c3c;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 8px;
-  margin-left: 10px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: 0.3s;
-}
-
-.delete-btn:hover {
-  background: #c0392b;
-  transform: scale(1.05);
-}
-.product-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  padding: 20px;
-}
-
-.product-card {
-  width: 220px;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  overflow: hidden;
-  text-align: center;
-  transition: 0.3s;
-}
-
-.product-card:hover {
-  transform: translateY(-5px);
-}
-
-.product-card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-}
-
-.product-card h3 {
-  margin: 10px 0 5px;
-  font-size: 16px;
-}
-
-.product-card p {
-  margin: 0;
-  color: #b08968;
-  font-weight: bold;
-}
-
-.product-card button {
-  margin: 10px 0 15px;
-}
-.product-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-  padding: 20px;
-}
-
-.product-card {
-  width: 230px;
-  background: white;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  transition: 0.3s;
-  text-align: center;
-}
-
-.product-card:hover {
-  transform: translateY(-6px);
-}
-
-.product-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-}
-
-.product-card h3 {
-  font-size: 20px;
-  margin-top: 15px;
-  color: #444;
-}
-
-.product-card p {
-  font-size: 20px;
-  color: #b07a7a;
-  font-weight: bold;
-}
-
-.product-card button {
-  background: #b07a7a;
-  color: white;
-  border: none;
-  padding: 12px 18px;
-  border-radius: 12px;
-  margin-bottom: 20px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.product-card button:hover {
-  background: #9a6666;
-}
-.product-grid {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  padding: 20px;
-}
-
-.product-card {
-  width: 220px;
-  background: white;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-  text-align: center;
-}
-
-.product-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.product-card h3 {
-  margin-top: 10px;
-}
-
-.product-card p {
-  color: #b07a7a;
-  font-weight: bold;
-}
-
-.product-card button {
-  margin-bottom: 20px;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 10px;
-  background: #b07a7a;
-  color: white;
+  background-color: #f3e6e1;
 }
