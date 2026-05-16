@@ -1,22 +1,21 @@
 /* =========================
-   STYLE PREMIUM - LA FABRIK' DE LILLY
+   LA FABRIK' DE LILLY - STYLE PREMIUM COLORÉ
 ========================= */
 
-/* Police globale */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-/* Base */
+/* GLOBAL */
 body {
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
-  background: #fdfaf7;
+  background: linear-gradient(180deg, #fdfaf7, #f7efe8);
   color: #333;
 }
 
 /* HEADER */
 header {
-  background: #ffffff;
+  background: #fff;
   padding: 20px;
   text-align: center;
   border-bottom: 1px solid #eee;
@@ -24,19 +23,19 @@ header {
 
 header h1 {
   margin: 0;
-  font-size: 28px;
-  letter-spacing: 1px;
+  font-size: 30px;
+  color: #b08968;
 }
 
-/* NAVIGATION */
+/* NAV */
 nav {
   margin-top: 10px;
 }
 
 nav a {
   text-decoration: none;
-  color: #333;
-  margin: 0 10px;
+  color: #444;
+  margin: 0 12px;
   font-weight: 500;
   transition: 0.3s;
 }
@@ -45,61 +44,56 @@ nav a:hover {
   color: #b08968;
 }
 
-/* SECTION */
+/* TITRES */
+h2 {
+  color: #b08968;
+}
+
+/* SECTIONS */
 section {
   padding: 40px 20px;
   text-align: center;
 }
 
-section h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-/* CARTES PRODUITS */
+/* CARTES PRODUITS (index) */
 div {
   margin: 20px auto;
   padding: 20px;
-  max-width: 400px;
+  max-width: 420px;
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
   transition: 0.3s;
+  border-left: 5px solid #e6c7a7;
 }
 
 div:hover {
   transform: translateY(-5px);
 }
 
-/* LIENS PRODUITS */
+/* LIENS */
 div a {
   text-decoration: none;
   color: inherit;
 }
 
-/* BOUTONS (si tu en ajoutes plus tard) */
+/* BOUTONS */
 button {
-  background: #b08968;
+  background: linear-gradient(135deg, #b08968, #d4a373);
   color: white;
   border: none;
-  padding: 10px 15px;
-  border-radius: 8px;
+  padding: 12px 18px;
+  border-radius: 10px;
   cursor: pointer;
+  font-weight: 500;
   transition: 0.3s;
+  margin-top: 10px;
 }
 
 button:hover {
-  background: #8f6a4f;
+  transform: scale(1.05);
 }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 20px;
-  font-size: 14px;
-  color: #777;
-  margin-top: 40px;
-}
 /* PAGE PRODUIT */
 .product-page {
   display: flex;
@@ -111,13 +105,14 @@ footer {
   background: white;
   padding: 30px;
   max-width: 500px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
   text-align: center;
+  border-top: 6px solid #d4a373;
 }
 
 .price {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: bold;
   color: #b08968;
 }
@@ -127,11 +122,21 @@ footer {
   color: #555;
 }
 
+/* LISTE */
 ul {
   list-style: none;
   padding: 0;
 }
 
 ul li {
-  margin: 5px 0;
+  margin: 6px 0;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #777;
+  margin-top: 40px;
 }
