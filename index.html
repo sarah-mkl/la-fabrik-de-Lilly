@@ -4,57 +4,53 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>La Fabrik' de Lilly</title>
 
-  <!-- Lien CSS (très important) -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <h1>La Fabrik' de Lilly</h1>
+<header>
+  <h1>La Fabrik' de Lilly</h1>
 
-    <nav>
-      <a href="index.html">Accueil</a>
-      <a href="produit.html">Produits</a>
-      <a href="fondant-vanille.html">Fondant Vanille</a>
-    </nav>
-  </header>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="produit.html">Produits</a>
+    <a href="cart.html">Panier 🛒</a>
+  </nav>
+</header>
 
-  <!-- HERO -->
-  <section>
-    <h2>Bienvenue dans ma boutique artisanale 🌿</h2>
-    <p>Produits faits maison, naturels et gourmands.</p>
-  </section>
+<!-- HERO BANNIÈRE -->
+<section class="hero">
+  <h2>Des créations artisanales uniques 🌿</h2>
+  <p>Fait main • Naturel • Gourmand</p>
+  <button onclick="location.href='produit.html'">Découvrir la boutique</button>
+</section>
 
-  <!-- PRODUITS -->
-  <section>
-    <h2>Nos produits</h2>
+<!-- BEST SELLERS -->
+<section>
+  <h2>Best-sellers</h2>
 
-    <div>
-      <a href="fondant-vanille.html">
-        <h3>Fondant Vanille</h3>
-        <p>Un parfum doux et gourmand.</p>
-      </a>
-    </div>
+  <div>
+    <h3>Fondant Vanille</h3>
+    <p>4 €</p>
+    <button onclick="addToCart('Fondant Vanille', 4)">Ajouter au panier</button>
+  </div>
 
-    <div>
-      <a href="produit.html">
-        <h3>Voir tous les produits</h3>
-        <p>Découvre toute la collection.</p>
-      </a>
-    </div>
+  <div>
+    <h3>Fondant Caramel</h3>
+    <p>4 €</p>
+    <button onclick="addToCart('Fondant Caramel', 4)">Ajouter au panier</button>
+  </div>
 
-  </section>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 La Fabrik' de Lilly</p>
-  </footer>
+<footer>
+  <p>© 2026 La Fabrik' de Lilly</p>
+</footer>
+
+<script src="cart.js"></script>
 
 </body>
-
 </html>
