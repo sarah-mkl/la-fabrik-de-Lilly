@@ -372,3 +372,19 @@ button:hover {
   border: 1px solid #eee;
   box-shadow: 0 5px 20px rgba(0,0,0,0.05);
 }
+.produit h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.produit h3 {
+  margin-top: 20px;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+select {
+  width: 100%;
+  margin-top: 10px;
+}
