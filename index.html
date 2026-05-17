@@ -1,237 +1,307 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Produit - La Fabrik' de Lilly</title>
 
-<title>La Fabrik' de Lilly</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      background: #faf7f2;
+      margin: 0;
+      color: #2b2b2b;
+    }
 
-<style>
+    header {
+      text-align: center;
+      padding: 30px;
+      background: #fff;
+      border-bottom: 1px solid #e6e0d8;
+    }
 
-body{
-margin:0;
-font-family:Arial, sans-serif;
-background:#fffaf7;
-color:#555;
-}
+    nav {
+      text-align: center;
+      padding: 15px;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+    }
 
-/* HEADER */
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #2b2b2b;
+      font-size: 14px;
+    }
 
-header{
-background:white;
-padding:25px;
-text-align:center;
-box-shadow:0 2px 8px rgba(0,0,0,0.05);
-position:sticky;
-top:0;
-z-index:1000;
-}
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 40px 20px;
+    }
 
-header h1{
-margin:0;
-font-size:38px;
-color:#d8a48f;
-}
+    .box {
+      background: #fff;
+      padding: 30px;
+      border: 1px solid #eee;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
 
-header p{
-margin-top:8px;
-font-size:16px;
-color:#888;
-}
+    select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      font-family: inherit;
+    }
 
-nav{
-margin-top:20px;
-}
+    button {
+      background: #2b2b2b;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
 
-nav a{
-text-decoration:none;
-margin:0 15px;
-color:#777;
-font-weight:bold;
-}
+    button:hover {
+      background: #444;
+    }
 
-/* BANNIERE */
+    h2, h3 {
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
 
-.hero{
-height:500px;
-background-image:url('https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=1200');
-background-size:cover;
-background-position:center;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-color:white;
-}
+    #description-produit {
+      line-height: 1.7;
+      color: #444;
+    }
 
-.hero-content{
-background:rgba(0,0,0,0.35);
-padding:40px;
-border-radius:20px;
-}
-
-.hero h2{
-font-size:50px;
-margin-bottom:10px;
-}
-
-.hero p{
-font-size:20px;
-}
-
-/* SECTION */
-
-section{
-padding:70px 20px;
-text-align:center;
-}
-
-section h2{
-font-size:40px;
-color:#d8a48f;
-margin-bottom:40px;
-}
-
-/* PRODUITS */
-
-.products{
-display:flex;
-justify-content:center;
-gap:30px;
-flex-wrap:wrap;
-}
-
-.product{
-background:white;
-width:250px;
-padding:20px;
-border-radius:20px;
-box-shadow:0 5px 15px rgba(0,0,0,0.08);
-transition:0.3s;
-}
-
-.product:hover{
-transform:translateY(-5px);
-}
-
-.product img{
-width:100%;
-height:250px;
-object-fit:cover;
-border-radius:15px;
-}
-
-.product h3{
-margin-top:15px;
-color:#666;
-}
-
-.price{
-font-size:22px;
-color:#d8a48f;
-font-weight:bold;
-}
-
-button{
-background:#d8a48f;
-border:none;
-padding:12px 20px;
-border-radius:30px;
-color:white;
-font-weight:bold;
-cursor:pointer;
-margin-top:10px;
-}
-
-button:hover{
-background:#c58f79;
-}
-
-/* HISTOIRE */
-
-.story{
-background:#fff2ec;
-line-height:1.8;
-}
-
-/* FOOTER */
-
-footer{
-background:white;
-padding:30px;
-text-align:center;
-color:#999;
-margin-top:40px;
-}
-
-</style>
+    #notes-parfum {
+      font-style: italic;
+      color: #666;
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-<h1>🕯️ La Fabrik' de Lilly</h1>
-<p>Créations artisanales parfumées</p>
-
-<nav>
-<a href="index.html">Accueil</a>
-<a href="boutique.html">Boutique</a>
-</nav>
+  <h1>La Fabrik' de Lilly</h1>
 </header>
 
-<section class="hero">
-<div class="hero-content">
-<h2>Une ambiance douce & parfumée</h2>
-<p>Bougies • Fondants • Sprays artisanaux</p>
+<nav>
+  <a href="index.html">Accueil</a>
+  <a href="boutique.html">Boutique</a>
+</nav>
+
+<div class="container">
+
+  <div class="box">
+
+    <h2>🕯️ Bougie 80g</h2>
+    <p><strong>Prix :</strong> 8€</p>
+
+    <label>🌸 Choisis ton parfum</label>
+
+    <select id="parfum" onchange="changerParfum()">
+      <option value="">-- Sélectionner --</option>
+
+      <option value="cerisier">Fleur de cerisier</option>
+      <option value="acacia">Fleur d’acacia</option>
+      <option value="coton">Fleur de coton</option>
+      <option value="orchidee">Orchidée</option>
+      <option value="lavande">Lavande</option>
+      <option value="jasmin">Jasmin</option>
+      <option value="lys">Lys blanc</option>
+      <option value="azalee">Azalée du Japon</option>
+      <option value="hibiscus">Hibiscus</option>
+      <option value="frangipanier">Frangipanier</option>
+
+      <option value="barbe_papa">Barbe à papa</option>
+      <option value="madeleine">Madeleine gourmande</option>
+      <option value="couverture">Douce couverture</option>
+      <option value="pomme_amour">Pomme d’amour</option>
+
+      <option value="linge">Linge propre</option>
+      <option value="adoucissant">Adoucissant</option>
+
+      <option value="monoip">Monoï pêche</option>
+      <option value="monoic">Monoï clémentine</option>
+      <option value="pomme">Pomme verte</option>
+      <option value="litchi">Litchi</option>
+      <option value="melon">Melon</option>
+      <option value="pasteque">Pastèque</option>
+      <option value="fruit_rouge">Fruit rouge</option>
+      <option value="smoothie">Smoothie</option>
+
+      <option value="oud">Bois de oud</option>
+    </select>
+
+    <h3>📝 Descriptif</h3>
+    <p id="description-produit">Choisis un parfum.</p>
+
+    <h3>🧪 Notes olfactives</h3>
+    <p id="notes-parfum">---</p>
+
+    <button onclick="ajouterPanier()">Ajouter au panier</button>
+
+  </div>
+
 </div>
-</section>
 
-<section>
+<script>
 
-<h2>Nos coups de cœur</h2>
+let parfumChoisi = "";
 
-<div class="products">
+const data = {
 
-<div class="product">
-<img src="images/bougie-fleurie.jpg" alt="Bougie fleurie">
-<h3>Bougie Fleurie</h3>
-<p class="price">8€</p>
-<button>Découvrir</button>
-</div>
+  coton: {
+    desc: "Fleur de Coton : douceur et pureté. Une ambiance cocooning et propre.",
+    notes: "Tête : aldéhydes | Cœur : coton | Fond : musc blanc"
+  },
 
-<div class="product">
-<img src="images/fondant-gourmand.jpg" alt="Fondant parfumé">
-<h3>Fondant Gourmand</h3>
-<p class="price">4€</p>
-<button>Découvrir</button>
-</div>
+  cerisier: {
+    desc: "Fleur de Cerisier : floral doux et élégant.",
+    notes: "Tête : fruits rouges | Cœur : fleur de cerisier | Fond : musc"
+  },
 
-<div class="product">
-<img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=800">
-<h3>Spray Maison</h3>
-<p class="price">6€</p>
-<button>Découvrir</button>
-</div>
+  acacia: {
+    desc: "Fleur d’Acacia : doux et légèrement miellé.",
+    notes: "Tête : miel | Cœur : acacia | Fond : bois doux"
+  },
 
-</div>
+  orchidee: {
+    desc: "Orchidée : floral raffiné et élégant.",
+    notes: "Tête : fleurs blanches | Cœur : orchidée | Fond : vanille"
+  },
 
-</section>
+  lavande: {
+    desc: "Lavande : relaxante et apaisante.",
+    notes: "Tête : lavande | Cœur : lavandin | Fond : bois"
+  },
 
-<section class="story">
+  jasmin: {
+    desc: "Jasmin : floral intense et sensuel.",
+    notes: "Tête : jasmin | Cœur : fleurs blanches | Fond : musc"
+  },
 
-<h2>Notre histoire</h2>
+  lys: {
+    desc: "Lys blanc : pur et élégant.",
+    notes: "Tête : floral | Cœur : lys | Fond : musc"
+  },
 
-<p>
-La Fabrik’ de Lilly est née d’une passion pour les parfums doux,
-les ambiances cocooning et les créations artisanales.
-Chaque produit est imaginé avec soin pour apporter chaleur et bien-être à votre intérieur.
-</p>
+  azalee: {
+    desc: "Azalée : floral délicat.",
+    notes: "Tête : floral | Cœur : azalée | Fond : bois doux"
+  },
 
-</section>
+  hibiscus: {
+    desc: "Hibiscus : exotique et fruité.",
+    notes: "Tête : fruits rouges | Cœur : hibiscus | Fond : vanille"
+  },
 
-<footer>
-© 2026 La Fabrik' de Lilly
-</footer>
+  frangipanier: {
+    desc: "Frangipanier : solaire et tropical.",
+    notes: "Tête : coco | Cœur : frangipanier | Fond : vanille"
+  },
+
+  barbe_papa: {
+    desc: "Barbe à papa : sucré et régressif.",
+    notes: "Tête : sucre | Cœur : vanille | Fond : caramel"
+  },
+
+  madeleine: {
+    desc: "Madeleine : pâtisserie gourmande.",
+    notes: "Tête : beurre | Cœur : pâte sucrée | Fond : vanille"
+  },
+
+  couverture: {
+    desc: "Douce couverture : cocooning total.",
+    notes: "Tête : sucre | Cœur : musc | Fond : vanille chaude"
+  },
+
+  pomme_amour: {
+    desc: "Pomme d’amour : gourmand caramélisé.",
+    notes: "Tête : pomme | Cœur : caramel | Fond : sucre"
+  },
+
+  linge: {
+    desc: "Linge propre : fraîcheur pure.",
+    notes: "Tête : frais | Cœur : coton | Fond : musc"
+  },
+
+  adoucissant: {
+    desc: "Adoucissant : doux et propre.",
+    notes: "Tête : frais | Cœur : propre | Fond : musc"
+  },
+
+  monoip: {
+    desc: "Monoï pêche : exotique fruité.",
+    notes: "Tête : pêche | Cœur : monoï | Fond : coco"
+  },
+
+  monoic: {
+    desc: "Monoï clémentine : solaire.",
+    notes: "Tête : clémentine | Cœur : monoï | Fond : vanille"
+  },
+
+  pomme: {
+    desc: "Pomme verte : fraîche et acidulée.",
+    notes: "Tête : pomme | Cœur : fruit | Fond : musc"
+  },
+
+  litchi: {
+    desc: "Litchi : doux et exotique.",
+    notes: "Tête : litchi | Cœur : fruit | Fond : sucre"
+  },
+
+  melon: {
+    desc: "Melon : frais et sucré.",
+    notes: "Tête : melon | Cœur : fruit | Fond : frais"
+  },
+
+  pasteque: {
+    desc: "Pastèque : juteux et frais.",
+    notes: "Tête : pastèque | Cœur : fruit | Fond : eau"
+  },
+
+  fruit_rouge: {
+    desc: "Fruit rouge : gourmand et pétillant.",
+    notes: "Tête : fraise | Cœur : framboise | Fond : sucre"
+  },
+
+  smoothie: {
+    desc: "Smoothie : cocktail fruité.",
+    notes: "Tête : fruits | Cœur : mélange | Fond : sucre"
+  },
+
+  oud: {
+    desc: "Bois de oud : luxe et intense.",
+    notes: "Tête : épices | Cœur : oud | Fond : ambre"
+  }
+
+};
+
+function changerParfum() {
+  parfumChoisi = document.getElementById("parfum").value;
+
+  if (!parfumChoisi) return;
+
+  document.getElementById("description-produit").textContent =
+    data[parfumChoisi].desc;
+
+  document.getElementById("notes-parfum").textContent =
+    data[parfumChoisi].notes;
+}
+
+function ajouterPanier() {
+  if (!parfumChoisi) {
+    alert("Choisis un parfum !");
+    return;
+  }
+
+  alert("Bougie 80g (" + parfumChoisi + ") ajoutée au panier !");
+}
+
+</script>
 
 </body>
 </html>
