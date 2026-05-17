@@ -3,6 +3,8 @@
 
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Boutique - La Fabrik' de Lilly</title>
 
 <style>
@@ -12,10 +14,8 @@ body{
   font-family:Georgia, serif;
   background:
   linear-gradient(rgba(255,255,255,0.65),rgba(255,255,255,0.65)),
-  url("images/logo-ll.jpg")
-  center center / 70% no-repeat fixed,
+  url("images/logo-ll.jpg") center/70% no-repeat fixed,
   linear-gradient(180deg,#f8f4ef,#efe5dd);
-
   color:#2b2b2b;
 }
 
@@ -23,7 +23,7 @@ body{
 
 header{
   text-align:center;
-  padding:30px 20px;
+  padding:25px;
   background:rgba(255,255,255,0.85);
   border-bottom:1px solid #eee;
 }
@@ -61,7 +61,7 @@ h2{
   letter-spacing:2px;
 }
 
-/* GRID */
+/* GRID PRODUITS */
 
 .grid{
   display:grid;
@@ -93,6 +93,17 @@ h2{
   font-weight:bold;
 }
 
+/* BOUTON */
+
+button{
+  background:#2b2b2b;
+  color:white;
+  border:none;
+  padding:10px 18px;
+  border-radius:25px;
+  cursor:pointer;
+}
+
 /* TAGS */
 
 .tags{
@@ -108,48 +119,90 @@ h2{
   padding:8px 14px;
   border-radius:25px;
   border:1px solid #eee;
-  font-size:14px;
 }
 
-/* PANIER */
+/* ============ PANIER SHOPIFY ============ */
 
-#panier{
+#cart-btn{
   position:fixed;
-  top:120px;
+  top:20px;
   right:20px;
-  width:240px;
-  background:white;
-  border-radius:20px;
-  padding:15px;
-  box-shadow:0 10px 20px rgba(0,0,0,0.15);
-  font-size:14px;
-}
-
-#panier h3{
-  text-align:center;
-  margin-top:0;
-}
-
-#panier button{
-  width:100%;
-  margin-top:10px;
-  padding:10px;
-  border:none;
   background:#2b2b2b;
   color:white;
-  border-radius:10px;
+  border:none;
+  padding:12px 15px;
+  border-radius:50px;
   cursor:pointer;
+  z-index:1000;
 }
 
-/* LIENS */
-
-a{
-  text-decoration:none;
-  color:#2b2b2b;
+/* overlay */
+#cart-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.4);
+  display:none;
+  z-index:999;
 }
 
-a:hover{
-  color:#b08968;
+/* panier */
+#cart{
+  position:fixed;
+  top:0;
+  right:-350px;
+  width:320px;
+  height:100%;
+  background:white;
+  box-shadow:-5px 0 20px rgba(0,0,0,0.2);
+  transition:0.3s;
+  z-index:1000;
+  display:flex;
+  flex-direction:column;
+}
+
+#cart.open{
+  right:0;
+}
+
+#cart-overlay.show{
+  display:block;
+}
+
+/* header panier */
+.cart-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px;
+  border-bottom:1px solid #eee;
+}
+
+.cart-header span{
+  cursor:pointer;
+  font-size:18px;
+}
+
+/* items */
+#cart-items{
+  flex:1;
+  padding:15px;
+  overflow:auto;
+}
+
+#cart-items div{
+  padding:10px 0;
+  border-bottom:1px solid #eee;
+}
+
+/* footer */
+.cart-footer{
+  padding:20px;
+  border-top:1px solid #eee;
+}
+
+.cart-footer button{
+  width:100%;
+  margin-top:10px;
 }
 
 </style>
@@ -158,17 +211,29 @@ a:hover{
 <body>
 
 <!-- PANIER -->
-<div id="panier">
-  <h3>🛒 Mon panier</h3>
-  <div id="liste-panier"></div>
-  <p><strong>Total : <span id="total">0</span>€</strong></p>
-  <button onclick="viderPanier()">Vider le panier</button>
+<button id="cart-btn" onclick="toggleCart()">🛒</button>
+
+<div id="cart-overlay" onclick="toggleCart()"></div>
+
+<div id="cart">
+
+  <div class="cart-header">
+    <h3>Ton panier</h3>
+    <span onclick="toggleCart()">✖</span>
+  </div>
+
+  <div id="cart-items"></div>
+
+  <div class="cart-footer">
+    <p>Total : <strong><span id="cart-total">0</span>€</strong></p>
+    <button onclick="viderPanier()">Vider le panier</button>
+  </div>
+
 </div>
 
 <!-- HEADER -->
 <header>
   <h1>La Fabrik' de Lilly</h1>
-  <p>Boutique artisanale parfumée</p>
 </header>
 
 <!-- NAV -->
@@ -179,54 +244,47 @@ a:hover{
 </nav>
 
 <!-- PRODUITS -->
-<h2>🛍️ Nos produits</h2>
+<h2>Nos produits</h2>
 
 <div class="grid">
 
   <div class="card">
     <h3>Bougie 80g</h3>
-    <p>Artisanale, cire de soja.</p>
     <p class="price">8€</p>
-    <a href="produit.html?nom=Bougie%2080g&prix=8">Voir le produit</a>
+    <button onclick="ajouterAuPanier('Bougie 80g',8)">Ajouter</button>
   </div>
 
   <div class="card">
     <h3>Fondant 12g</h3>
-    <p>Diffusion intense du parfum.</p>
     <p class="price">4€</p>
-    <a href="produit.html?nom=Fondant%2012g&prix=4">Voir le produit</a>
+    <button onclick="ajouterAuPanier('Fondant 12g',4)">Ajouter</button>
   </div>
 
   <div class="card">
     <h3>Spray 50ml</h3>
-    <p>Parfum instantané maison.</p>
     <p class="price">6€</p>
-    <a href="produit.html?nom=Spray%2050ml&prix=6">Voir le produit</a>
+    <button onclick="ajouterAuPanier('Spray 50ml',6)">Ajouter</button>
   </div>
 
   <div class="card">
     <h3>Diffuseur voiture</h3>
-    <p>Parfum longue durée.</p>
     <p class="price">4€</p>
-    <a href="produit.html?nom=Diffuseur%20voiture&prix=4">Voir le produit</a>
+    <button onclick="ajouterAuPanier('Diffuseur voiture',4)">Ajouter</button>
   </div>
 
 </div>
 
 <!-- PARFUMS -->
-<h2>🌸 Parfums disponibles</h2>
+<h2>Parfums</h2>
 
 <div class="tags">
   <span>Fleur de coton</span>
   <span>Jasmin</span>
   <span>Lavande</span>
-  <span>Monoï</span>
   <span>Vanille</span>
-  <span>Fruits rouges</span>
   <span>Oud</span>
 </div>
 
-<!-- SCRIPT -->
 <script>
 
 let panier = [];
@@ -234,28 +292,42 @@ let panier = [];
 function ajouterAuPanier(nom, prix){
   panier.push({nom, prix});
   afficherPanier();
+  ouvrirCart();
 }
 
 function afficherPanier(){
-  let liste = document.getElementById("liste-panier");
-  let totalEl = document.getElementById("total");
 
-  liste.innerHTML = "";
+  let items = document.getElementById("cart-items");
+  let totalEl = document.getElementById("cart-total");
+
+  items.innerHTML = "";
+
   let total = 0;
 
-  panier.forEach(item => {
+  panier.forEach(p => {
     let div = document.createElement("div");
-    div.textContent = item.nom + " - " + item.prix + "€";
-    liste.appendChild(div);
-    total += item.prix;
+    div.textContent = p.nom + " - " + p.prix + "€";
+    items.appendChild(div);
+    total += p.prix;
   });
 
   totalEl.textContent = total;
+
 }
 
 function viderPanier(){
   panier = [];
   afficherPanier();
+}
+
+function toggleCart(){
+  document.getElementById("cart").classList.toggle("open");
+  document.getElementById("cart-overlay").classList.toggle("show");
+}
+
+function ouvrirCart(){
+  document.getElementById("cart").classList.add("open");
+  document.getElementById("cart-overlay").classList.add("show");
 }
 
 </script>
