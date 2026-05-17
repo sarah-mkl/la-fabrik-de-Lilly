@@ -19,73 +19,31 @@
 
 <main class="accueil">
 
-  <h2 id="nom-produit">Bougie 80g</h2>
+  <div class="produit">
 
-  <p><strong>Prix :</strong> 8€</p>
+    <h2 id="nom-produit">Bougie 80g</h2>
 
-  <!-- ONGLET NAV -->
-  <br>
+    <p><strong>Prix :</strong> 8€</p>
 
-  <label>🌸 Choisis ton parfum :</label>
+    <label>🌸 Parfum</label>
+    <br>
+    <select id="parfum" onchange="changerParfum()">
+      <option value="">Sélectionner un parfum</option>
+    </select>
 
-  <select id="parfum" onchange="changerParfum()">
-    <option value="">-- Sélectionner --</option>
+    <br><br>
 
-    <optgroup label="🌸 Floraux">
-      <option value="cerisier">Fleur de cerisier</option>
-      <option value="acacia">Fleur d’acacia</option>
-      <option value="coton">Fleur de coton</option>
-      <option value="orchidee">Orchidée</option>
-      <option value="lavande">Lavande</option>
-      <option value="jasmin">Jasmin</option>
-      <option value="lys">Lys blanc</option>
-      <option value="azalee">Azalée du Japon</option>
-      <option value="hibiscus">Hibiscus</option>
-      <option value="frangipanier">Frangipanier</option>
-    </optgroup>
+    <h3>📝 Descriptif</h3>
+    <p id="description-produit">Choisissez un parfum.</p>
 
-    <optgroup label="🍰 Gourmands">
-      <option value="barbe_papa">Barbe à papa</option>
-      <option value="madeleine">Madeleine gourmande</option>
-      <option value="couverture">Douce couverture</option>
-      <option value="pomme_amour">Pomme d’amour</option>
-    </optgroup>
+    <h3>🧪 Notes olfactives</h3>
+    <p id="notes-parfum">---</p>
 
-    <optgroup label="🌿 Frais / propres">
-      <option value="linge">Linge propre</option>
-      <option value="adoucissant">Adoucissant</option>
-    </optgroup>
+    <br>
 
-    <optgroup label="🍓 Fruités">
-      <option value="monoip">Monoï pêche</option>
-      <option value="monoic">Monoï clémentine</option>
-      <option value="pomme">Pomme verte</option>
-      <option value="litchi">Litchi</option>
-      <option value="melon">Melon</option>
-      <option value="pasteque">Pastèque</option>
-      <option value="fruit_rouge">Fruit rouge</option>
-      <option value="smoothie">Smoothie</option>
-    </optgroup>
+    <button onclick="ajouterPanier()">Ajouter au panier</button>
 
-    <optgroup label="🌲 Bois / puissants">
-      <option value="oud">Bois de oud</option>
-    </optgroup>
-
-  </select>
-
-  <br><br>
-
-  <!-- DESCRIPTION -->
-  <h3>📝 Descriptif</h3>
-  <p id="description-produit">Choisissez un parfum pour voir la description.</p>
-
-  <!-- NOTES -->
-  <h3>🧪 Notes olfactives</h3>
-  <p id="notes-parfum">---</p>
-
-  <br>
-
-  <button onclick="ajouterPanier()">Ajouter au panier</button>
+  </div>
 
 </main>
 
