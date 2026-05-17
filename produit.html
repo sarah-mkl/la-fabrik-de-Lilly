@@ -19,15 +19,64 @@
 
 <main class="accueil">
 
-  <h2 id="nom-produit">Détail produit</h2>
+  <h2 id="nom-produit">Bougie 80g</h2>
 
   <div class="produit">
 
-    <p><strong>Prix :</strong> <span id="prix-produit">0</span>€</p>
+    <p><strong>Prix :</strong> 8€</p>
 
     <p id="description-produit">
-      Description du produit.
+      Choisissez un parfum pour voir la description.
     </p>
+
+<label>🌸 Choisis ton parfum :</label>
+
+<select id="parfum" onchange="changerParfum()">
+  <option value="">-- Sélectionner --</option>
+
+  <optgroup label="🌸 Floraux">
+    <option value="cerisier">Fleur de cerisier</option>
+    <option value="acacia">Fleur d’acacia</option>
+    <option value="coton">Fleur de coton</option>
+    <option value="orchidee">Orchidée</option>
+    <option value="lavande">Lavande</option>
+    <option value="jasmin">Jasmin</option>
+    <option value="lys">Lys blanc</option>
+    <option value="azalee">Azalée du Japon</option>
+    <option value="hibiscus">Hibiscus</option>
+    <option value="frangipanier">Frangipanier</option>
+  </optgroup>
+
+  <optgroup label="🍰 Gourmands">
+    <option value="barbe_papa">Barbe à papa</option>
+    <option value="madeleine">Madeleine gourmande</option>
+    <option value="couverture">Douce couverture</option>
+    <option value="pomme_amour">Pomme d’amour</option>
+  </optgroup>
+
+  <optgroup label="🌿 Frais / propres">
+    <option value="linge">Linge propre</option>
+    <option value="adoucissant">Adoucissant</option>
+  </optgroup>
+
+  <optgroup label="🍓 Fruités">
+    <option value="monoip">Monoï pêche</option>
+    <option value="monoic">Monoï clémentine</option>
+    <option value="pomme">Pomme verte</option>
+    <option value="litchi">Litchi</option>
+    <option value="melon">Melon</option>
+    <option value="pasteque">Pastèque</option>
+    <option value="fruit_rouge">Fruit rouge</option>
+    <option value="smoothie">Smoothie</option>
+  </optgroup>
+
+  <optgroup label="🌲 Bois / puissants">
+    <option value="oud">Bois de oud</option>
+  </optgroup>
+
+</select>
+
+    <br><br>
 
     <button onclick="ajouterPanier()">Ajouter au panier</button>
 
@@ -50,6 +99,57 @@ function ajouterPanier() {
   alert(nom + " ajouté au panier !");
 }
 </script>
+<script>
+let parfumChoisi = "";
 
+const descriptions = {
+  cerisier: "Fleur de cerisier : floral doux et printanier.",
+  acacia: "Fleur d’acacia : délicat et légèrement sucré.",
+  coton: "Fleur de coton : propre, frais et apaisant.",
+  orchidee: "Orchidée : floral élégant et raffiné.",
+  lavande: "Lavande : relaxant et apaisant.",
+  jasmin: "Jasmin : floral intense et sensuel.",
+  lys: "Lys blanc : pur et élégant.",
+  azalee: "Azalée du Japon : floral délicat.",
+  hibiscus: "Hibiscus : floral exotique et fruité.",
+  frangipanier: "Frangipanier : solaire et tropical.",
+
+  barbe_papa: "Barbe à papa : sucré, gourmand et régressif.",
+  madeleine: "Madeleine gourmande : pâtisserie douce et chaleureuse.",
+  couverture: "Douce couverture : chaud, sucré et réconfortant.",
+  pomme_amour: "Pomme d’amour : sucré et fruité caramélisé.",
+
+  linge: "Linge propre : frais et propre comme du coton lavé.",
+  adoucissant: "Adoucissant : odeur propre et douce.",
+
+  monoip: "Monoï pêche : fruité et solaire.",
+  monoic: "Monoï clémentine : exotique et fruité.",
+  pomme: "Pomme verte : fraîche et acidulée.",
+  litchi: "Litchi : fruité doux et exotique.",
+  melon: "Melon : frais et sucré.",
+  pasteque: "Pastèque : frais et juteux.",
+  fruit_rouge: "Fruit rouge : gourmand et fruité.",
+  smoothie: "Smoothie : mélange fruité gourmand.",
+
+  oud: "Bois de oud : puissant, boisé et luxueux."
+};
+
+function changerParfum() {
+  let select = document.getElementById("parfum");
+  parfumChoisi = select.value;
+
+  document.getElementById("description-produit").textContent =
+    descriptions[parfumChoisi] || "Choisissez un parfum.";
+}
+
+function ajouterPanier() {
+  if (!parfumChoisi) {
+    alert("Choisis un parfum avant d'ajouter !");
+    return;
+  }
+
+  alert("Bougie 80g (" + parfumChoisi + ") ajoutée au panier !");
+}
+</script>
 </body>
 </html>
