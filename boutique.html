@@ -1,148 +1,242 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Boutique - La Fabrik' de Lilly</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Boutique - La Fabrik' de Lilly</title>
+
+<style>
+
+body{
+  margin:0;
+  font-family:Georgia, serif;
+  background:
+  linear-gradient(rgba(255,255,255,0.65),rgba(255,255,255,0.65)),
+  url("images/logo-ll.jpg")
+  center center / 70% no-repeat fixed,
+  linear-gradient(180deg,#f8f4ef,#efe5dd);
+
+  color:#2b2b2b;
+}
+
+/* HEADER */
+
+header{
+  text-align:center;
+  padding:30px 20px;
+  background:rgba(255,255,255,0.85);
+  border-bottom:1px solid #eee;
+}
+
+header h1{
+  margin:0;
+  font-weight:300;
+  letter-spacing:2px;
+}
+
+/* NAV */
+
+nav{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  padding:15px;
+  background:rgba(255,255,255,0.85);
+  border-bottom:1px solid #eee;
+}
+
+nav a{
+  text-decoration:none;
+  color:#2b2b2b;
+  font-size:13px;
+  letter-spacing:2px;
+}
+
+/* TITRES */
+
+h2{
+  text-align:center;
+  margin-top:50px;
+  font-weight:300;
+  letter-spacing:2px;
+}
+
+/* GRID */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:25px;
+  padding:30px;
+  max-width:1100px;
+  margin:auto;
+}
+
+/* CARD */
+
+.card{
+  background:white;
+  border-radius:20px;
+  padding:20px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+.price{
+  color:#b08968;
+  font-size:20px;
+  font-weight:bold;
+}
+
+/* TAGS */
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  padding:30px;
+}
+
+.tags span{
+  background:white;
+  padding:8px 14px;
+  border-radius:25px;
+  border:1px solid #eee;
+  font-size:14px;
+}
+
+/* PANIER */
+
+#panier{
+  position:fixed;
+  top:120px;
+  right:20px;
+  width:240px;
+  background:white;
+  border-radius:20px;
+  padding:15px;
+  box-shadow:0 10px 20px rgba(0,0,0,0.15);
+  font-size:14px;
+}
+
+#panier h3{
+  text-align:center;
+  margin-top:0;
+}
+
+#panier button{
+  width:100%;
+  margin-top:10px;
+  padding:10px;
+  border:none;
+  background:#2b2b2b;
+  color:white;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+/* LIENS */
+
+a{
+  text-decoration:none;
+  color:#2b2b2b;
+}
+
+a:hover{
+  color:#b08968;
+}
+
+</style>
 </head>
 
 <body>
 
-  <div id="panier">
+<!-- PANIER -->
+<div id="panier">
   <h3>🛒 Mon panier</h3>
   <div id="liste-panier"></div>
   <p><strong>Total : <span id="total">0</span>€</strong></p>
   <button onclick="viderPanier()">Vider le panier</button>
-    
 </div>
 
+<!-- HEADER -->
 <header>
   <h1>La Fabrik' de Lilly</h1>
   <p>Boutique artisanale parfumée</p>
 </header>
 
+<!-- NAV -->
 <nav>
   <a href="index.html">Accueil</a>
   <a href="boutique.html">Boutique</a>
-  <a href="nous-decouvrir.html">Nous-decouvrir</a>
+  <a href="#">À propos</a>
 </nav>
 
-<main>
+<!-- PRODUITS -->
+<h2>🛍️ Nos produits</h2>
 
- <main>
+<div class="grid">
 
-  <h2>🛍️ Nos produits</h2>
-
-  <div class="grid">
-
-    <div class="card">
-      <h3>🕯️ Bougie 80g</h3>
-      <p>Artisanale, parfumée et douce.</p>
-      <p class="price">8€</p>
-     <a href="produit.html?nom=Bougie%2080g&prix=8&desc=Bougie%20artisanale%20parfum%C3%A9e">
-Voir le produit
-</a>
-    </div>
-
-    <div class="card">
-      <h3>✨ Fondant 12g</h3>
-      <p>Diffusion intense du parfum.</p>
-      <p class="price">4€</p>
-      <a href="produit.html?nom=Fondant%2012g&prix=4&desc=Fondant%20parfum%C3%A9%20intense">
-Voir le produit
-</a>
-    </div>
-
-    <div class="card">
-      <h3>🌬️ Spray 50ml</h3>
-      <p>Parfum instantané pour la maison.</p>
-      <p class="price">6€</p>
-    <a href="produit.html?nom=Spray%2050ml&prix=6&desc=Spray%20d%27ambiance%20maison">
-Voir le produit
-</a>
-    </div>
-
-    <div class="card">
-      <h3>🚗 Diffuseur voiture</h3>
-      <p>Parfum discret et durable.</p>
-      <p class="price">4€</p>
-    <a href="produit.html?nom=Diffuseur%20voiture%208ml&prix=4&desc=Diffuseur%20parfum%C3%A9%20pour%20la%20voiture%20longue%20dur%C3%A9e">
-Voir le produit
-</a>
-    </div>
-
+  <div class="card">
+    <h3>Bougie 80g</h3>
+    <p>Artisanale, cire de soja.</p>
+    <p class="price">8€</p>
+    <a href="produit.html?nom=Bougie%2080g&prix=8">Voir le produit</a>
   </div>
 
-</main>
+  <div class="card">
+    <h3>Fondant 12g</h3>
+    <p>Diffusion intense du parfum.</p>
+    <p class="price">4€</p>
+    <a href="produit.html?nom=Fondant%2012g&prix=4">Voir le produit</a>
   </div>
 
-  <h2>🌸 Parfums disponibles</h2>
-
-  <div class="tags">
-
-    <span>Fleur de cerisier</span>
-    <span>Fleur d’acacia</span>
-    <span>Fleur de coton</span>
-    <span>Orchidée</span>
-    <span>Lavande</span>
-    <span>Jasmin</span>
-    <span>Lys blanc</span>
-    <span>Azalée du Japon</span>
-    <span>Hibiscus</span>
-
-    <span>Barbe à papa</span>
-    <span>Frangipanier</span>
-    <span>Madeleine gourmande</span>
-    <span>Douce couverture</span>
-
-    <span>Linge propre</span>
-    <span>Bois de oud</span>
-    <span>Adoucissant</span>
-
-    <span>Monoï pêche</span>
-    <span>Monoï clémentine</span>
-    <span>Pomme verte</span>
-    <span>Litchi</span>
-    <span>Melon</span>
-    <span>Pastèque</span>
-    <span>Fruit rouge</span>
-    <span>Pomme d’amour</span>
-    <span>Smoothie</span>
-
+  <div class="card">
+    <h3>Spray 50ml</h3>
+    <p>Parfum instantané maison.</p>
+    <p class="price">6€</p>
+    <a href="produit.html?nom=Spray%2050ml&prix=6">Voir le produit</a>
   </div>
 
-</main>
+  <div class="card">
+    <h3>Diffuseur voiture</h3>
+    <p>Parfum longue durée.</p>
+    <p class="price">4€</p>
+    <a href="produit.html?nom=Diffuseur%20voiture&prix=4">Voir le produit</a>
+  </div>
 
-  <script>
+</div>
+
+<!-- PARFUMS -->
+<h2>🌸 Parfums disponibles</h2>
+
+<div class="tags">
+  <span>Fleur de coton</span>
+  <span>Jasmin</span>
+  <span>Lavande</span>
+  <span>Monoï</span>
+  <span>Vanille</span>
+  <span>Fruits rouges</span>
+  <span>Oud</span>
+</div>
+
+<!-- SCRIPT -->
+<script>
+
 let panier = [];
 
-function ajouterAuPanier(nom, prix) {
-  panier.push({ nom, prix });
+function ajouterAuPanier(nom, prix){
+  panier.push({nom, prix});
   afficherPanier();
 }
 
-function afficherPanier() {
-  let total = 0;
-  let liste = "";
-
-  panier.forEach(p => {
-    liste += p.nom + " - " + p.prix + "€\n";
-    total += p.prix;
-  });
-
-  alert("🛒 Panier :\n\n" + liste + "\nTotal : " + total + "€");
-}
-</script>
-
-  <script>
-let panier = [];
-
-function ajouterAuPanier(nom, prix) {
-  panier.push({ nom, prix });
-  afficherPanier();
-}
-
-function afficherPanier() {
+function afficherPanier(){
   let liste = document.getElementById("liste-panier");
   let totalEl = document.getElementById("total");
 
@@ -159,12 +253,12 @@ function afficherPanier() {
   totalEl.textContent = total;
 }
 
-function viderPanier() {
+function viderPanier(){
   panier = [];
   afficherPanier();
 }
+
 </script>
+
 </body>
 </html>
-
-
