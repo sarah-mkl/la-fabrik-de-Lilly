@@ -19,22 +19,37 @@
 
 <main class="accueil">
 
-  <h2>Détail produit</h2>
+  <h2 id="nom-produit">Détail produit</h2>
 
   <div class="produit">
 
-    <h3>Nom du produit</h3>
+    <p><strong>Prix :</strong> <span id="prix-produit">0</span>€</p>
 
-    <p><strong>Prix :</strong> 8€</p>
-
-    <p>
-      Description du produit ici.  
-      Bougie artisanale, fondant ou spray selon le produit choisi.
+    <p id="description-produit">
+      Description du produit.
     </p>
+
+    <button onclick="ajouterPanier()">Ajouter au panier</button>
 
   </div>
 
 </main>
+
+  <script>
+const params = new URLSearchParams(window.location.search);
+
+const nom = params.get("nom");
+const prix = params.get("prix");
+const desc = params.get("desc");
+
+if (nom) document.getElementById("nom-produit").textContent = nom;
+if (prix) document.getElementById("prix-produit").textContent = prix;
+if (desc) document.getElementById("description-produit").textContent = desc;
+
+function ajouterPanier() {
+  alert(nom + " ajouté au panier !");
+}
+</script>
 
 </body>
 </html>
