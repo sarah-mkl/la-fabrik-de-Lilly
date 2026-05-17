@@ -3,8 +3,6 @@
 
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Boutique - La Fabrik' de Lilly</title>
 
 <style>
@@ -16,11 +14,9 @@ body{
   linear-gradient(rgba(255,255,255,0.65),rgba(255,255,255,0.65)),
   url("images/logo-ll.jpg") center/70% no-repeat fixed,
   linear-gradient(180deg,#f8f4ef,#efe5dd);
-  color:#2b2b2b;
 }
 
 /* HEADER */
-
 header{
   text-align:center;
   padding:25px;
@@ -28,14 +24,7 @@ header{
   border-bottom:1px solid #eee;
 }
 
-header h1{
-  margin:0;
-  font-weight:300;
-  letter-spacing:2px;
-}
-
 /* NAV */
-
 nav{
   display:flex;
   justify-content:center;
@@ -53,16 +42,13 @@ nav a{
 }
 
 /* TITRES */
-
 h2{
   text-align:center;
   margin-top:50px;
   font-weight:300;
-  letter-spacing:2px;
 }
 
-/* GRID PRODUITS */
-
+/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -73,39 +59,33 @@ h2{
 }
 
 /* CARD */
-
 .card{
   background:white;
   border-radius:20px;
   padding:20px;
   text-align:center;
   box-shadow:0 10px 25px rgba(0,0,0,0.08);
-  transition:0.3s;
 }
 
-.card:hover{
-  transform:translateY(-5px);
-}
-
+/* PRIX */
 .price{
   color:#b08968;
   font-size:20px;
   font-weight:bold;
 }
 
-/* BOUTON */
-
-button{
-  background:#2b2b2b;
+/* LIEN PRODUIT */
+.card a{
+  display:inline-block;
+  margin-top:10px;
+  text-decoration:none;
   color:white;
-  border:none;
-  padding:10px 18px;
-  border-radius:25px;
-  cursor:pointer;
+  background:#2b2b2b;
+  padding:10px 15px;
+  border-radius:20px;
 }
 
 /* TAGS */
-
 .tags{
   display:flex;
   flex-wrap:wrap;
@@ -121,8 +101,7 @@ button{
   border:1px solid #eee;
 }
 
-/* ============ PANIER SHOPIFY ============ */
-
+/* PANIER */
 #cart-btn{
   position:fixed;
   top:20px;
@@ -130,13 +109,12 @@ button{
   background:#2b2b2b;
   color:white;
   border:none;
-  padding:12px 15px;
-  border-radius:50px;
+  padding:12px;
+  border-radius:50%;
   cursor:pointer;
   z-index:1000;
 }
 
-/* overlay */
 #cart-overlay{
   position:fixed;
   inset:0;
@@ -145,7 +123,6 @@ button{
   z-index:999;
 }
 
-/* panier */
 #cart{
   position:fixed;
   top:0;
@@ -153,48 +130,27 @@ button{
   width:320px;
   height:100%;
   background:white;
-  box-shadow:-5px 0 20px rgba(0,0,0,0.2);
   transition:0.3s;
   z-index:1000;
   display:flex;
   flex-direction:column;
 }
 
-#cart.open{
-  right:0;
-}
+#cart.open{ right:0; }
+#cart-overlay.show{ display:block; }
 
-#cart-overlay.show{
-  display:block;
-}
-
-/* header panier */
 .cart-header{
   display:flex;
   justify-content:space-between;
-  align-items:center;
   padding:20px;
   border-bottom:1px solid #eee;
 }
 
-.cart-header span{
-  cursor:pointer;
-  font-size:18px;
-}
-
-/* items */
 #cart-items{
   flex:1;
   padding:15px;
-  overflow:auto;
 }
 
-#cart-items div{
-  padding:10px 0;
-  border-bottom:1px solid #eee;
-}
-
-/* footer */
 .cart-footer{
   padding:20px;
   border-top:1px solid #eee;
@@ -202,7 +158,6 @@ button{
 
 .cart-footer button{
   width:100%;
-  margin-top:10px;
 }
 
 </style>
@@ -216,19 +171,17 @@ button{
 <div id="cart-overlay" onclick="toggleCart()"></div>
 
 <div id="cart">
-
   <div class="cart-header">
-    <h3>Ton panier</h3>
+    <h3>Panier</h3>
     <span onclick="toggleCart()">✖</span>
   </div>
 
   <div id="cart-items"></div>
 
   <div class="cart-footer">
-    <p>Total : <strong><span id="cart-total">0</span>€</strong></p>
-    <button onclick="viderPanier()">Vider le panier</button>
+    <p>Total : <span id="cart-total">0</span>€</p>
+    <button onclick="viderPanier()">Vider</button>
   </div>
-
 </div>
 
 <!-- HEADER -->
@@ -243,7 +196,6 @@ button{
   <a href="#">À propos</a>
 </nav>
 
-<!-- PRODUITS -->
 <h2>Nos produits</h2>
 
 <div class="grid">
@@ -251,36 +203,31 @@ button{
   <div class="card">
     <h3>Bougie 80g</h3>
     <p class="price">8€</p>
+    <a href="produit.html?nom=Bougie%2080g&prix=8&desc=Bougie%20artisanale">Voir produit</a>
     <button onclick="ajouterAuPanier('Bougie 80g',8)">Ajouter</button>
   </div>
 
   <div class="card">
     <h3>Fondant 12g</h3>
     <p class="price">4€</p>
+    <a href="produit.html?nom=Fondant%2012g&prix=4&desc=Fondant%20parfumé">Voir produit</a>
     <button onclick="ajouterAuPanier('Fondant 12g',4)">Ajouter</button>
   </div>
 
   <div class="card">
     <h3>Spray 50ml</h3>
     <p class="price">6€</p>
+    <a href="produit.html?nom=Spray%2050ml&prix=6&desc=Spray%20maison">Voir produit</a>
     <button onclick="ajouterAuPanier('Spray 50ml',6)">Ajouter</button>
-  </div>
-
-  <div class="card">
-    <h3>Diffuseur voiture</h3>
-    <p class="price">4€</p>
-    <button onclick="ajouterAuPanier('Diffuseur voiture',4)">Ajouter</button>
   </div>
 
 </div>
 
-<!-- PARFUMS -->
 <h2>Parfums</h2>
 
 <div class="tags">
   <span>Fleur de coton</span>
   <span>Jasmin</span>
-  <span>Lavande</span>
   <span>Vanille</span>
   <span>Oud</span>
 </div>
@@ -312,7 +259,6 @@ function afficherPanier(){
   });
 
   totalEl.textContent = total;
-
 }
 
 function viderPanier(){
