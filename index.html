@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>La Fabrik' de Lilly</title>
 
 <style>
@@ -16,14 +19,11 @@ body{
 /* HEADER */
 
 header{
-    background:white;
-    padding:25px;
-    text-align:center;
-    border-bottom:1px solid #eee;
-}
-
-.logo{
-    height:120px;
+    position:absolute;
+    top:0;
+    width:100%;
+    z-index:10;
+    padding:25px 0;
 }
 
 /* MENU */
@@ -31,10 +31,7 @@ header{
 nav{
     display:flex;
     justify-content:center;
-    gap:35px;
-    padding:18px;
-    background:white;
-    border-bottom:1px solid #eee;
+    gap:40px;
 }
 
 nav a{
@@ -42,45 +39,65 @@ nav a{
     color:#2b2b2b;
     letter-spacing:2px;
     font-size:13px;
+    background:rgba(255,255,255,0.75);
+    padding:10px 18px;
+    border-radius:30px;
+    backdrop-filter:blur(5px);
 }
 
 /* HERO */
 
 .hero{
-    height:85vh;
+    height:100vh;
+
     background:
-    linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)),
-    url("https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=1974&auto=format&fit=crop")
-    center/cover no-repeat;
+    linear-gradient(rgba(255,255,255,0.55),rgba(255,255,255,0.55)),
+    url("images/logo-ll.jpg")
+    center center / 70% no-repeat,
+
+    linear-gradient(180deg,#f8f4ef,#efe5dd);
 
     display:flex;
     justify-content:center;
     align-items:center;
     text-align:center;
-    color:white;
+
+    padding:20px;
 }
 
-.hero-content h1{
-    font-size:55px;
+.hero-content{
+    max-width:750px;
+    margin-top:120px;
+}
+
+.hero h1{
+    font-size:65px;
     font-weight:300;
     letter-spacing:4px;
-    margin-bottom:15px;
+    margin-bottom:20px;
+    color:#2b2b2b;
 }
 
-.hero-content p{
-    font-size:20px;
-    font-style:italic;
-    margin-bottom:30px;
+.hero p{
+    font-size:19px;
+    line-height:1.9;
+    color:#4d4d4d;
 }
 
 .btn{
-    background:white;
-    color:black;
-    padding:14px 28px;
+    display:inline-block;
+    margin-top:35px;
+    padding:15px 30px;
+    background:#2b2b2b;
+    color:white;
     text-decoration:none;
     border-radius:40px;
     letter-spacing:2px;
-    font-size:12px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#b08968;
 }
 
 /* SECTION */
@@ -93,24 +110,25 @@ nav a{
 
 .section-title{
     text-align:center;
-    font-size:34px;
-    margin-bottom:15px;
-    letter-spacing:2px;
+    font-size:38px;
     font-weight:300;
+    letter-spacing:3px;
+    margin-bottom:15px;
 }
 
 .section-text{
     text-align:center;
-    max-width:700px;
+    max-width:750px;
     margin:auto;
-    line-height:1.8;
     color:#666;
+    line-height:1.9;
+    font-size:17px;
 }
 
 /* CARDS */
 
 .grid{
-    margin-top:50px;
+    margin-top:60px;
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
     gap:30px;
@@ -118,7 +136,7 @@ nav a{
 
 .card{
     background:white;
-    border-radius:20px;
+    border-radius:25px;
     overflow:hidden;
     box-shadow:0 10px 30px rgba(0,0,0,0.08);
     transition:0.3s;
@@ -130,8 +148,9 @@ nav a{
 
 .card img{
     width:100%;
-    height:300px;
+    height:320px;
     object-fit:cover;
+    display:block;
 }
 
 .card-content{
@@ -141,41 +160,59 @@ nav a{
 
 .card h3{
     margin-top:0;
+    font-size:24px;
     font-weight:400;
-    letter-spacing:1px;
+}
+
+.card p{
+    color:#666;
+    line-height:1.7;
 }
 
 .price{
+    margin:20px 0;
     color:#b08968;
-    font-size:22px;
+    font-size:24px;
     font-weight:bold;
-    margin:15px 0;
 }
 
-/* BOUTON */
+/* BUTTON */
 
 button{
+    border:none;
     background:#2b2b2b;
     color:white;
-    border:none;
-    padding:12px 20px;
+    padding:12px 22px;
     border-radius:30px;
     cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#b08968;
 }
 
 /* BANDEAU */
 
-.luxe{
+.values{
     background:#efe5dd;
+    padding:80px 20px;
     text-align:center;
-    padding:60px 20px;
-    margin-top:60px;
 }
 
-.luxe h2{
-    font-size:32px;
+.values h2{
+    font-size:38px;
     font-weight:300;
+    margin-bottom:25px;
     letter-spacing:2px;
+}
+
+.values p{
+    max-width:800px;
+    margin:auto;
+    line-height:2;
+    color:#555;
+    font-size:17px;
 }
 
 /* FOOTER */
@@ -183,77 +220,120 @@ button{
 footer{
     text-align:center;
     padding:40px;
-    color:#777;
+    color:#888;
     font-size:13px;
     border-top:1px solid #eee;
-    margin-top:60px;
 }
 
 </style>
+
 </head>
 
 <body>
 
 <header>
-    <img src="images/logo-ll.jpg" class="logo">
-</header>
 
 <nav>
-    <a href="index.html">ACCUEIL</a>
-    <a href="boutique.html">BOUTIQUE</a>
-    <a href="#">À PROPOS</a>
+<a href="index.html">ACCUEIL</a>
+<a href="boutique.html">BOUTIQUE</a>
+<a href="#">À PROPOS</a>
 </nav>
+
+</header>
 
 <section class="hero">
 
 <div class="hero-content">
-    <h1>Maison de parfum artisanale</h1>
-    <p>Des créations parfumées élégantes et sensorielles</p>
 
-    <a href="boutique.html" class="btn">
-        DÉCOUVRIR
-    </a>
+<h1>La Fabrik’ de Lilly</h1>
+
+<p>
+Bougies artisanales à la cire de soja 100% végétale.
+<br>
+Parfums de Grasse sans CMR pour une expérience élégante et sensorielle.
+</p>
+
+<a href="boutique.html" class="btn">
+DÉCOUVRIR LA BOUTIQUE
+</a>
+
 </div>
 
 </section>
 
 <section class="section">
 
-<h2 class="section-title">Nos coups de cœur</h2>
+<h2 class="section-title">Coups de cœur</h2>
 
 <p class="section-text">
-Des créations artisanales pensées pour transformer chaque intérieur en expérience sensorielle.
+Découvrez les créations préférées de nos clientes.
 </p>
 
 <div class="grid">
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1608181831718-4f1f6f4c2f42?q=80&w=1974&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=1200&auto=format&fit=crop">
 
 <div class="card-content">
 <h3>Bougie Vanille</h3>
-<div class="price">19,90€</div>
-<button>Ajouter au panier</button>
+
+<p>
+Une fragrance douce et réconfortante aux notes chaleureuses.
+</p>
+
+<div class="price">
+19,90€
+</div>
+
+<button>
+Ajouter au panier
+</button>
+
 </div>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1612197527995-b9c4f5f1f1c3?q=80&w=1974&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1615529328331-f8917597711f?q=80&w=1200&auto=format&fit=crop">
 
 <div class="card-content">
 <h3>Fondant Fleur Blanche</h3>
-<div class="price">7,90€</div>
-<button>Ajouter au panier</button>
+
+<p>
+Des notes florales raffinées pour une ambiance délicate.
+</p>
+
+<div class="price">
+7,90€
+</div>
+
+<button>
+Ajouter au panier
+</button>
+
 </div>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1630080644615-0b5b1f08c3c9?q=80&w=1974&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=1200&auto=format&fit=crop">
 
 <div class="card-content">
-<h3>Spray Ambiance</h3>
-<div class="price">14,90€</div>
-<button>Ajouter au panier</button>
+<h3>Spray d’ambiance</h3>
+
+<p>
+Une senteur élégante pour parfumer votre intérieur instantanément.
+</p>
+
+<div class="price">
+14,90€
+</div>
+
+<button>
+Ajouter au panier
+</button>
+
 </div>
 </div>
 
@@ -261,18 +341,22 @@ Des créations artisanales pensées pour transformer chaque intérieur en expér
 
 </section>
 
-<section class="luxe">
+<section class="values">
 
-<h2>La Fabrik’ de Lilly</h2>
+<h2>Notre engagement</h2>
 
 <p>
-Chaque parfum raconte une émotion, un souvenir, une ambiance.
+Toutes nos créations sont fabriquées artisanalement avec de la cire de soja 100% végétale et des parfums de Grasse soigneusement sélectionnés, sans substances CMR.
+<br><br>
+La Fabrik’ de Lilly imagine des produits élégants, sensoriels et raffinés pour transformer chaque intérieur en moment de bien-être.
 </p>
 
 </section>
 
 <footer>
+
 © 2026 La Fabrik' de Lilly
+
 </footer>
 
 </body>
