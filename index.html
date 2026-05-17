@@ -2,21 +2,33 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Produit - La Fabrik' de Lilly</title>
+  <title>La Fabrik' de Lilly</title>
 
   <style>
     body {
+      margin: 0;
       font-family: Georgia, serif;
       background: #faf7f2;
-      margin: 0;
       color: #2b2b2b;
     }
 
     header {
       text-align: center;
-      padding: 30px;
+      padding: 50px 20px;
       background: #fff;
       border-bottom: 1px solid #e6e0d8;
+    }
+
+    .logo {
+      font-size: 28px;
+      letter-spacing: 3px;
+      font-weight: 400;
+    }
+
+    .subtitle {
+      color: #777;
+      font-style: italic;
+      margin-top: 10px;
     }
 
     nav {
@@ -27,56 +39,79 @@
     }
 
     nav a {
-      margin: 0 15px;
+      margin: 0 20px;
       text-decoration: none;
       color: #2b2b2b;
-      font-size: 14px;
+      font-size: 13px;
+      letter-spacing: 2px;
     }
 
-    .container {
-      max-width: 800px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-
-    .box {
-      background: #fff;
-      padding: 30px;
-      border: 1px solid #eee;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-    }
-
-    select, button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      font-family: inherit;
-    }
-
-    button {
-      background: #2b2b2b;
+    .hero {
+      height: 75vh;
+      background: url("https://images.unsplash.com/photo-1602524203376-7e4f5b1b6d39") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
       color: white;
-      border: none;
-      cursor: pointer;
     }
 
-    button:hover {
-      background: #444;
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
     }
 
-    h2, h3 {
-      font-weight: 400;
-      letter-spacing: 1px;
+    .hero-content {
+      position: relative;
+      text-align: center;
     }
 
-    #description-produit {
-      line-height: 1.7;
-      color: #444;
+    .hero h1 {
+      font-size: 42px;
+      font-weight: 300;
+      letter-spacing: 3px;
     }
 
-    #notes-parfum {
+    .hero p {
       font-style: italic;
-      color: #666;
+    }
+
+    .btn {
+      margin-top: 20px;
+      display: inline-block;
+      padding: 12px 25px;
+      background: white;
+      color: black;
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    .section {
+      max-width: 900px;
+      margin: auto;
+      padding: 70px 20px;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-weight: 400;
+      letter-spacing: 2px;
+    }
+
+    .section p {
+      line-height: 1.8;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      font-size: 12px;
+      color: #888;
+      border-top: 1px solid #eee;
     }
   </style>
 </head>
@@ -84,7 +119,8 @@
 <body>
 
 <header>
-  <h1>La Fabrik' de Lilly</h1>
+  <div class="logo">LA FABRIK’ DE LILLY</div>
+  <div class="subtitle">Bougies parfumées artisanales</div>
 </header>
 
 <nav>
@@ -92,216 +128,25 @@
   <a href="boutique.html">Boutique</a>
 </nav>
 
-<div class="container">
-
-  <div class="box">
-
-    <h2>🕯️ Bougie 80g</h2>
-    <p><strong>Prix :</strong> 8€</p>
-
-    <label>🌸 Choisis ton parfum</label>
-
-    <select id="parfum" onchange="changerParfum()">
-      <option value="">-- Sélectionner --</option>
-
-      <option value="cerisier">Fleur de cerisier</option>
-      <option value="acacia">Fleur d’acacia</option>
-      <option value="coton">Fleur de coton</option>
-      <option value="orchidee">Orchidée</option>
-      <option value="lavande">Lavande</option>
-      <option value="jasmin">Jasmin</option>
-      <option value="lys">Lys blanc</option>
-      <option value="azalee">Azalée du Japon</option>
-      <option value="hibiscus">Hibiscus</option>
-      <option value="frangipanier">Frangipanier</option>
-
-      <option value="barbe_papa">Barbe à papa</option>
-      <option value="madeleine">Madeleine gourmande</option>
-      <option value="couverture">Douce couverture</option>
-      <option value="pomme_amour">Pomme d’amour</option>
-
-      <option value="linge">Linge propre</option>
-      <option value="adoucissant">Adoucissant</option>
-
-      <option value="monoip">Monoï pêche</option>
-      <option value="monoic">Monoï clémentine</option>
-      <option value="pomme">Pomme verte</option>
-      <option value="litchi">Litchi</option>
-      <option value="melon">Melon</option>
-      <option value="pasteque">Pastèque</option>
-      <option value="fruit_rouge">Fruit rouge</option>
-      <option value="smoothie">Smoothie</option>
-
-      <option value="oud">Bois de oud</option>
-    </select>
-
-    <h3>📝 Descriptif</h3>
-    <p id="description-produit">Choisis un parfum.</p>
-
-    <h3>🧪 Notes olfactives</h3>
-    <p id="notes-parfum">---</p>
-
-    <button onclick="ajouterPanier()">Ajouter au panier</button>
-
+<section class="hero">
+  <div class="hero-content">
+    <h1>Maison de parfum artisanale</h1>
+    <p>Des senteurs uniques pour des émotions uniques</p>
+    <a class="btn" href="boutique.html">Découvrir</a>
   </div>
+</section>
 
-</div>
+<section class="section">
+  <h2>Notre univers</h2>
+  <p>
+    La Fabrik’ de Lilly crée des bougies inspirées des émotions,
+    des souvenirs et de la nature. Chaque parfum est pensé comme une expérience sensorielle unique.
+  </p>
+</section>
 
-<script>
-
-let parfumChoisi = "";
-
-const data = {
-
-  coton: {
-    desc: "Fleur de Coton : douceur et pureté. Une ambiance cocooning et propre.",
-    notes: "Tête : aldéhydes | Cœur : coton | Fond : musc blanc"
-  },
-
-  cerisier: {
-    desc: "Fleur de Cerisier : floral doux et élégant.",
-    notes: "Tête : fruits rouges | Cœur : fleur de cerisier | Fond : musc"
-  },
-
-  acacia: {
-    desc: "Fleur d’Acacia : doux et légèrement miellé.",
-    notes: "Tête : miel | Cœur : acacia | Fond : bois doux"
-  },
-
-  orchidee: {
-    desc: "Orchidée : floral raffiné et élégant.",
-    notes: "Tête : fleurs blanches | Cœur : orchidée | Fond : vanille"
-  },
-
-  lavande: {
-    desc: "Lavande : relaxante et apaisante.",
-    notes: "Tête : lavande | Cœur : lavandin | Fond : bois"
-  },
-
-  jasmin: {
-    desc: "Jasmin : floral intense et sensuel.",
-    notes: "Tête : jasmin | Cœur : fleurs blanches | Fond : musc"
-  },
-
-  lys: {
-    desc: "Lys blanc : pur et élégant.",
-    notes: "Tête : floral | Cœur : lys | Fond : musc"
-  },
-
-  azalee: {
-    desc: "Azalée : floral délicat.",
-    notes: "Tête : floral | Cœur : azalée | Fond : bois doux"
-  },
-
-  hibiscus: {
-    desc: "Hibiscus : exotique et fruité.",
-    notes: "Tête : fruits rouges | Cœur : hibiscus | Fond : vanille"
-  },
-
-  frangipanier: {
-    desc: "Frangipanier : solaire et tropical.",
-    notes: "Tête : coco | Cœur : frangipanier | Fond : vanille"
-  },
-
-  barbe_papa: {
-    desc: "Barbe à papa : sucré et régressif.",
-    notes: "Tête : sucre | Cœur : vanille | Fond : caramel"
-  },
-
-  madeleine: {
-    desc: "Madeleine : pâtisserie gourmande.",
-    notes: "Tête : beurre | Cœur : pâte sucrée | Fond : vanille"
-  },
-
-  couverture: {
-    desc: "Douce couverture : cocooning total.",
-    notes: "Tête : sucre | Cœur : musc | Fond : vanille chaude"
-  },
-
-  pomme_amour: {
-    desc: "Pomme d’amour : gourmand caramélisé.",
-    notes: "Tête : pomme | Cœur : caramel | Fond : sucre"
-  },
-
-  linge: {
-    desc: "Linge propre : fraîcheur pure.",
-    notes: "Tête : frais | Cœur : coton | Fond : musc"
-  },
-
-  adoucissant: {
-    desc: "Adoucissant : doux et propre.",
-    notes: "Tête : frais | Cœur : propre | Fond : musc"
-  },
-
-  monoip: {
-    desc: "Monoï pêche : exotique fruité.",
-    notes: "Tête : pêche | Cœur : monoï | Fond : coco"
-  },
-
-  monoic: {
-    desc: "Monoï clémentine : solaire.",
-    notes: "Tête : clémentine | Cœur : monoï | Fond : vanille"
-  },
-
-  pomme: {
-    desc: "Pomme verte : fraîche et acidulée.",
-    notes: "Tête : pomme | Cœur : fruit | Fond : musc"
-  },
-
-  litchi: {
-    desc: "Litchi : doux et exotique.",
-    notes: "Tête : litchi | Cœur : fruit | Fond : sucre"
-  },
-
-  melon: {
-    desc: "Melon : frais et sucré.",
-    notes: "Tête : melon | Cœur : fruit | Fond : frais"
-  },
-
-  pasteque: {
-    desc: "Pastèque : juteux et frais.",
-    notes: "Tête : pastèque | Cœur : fruit | Fond : eau"
-  },
-
-  fruit_rouge: {
-    desc: "Fruit rouge : gourmand et pétillant.",
-    notes: "Tête : fraise | Cœur : framboise | Fond : sucre"
-  },
-
-  smoothie: {
-    desc: "Smoothie : cocktail fruité.",
-    notes: "Tête : fruits | Cœur : mélange | Fond : sucre"
-  },
-
-  oud: {
-    desc: "Bois de oud : luxe et intense.",
-    notes: "Tête : épices | Cœur : oud | Fond : ambre"
-  }
-
-};
-
-function changerParfum() {
-  parfumChoisi = document.getElementById("parfum").value;
-
-  if (!parfumChoisi) return;
-
-  document.getElementById("description-produit").textContent =
-    data[parfumChoisi].desc;
-
-  document.getElementById("notes-parfum").textContent =
-    data[parfumChoisi].notes;
-}
-
-function ajouterPanier() {
-  if (!parfumChoisi) {
-    alert("Choisis un parfum !");
-    return;
-  }
-
-  alert("Bougie 80g (" + parfumChoisi + ") ajoutée au panier !");
-}
-
-</script>
+<footer>
+  © 2026 La Fabrik' de Lilly
+</footer>
 
 </body>
 </html>
