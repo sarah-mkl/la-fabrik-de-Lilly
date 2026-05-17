@@ -3,6 +3,8 @@
 
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Boutique - La Fabrik' de Lilly</title>
 
 <style>
@@ -14,6 +16,7 @@ body{
   linear-gradient(rgba(255,255,255,0.65),rgba(255,255,255,0.65)),
   url("images/logo-ll.jpg") center/70% no-repeat fixed,
   linear-gradient(180deg,#f8f4ef,#efe5dd);
+  color:#2b2b2b;
 }
 
 /* HEADER */
@@ -58,31 +61,36 @@ h2{
   margin:auto;
 }
 
-/* CARD */
 .card{
   background:white;
-  border-radius:20px;
+  border-radius:18px;
   padding:20px;
   text-align:center;
   box-shadow:0 10px 25px rgba(0,0,0,0.08);
 }
 
-/* PRIX */
 .price{
   color:#b08968;
-  font-size:20px;
   font-weight:bold;
+  font-size:18px;
 }
 
-/* LIEN PRODUIT */
-.card a{
+button{
+  margin-top:10px;
+  padding:10px 15px;
+  border:none;
+  background:#2b2b2b;
+  color:white;
+  border-radius:20px;
+  cursor:pointer;
+}
+
+a{
   display:inline-block;
   margin-top:10px;
   text-decoration:none;
-  color:white;
-  background:#2b2b2b;
-  padding:10px 15px;
-  border-radius:20px;
+  color:#2b2b2b;
+  font-weight:bold;
 }
 
 /* TAGS */
@@ -91,13 +99,13 @@ h2{
   flex-wrap:wrap;
   justify-content:center;
   gap:10px;
-  padding:30px;
+  padding:20px;
 }
 
 .tags span{
   background:white;
   padding:8px 14px;
-  border-radius:25px;
+  border-radius:20px;
   border:1px solid #eee;
 }
 
@@ -171,6 +179,7 @@ h2{
 <div id="cart-overlay" onclick="toggleCart()"></div>
 
 <div id="cart">
+
   <div class="cart-header">
     <h3>Panier</h3>
     <span onclick="toggleCart()">✖</span>
@@ -182,54 +191,86 @@ h2{
     <p>Total : <span id="cart-total">0</span>€</p>
     <button onclick="viderPanier()">Vider</button>
   </div>
+
 </div>
 
-<!-- HEADER -->
 <header>
   <h1>La Fabrik' de Lilly</h1>
 </header>
 
-<!-- NAV -->
 <nav>
   <a href="index.html">Accueil</a>
   <a href="boutique.html">Boutique</a>
-  <a href="#">À propos</a>
+  <a href="nous-decouvrir.html">Nous-decouvrir</a>
 </nav>
 
-<h2>Nos produits</h2>
+<h2>🛍️ Nos produits</h2>
 
 <div class="grid">
 
   <div class="card">
     <h3>Bougie 80g</h3>
     <p class="price">8€</p>
-    <a href="produit.html?nom=Bougie%2080g&prix=8&desc=Bougie%20artisanale">Voir produit</a>
+    <a href="produit.html?nom=Bougie%2080g&prix=8">Voir produit</a>
     <button onclick="ajouterAuPanier('Bougie 80g',8)">Ajouter</button>
   </div>
 
   <div class="card">
     <h3>Fondant 12g</h3>
     <p class="price">4€</p>
-    <a href="produit.html?nom=Fondant%2012g&prix=4&desc=Fondant%20parfumé">Voir produit</a>
+    <a href="produit.html?nom=Fondant%2012g&prix=4">Voir produit</a>
     <button onclick="ajouterAuPanier('Fondant 12g',4)">Ajouter</button>
   </div>
 
   <div class="card">
     <h3>Spray 50ml</h3>
     <p class="price">6€</p>
-    <a href="produit.html?nom=Spray%2050ml&prix=6&desc=Spray%20maison">Voir produit</a>
+    <a href="produit.html?nom=Spray%2050ml&prix=6">Voir produit</a>
     <button onclick="ajouterAuPanier('Spray 50ml',6)">Ajouter</button>
+  </div>
+
+  <div class="card">
+    <h3>Diffuseur voiture</h3>
+    <p class="price">4€</p>
+    <a href="produit.html?nom=Diffuseur%20voiture&prix=4">Voir produit</a>
+    <button onclick="ajouterAuPanier('Diffuseur voiture',4)">Ajouter</button>
   </div>
 
 </div>
 
-<h2>Parfums</h2>
+<h2>🌸 Parfums disponibles</h2>
 
 <div class="tags">
-  <span>Fleur de coton</span>
-  <span>Jasmin</span>
-  <span>Vanille</span>
-  <span>Oud</span>
+
+<span>Fleur de cerisier</span>
+<span>Fleur d’acacia</span>
+<span>Fleur de coton</span>
+<span>Orchidée</span>
+<span>Lavande</span>
+<span>Jasmin</span>
+<span>Lys blanc</span>
+<span>Azalée du Japon</span>
+<span>Hibiscus</span>
+
+<span>Barbe à papa</span>
+<span>Frangipanier</span>
+<span>Madeleine gourmande</span>
+<span>Douce couverture</span>
+
+<span>Linge propre</span>
+<span>Adoucissant</span>
+<span>Bois de oud</span>
+
+<span>Monoï pêche</span>
+<span>Monoï clémentine</span>
+<span>Pomme verte</span>
+<span>Litchi</span>
+<span>Melon</span>
+<span>Pastèque</span>
+<span>Fruit rouge</span>
+<span>Pomme d’amour</span>
+<span>Smoothie</span>
+
 </div>
 
 <script>
@@ -243,22 +284,19 @@ function ajouterAuPanier(nom, prix){
 }
 
 function afficherPanier(){
-
   let items = document.getElementById("cart-items");
-  let totalEl = document.getElementById("cart-total");
+  let total = 0;
 
   items.innerHTML = "";
 
-  let total = 0;
-
-  panier.forEach(p => {
+  panier.forEach(p=>{
     let div = document.createElement("div");
     div.textContent = p.nom + " - " + p.prix + "€";
     items.appendChild(div);
     total += p.prix;
   });
 
-  totalEl.textContent = total;
+  document.getElementById("cart-total").textContent = total;
 }
 
 function viderPanier(){
