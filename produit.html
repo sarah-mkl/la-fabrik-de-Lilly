@@ -21,135 +21,238 @@
 
   <h2 id="nom-produit">Bougie 80g</h2>
 
-  <div class="produit">
+  <p><strong>Prix :</strong> 8€</p>
 
-    <p><strong>Prix :</strong> 8€</p>
+  <!-- ONGLET NAV -->
+  <br>
 
-    <p id="description-produit">
-      Choisissez un parfum pour voir la description.
-    </p>
+  <label>🌸 Choisis ton parfum :</label>
 
-<label>🌸 Choisis ton parfum :</label>
+  <select id="parfum" onchange="changerParfum()">
+    <option value="">-- Sélectionner --</option>
 
-<select id="parfum" onchange="changerParfum()">
-  <option value="">-- Sélectionner --</option>
+    <optgroup label="🌸 Floraux">
+      <option value="cerisier">Fleur de cerisier</option>
+      <option value="acacia">Fleur d’acacia</option>
+      <option value="coton">Fleur de coton</option>
+      <option value="orchidee">Orchidée</option>
+      <option value="lavande">Lavande</option>
+      <option value="jasmin">Jasmin</option>
+      <option value="lys">Lys blanc</option>
+      <option value="azalee">Azalée du Japon</option>
+      <option value="hibiscus">Hibiscus</option>
+      <option value="frangipanier">Frangipanier</option>
+    </optgroup>
 
-  <optgroup label="🌸 Floraux">
-    <option value="cerisier">Fleur de cerisier</option>
-    <option value="acacia">Fleur d’acacia</option>
-    <option value="coton">Fleur de coton</option>
-    <option value="orchidee">Orchidée</option>
-    <option value="lavande">Lavande</option>
-    <option value="jasmin">Jasmin</option>
-    <option value="lys">Lys blanc</option>
-    <option value="azalee">Azalée du Japon</option>
-    <option value="hibiscus">Hibiscus</option>
-    <option value="frangipanier">Frangipanier</option>
-  </optgroup>
+    <optgroup label="🍰 Gourmands">
+      <option value="barbe_papa">Barbe à papa</option>
+      <option value="madeleine">Madeleine gourmande</option>
+      <option value="couverture">Douce couverture</option>
+      <option value="pomme_amour">Pomme d’amour</option>
+    </optgroup>
 
-  <optgroup label="🍰 Gourmands">
-    <option value="barbe_papa">Barbe à papa</option>
-    <option value="madeleine">Madeleine gourmande</option>
-    <option value="couverture">Douce couverture</option>
-    <option value="pomme_amour">Pomme d’amour</option>
-  </optgroup>
+    <optgroup label="🌿 Frais / propres">
+      <option value="linge">Linge propre</option>
+      <option value="adoucissant">Adoucissant</option>
+    </optgroup>
 
-  <optgroup label="🌿 Frais / propres">
-    <option value="linge">Linge propre</option>
-    <option value="adoucissant">Adoucissant</option>
-  </optgroup>
+    <optgroup label="🍓 Fruités">
+      <option value="monoip">Monoï pêche</option>
+      <option value="monoic">Monoï clémentine</option>
+      <option value="pomme">Pomme verte</option>
+      <option value="litchi">Litchi</option>
+      <option value="melon">Melon</option>
+      <option value="pasteque">Pastèque</option>
+      <option value="fruit_rouge">Fruit rouge</option>
+      <option value="smoothie">Smoothie</option>
+    </optgroup>
 
-  <optgroup label="🍓 Fruités">
-    <option value="monoip">Monoï pêche</option>
-    <option value="monoic">Monoï clémentine</option>
-    <option value="pomme">Pomme verte</option>
-    <option value="litchi">Litchi</option>
-    <option value="melon">Melon</option>
-    <option value="pasteque">Pastèque</option>
-    <option value="fruit_rouge">Fruit rouge</option>
-    <option value="smoothie">Smoothie</option>
-  </optgroup>
+    <optgroup label="🌲 Bois / puissants">
+      <option value="oud">Bois de oud</option>
+    </optgroup>
 
-  <optgroup label="🌲 Bois / puissants">
-    <option value="oud">Bois de oud</option>
-  </optgroup>
+  </select>
 
-</select>
+  <br><br>
 
-    <br><br>
+  <!-- DESCRIPTION -->
+  <h3>📝 Descriptif</h3>
+  <p id="description-produit">Choisissez un parfum pour voir la description.</p>
 
-    <button onclick="ajouterPanier()">Ajouter au panier</button>
+  <!-- NOTES -->
+  <h3>🧪 Notes olfactives</h3>
+  <p id="notes-parfum">---</p>
 
-  </div>
+  <br>
+
+  <button onclick="ajouterPanier()">Ajouter au panier</button>
 
 </main>
 
-  <script>
-const params = new URLSearchParams(window.location.search);
-
-const nom = params.get("nom");
-const prix = params.get("prix");
-const desc = params.get("desc");
-
-if (nom) document.getElementById("nom-produit").textContent = nom;
-if (prix) document.getElementById("prix-produit").textContent = prix;
-if (desc) document.getElementById("description-produit").textContent = desc;
-
-function ajouterPanier() {
-  alert(nom + " ajouté au panier !");
-}
-</script>
 <script>
+
 let parfumChoisi = "";
 
-const descriptions = {
-  cerisier: "Fleur de cerisier : floral doux et printanier.",
-  acacia: "Fleur d’acacia : délicat et légèrement sucré.",
-  coton: "Fleur de coton : propre, frais et apaisant.",
-  orchidee: "Orchidée : floral élégant et raffiné.",
-  lavande: "Lavande : relaxant et apaisant.",
-  jasmin: "Jasmin : floral intense et sensuel.",
-  lys: "Lys blanc : pur et élégant.",
-  azalee: "Azalée du Japon : floral délicat.",
-  hibiscus: "Hibiscus : floral exotique et fruité.",
-  frangipanier: "Frangipanier : solaire et tropical.",
+// 🌸 DONNÉES COMPLETES
+const data = {
 
-  barbe_papa: "Barbe à papa : sucré, gourmand et régressif.",
-  madeleine: "Madeleine gourmande : pâtisserie douce et chaleureuse.",
-  couverture: "Douce couverture : chaud, sucré et réconfortant.",
-  pomme_amour: "Pomme d’amour : sucré et fruité caramélisé.",
+  coton: {
+    desc: `Fleur de Coton – douceur et pureté absolue
 
-  linge: "Linge propre : frais et propre comme du coton lavé.",
-  adoucissant: "Adoucissant : odeur propre et douce.",
+Une bougie cocooning qui rappelle le linge frais et la pureté.
 
-  monoip: "Monoï pêche : fruité et solaire.",
-  monoic: "Monoï clémentine : exotique et fruité.",
-  pomme: "Pomme verte : fraîche et acidulée.",
-  litchi: "Litchi : fruité doux et exotique.",
-  melon: "Melon : frais et sucré.",
-  pasteque: "Pastèque : frais et juteux.",
-  fruit_rouge: "Fruit rouge : gourmand et fruité.",
-  smoothie: "Smoothie : mélange fruité gourmand.",
+Elle transforme votre intérieur en un véritable nuage de douceur.`,
+    notes: "Tête : aldéhydes | Cœur : coton | Fond : musc blanc"
+  },
 
-  oud: "Bois de oud : puissant, boisé et luxueux."
+  cerisier: {
+    desc: `Fleur de Cerisier – élégance florale japonaise
+
+Une senteur douce, florale et délicate inspirée du printemps japonais.`,
+    notes: "Tête : fruits rouges | Cœur : fleur de cerisier | Fond : musc blanc"
+  },
+
+  acacia: {
+    desc: `Fleur d’Acacia – douceur florale lumineuse`,
+    notes: "Tête : miel léger | Cœur : acacia | Fond : bois doux"
+  },
+
+  orchidee: {
+    desc: `Orchidée – élégance florale raffinée`,
+    notes: "Tête : fleurs blanches | Cœur : orchidée | Fond : vanille"
+  },
+
+  lavande: {
+    desc: `Lavande – relaxation et bien-être`,
+    notes: "Tête : lavande | Cœur : lavandin | Fond : bois sec"
+  },
+
+  jasmin: {
+    desc: `Jasmin – floral intense et sensuel`,
+    notes: "Tête : jasmin | Cœur : fleurs blanches | Fond : musc"
+  },
+
+  lys: {
+    desc: `Lys blanc – pur et élégant`,
+    notes: "Tête : floral frais | Cœur : lys | Fond : musc"
+  },
+
+  azalee: {
+    desc: `Azalée du Japon – floral délicat`,
+    notes: "Tête : floral | Cœur : azalée | Fond : bois doux"
+  },
+
+  hibiscus: {
+    desc: `Hibiscus – exotique et fruité`,
+    notes: "Tête : fruits rouges | Cœur : hibiscus | Fond : vanille"
+  },
+
+  frangipanier: {
+    desc: `Frangipanier – solaire et tropical`,
+    notes: "Tête : coco | Cœur : frangipanier | Fond : vanille"
+  },
+
+  barbe_papa: {
+    desc: `Barbe à papa – sucré et régressif`,
+    notes: "Tête : sucre | Cœur : vanille | Fond : caramel"
+  },
+
+  madeleine: {
+    desc: `Madeleine gourmande – pâtisserie chaleureuse`,
+    notes: "Tête : beurre | Cœur : pâte sucrée | Fond : vanille"
+  },
+
+  couverture: {
+    desc: `Douce couverture – cocooning total`,
+    notes: "Tête : sucre | Cœur : musc | Fond : vanille chaude"
+  },
+
+  pomme_amour: {
+    desc: `Pomme d’amour – gourmand caramélisé`,
+    notes: "Tête : pomme | Cœur : caramel | Fond : sucre"
+  },
+
+  linge: {
+    desc: `Linge propre – fraîcheur absolue`,
+    notes: "Tête : frais | Cœur : coton | Fond : musc"
+  },
+
+  adoucissant: {
+    desc: `Adoucissant – douceur textile`,
+    notes: "Tête : frais | Cœur : propre | Fond : musc"
+  },
+
+  monoip: {
+    desc: `Monoï pêche – exotique fruité`,
+    notes: "Tête : pêche | Cœur : monoï | Fond : coco"
+  },
+
+  monoic: {
+    desc: `Monoï clémentine – frais et solaire`,
+    notes: "Tête : clémentine | Cœur : monoï | Fond : vanille"
+  },
+
+  pomme: {
+    desc: `Pomme verte – fraîche et acidulée`,
+    notes: "Tête : pomme | Cœur : fruit | Fond : musc"
+  },
+
+  litchi: {
+    desc: `Litchi – exotique doux`,
+    notes: "Tête : litchi | Cœur : fruit rouge | Fond : sucre"
+  },
+
+  melon: {
+    desc: `Melon – frais et sucré`,
+    notes: "Tête : melon | Cœur : fruit | Fond : frais"
+  },
+
+  pasteque: {
+    desc: `Pastèque – juteux et frais`,
+    notes: "Tête : pastèque | Cœur : fruit | Fond : eau fraîche"
+  },
+
+  fruit_rouge: {
+    desc: `Fruit rouge – gourmand et pétillant`,
+    notes: "Tête : fraise | Cœur : framboise | Fond : sucre"
+  },
+
+  smoothie: {
+    desc: `Smoothie – cocktail fruité gourmand`,
+    notes: "Tête : fruits | Cœur : mélange | Fond : sucre"
+  },
+
+  oud: {
+    desc: `Bois de Oud – luxe et intensité`,
+    notes: "Tête : épices | Cœur : oud | Fond : ambre"
+  }
+
 };
 
+// 🌸 CHANGE PARFUM
 function changerParfum() {
-  let select = document.getElementById("parfum");
-  parfumChoisi = select.value;
+  parfumChoisi = document.getElementById("parfum").value;
+
+  if (!parfumChoisi) return;
 
   document.getElementById("description-produit").textContent =
-    descriptions[parfumChoisi] || "Choisissez un parfum.";
+    data[parfumChoisi].desc;
+
+  document.getElementById("notes-parfum").textContent =
+    data[parfumChoisi].notes;
 }
 
+// 🛒 PANIER
 function ajouterPanier() {
   if (!parfumChoisi) {
-    alert("Choisis un parfum avant d'ajouter !");
+    alert("Choisis un parfum !");
     return;
   }
 
   alert("Bougie 80g (" + parfumChoisi + ") ajoutée au panier !");
 }
+
 </script>
+
 </body>
 </html>
