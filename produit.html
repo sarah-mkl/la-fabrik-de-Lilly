@@ -3,7 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <title>Produit - La Fabrik' de Lilly</title>
-  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      font-family: Georgia, serif;
+      background: #faf7f2;
+      margin: 0;
+      color: #2b2b2b;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px;
+      background: #fff;
+      border-bottom: 1px solid #e6e0d8;
+    }
+
+    nav {
+      text-align: center;
+      padding: 15px;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #2b2b2b;
+      font-size: 14px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .box {
+      background: #fff;
+      padding: 30px;
+      border: 1px solid #eee;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      font-family: inherit;
+    }
+
+    button {
+      background: #2b2b2b;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #444;
+    }
+
+    h2, h3 {
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+
+    #description-produit {
+      line-height: 1.7;
+      color: #444;
+    }
+
+    #notes-parfum {
+      font-style: italic;
+      color: #666;
+    }
+  </style>
 </head>
 
 <body>
@@ -17,177 +92,194 @@
   <a href="boutique.html">Boutique</a>
 </nav>
 
-<main class="accueil">
+<div class="container">
 
-  <div class="produit">
+  <div class="box">
 
-    <h2 id="nom-produit">Bougie 80g</h2>
-
+    <h2>🕯️ Bougie 80g</h2>
     <p><strong>Prix :</strong> 8€</p>
 
-    <label>🌸 Parfum</label>
-    <br>
+    <label>🌸 Choisis ton parfum</label>
+
     <select id="parfum" onchange="changerParfum()">
-      <option value="">Sélectionner un parfum</option>
+      <option value="">-- Sélectionner --</option>
+
+      <option value="cerisier">Fleur de cerisier</option>
+      <option value="acacia">Fleur d’acacia</option>
+      <option value="coton">Fleur de coton</option>
+      <option value="orchidee">Orchidée</option>
+      <option value="lavande">Lavande</option>
+      <option value="jasmin">Jasmin</option>
+      <option value="lys">Lys blanc</option>
+      <option value="azalee">Azalée du Japon</option>
+      <option value="hibiscus">Hibiscus</option>
+      <option value="frangipanier">Frangipanier</option>
+
+      <option value="barbe_papa">Barbe à papa</option>
+      <option value="madeleine">Madeleine gourmande</option>
+      <option value="couverture">Douce couverture</option>
+      <option value="pomme_amour">Pomme d’amour</option>
+
+      <option value="linge">Linge propre</option>
+      <option value="adoucissant">Adoucissant</option>
+
+      <option value="monoip">Monoï pêche</option>
+      <option value="monoic">Monoï clémentine</option>
+      <option value="pomme">Pomme verte</option>
+      <option value="litchi">Litchi</option>
+      <option value="melon">Melon</option>
+      <option value="pasteque">Pastèque</option>
+      <option value="fruit_rouge">Fruit rouge</option>
+      <option value="smoothie">Smoothie</option>
+
+      <option value="oud">Bois de oud</option>
     </select>
 
-    <br><br>
-
     <h3>📝 Descriptif</h3>
-    <p id="description-produit">Choisissez un parfum.</p>
+    <p id="description-produit">Choisis un parfum.</p>
 
     <h3>🧪 Notes olfactives</h3>
     <p id="notes-parfum">---</p>
-
-    <br>
 
     <button onclick="ajouterPanier()">Ajouter au panier</button>
 
   </div>
 
-</main>
+</div>
 
 <script>
 
 let parfumChoisi = "";
 
-// 🌸 DONNÉES COMPLETES
 const data = {
 
   coton: {
-    desc: `Fleur de Coton – douceur et pureté absolue
-
-Une bougie cocooning qui rappelle le linge frais et la pureté.
-
-Elle transforme votre intérieur en un véritable nuage de douceur.`,
+    desc: "Fleur de Coton : douceur et pureté. Une ambiance cocooning et propre.",
     notes: "Tête : aldéhydes | Cœur : coton | Fond : musc blanc"
   },
 
   cerisier: {
-    desc: `Fleur de Cerisier – élégance florale japonaise
-
-Une senteur douce, florale et délicate inspirée du printemps japonais.`,
-    notes: "Tête : fruits rouges | Cœur : fleur de cerisier | Fond : musc blanc"
+    desc: "Fleur de Cerisier : floral doux et élégant.",
+    notes: "Tête : fruits rouges | Cœur : fleur de cerisier | Fond : musc"
   },
 
   acacia: {
-    desc: `Fleur d’Acacia – douceur florale lumineuse`,
-    notes: "Tête : miel léger | Cœur : acacia | Fond : bois doux"
+    desc: "Fleur d’Acacia : doux et légèrement miellé.",
+    notes: "Tête : miel | Cœur : acacia | Fond : bois doux"
   },
 
   orchidee: {
-    desc: `Orchidée – élégance florale raffinée`,
+    desc: "Orchidée : floral raffiné et élégant.",
     notes: "Tête : fleurs blanches | Cœur : orchidée | Fond : vanille"
   },
 
   lavande: {
-    desc: `Lavande – relaxation et bien-être`,
-    notes: "Tête : lavande | Cœur : lavandin | Fond : bois sec"
+    desc: "Lavande : relaxante et apaisante.",
+    notes: "Tête : lavande | Cœur : lavandin | Fond : bois"
   },
 
   jasmin: {
-    desc: `Jasmin – floral intense et sensuel`,
+    desc: "Jasmin : floral intense et sensuel.",
     notes: "Tête : jasmin | Cœur : fleurs blanches | Fond : musc"
   },
 
   lys: {
-    desc: `Lys blanc – pur et élégant`,
-    notes: "Tête : floral frais | Cœur : lys | Fond : musc"
+    desc: "Lys blanc : pur et élégant.",
+    notes: "Tête : floral | Cœur : lys | Fond : musc"
   },
 
   azalee: {
-    desc: `Azalée du Japon – floral délicat`,
+    desc: "Azalée : floral délicat.",
     notes: "Tête : floral | Cœur : azalée | Fond : bois doux"
   },
 
   hibiscus: {
-    desc: `Hibiscus – exotique et fruité`,
+    desc: "Hibiscus : exotique et fruité.",
     notes: "Tête : fruits rouges | Cœur : hibiscus | Fond : vanille"
   },
 
   frangipanier: {
-    desc: `Frangipanier – solaire et tropical`,
+    desc: "Frangipanier : solaire et tropical.",
     notes: "Tête : coco | Cœur : frangipanier | Fond : vanille"
   },
 
   barbe_papa: {
-    desc: `Barbe à papa – sucré et régressif`,
+    desc: "Barbe à papa : sucré et régressif.",
     notes: "Tête : sucre | Cœur : vanille | Fond : caramel"
   },
 
   madeleine: {
-    desc: `Madeleine gourmande – pâtisserie chaleureuse`,
+    desc: "Madeleine : pâtisserie gourmande.",
     notes: "Tête : beurre | Cœur : pâte sucrée | Fond : vanille"
   },
 
   couverture: {
-    desc: `Douce couverture – cocooning total`,
+    desc: "Douce couverture : cocooning total.",
     notes: "Tête : sucre | Cœur : musc | Fond : vanille chaude"
   },
 
   pomme_amour: {
-    desc: `Pomme d’amour – gourmand caramélisé`,
+    desc: "Pomme d’amour : gourmand caramélisé.",
     notes: "Tête : pomme | Cœur : caramel | Fond : sucre"
   },
 
   linge: {
-    desc: `Linge propre – fraîcheur absolue`,
+    desc: "Linge propre : fraîcheur pure.",
     notes: "Tête : frais | Cœur : coton | Fond : musc"
   },
 
   adoucissant: {
-    desc: `Adoucissant – douceur textile`,
+    desc: "Adoucissant : doux et propre.",
     notes: "Tête : frais | Cœur : propre | Fond : musc"
   },
 
   monoip: {
-    desc: `Monoï pêche – exotique fruité`,
+    desc: "Monoï pêche : exotique fruité.",
     notes: "Tête : pêche | Cœur : monoï | Fond : coco"
   },
 
   monoic: {
-    desc: `Monoï clémentine – frais et solaire`,
+    desc: "Monoï clémentine : solaire.",
     notes: "Tête : clémentine | Cœur : monoï | Fond : vanille"
   },
 
   pomme: {
-    desc: `Pomme verte – fraîche et acidulée`,
+    desc: "Pomme verte : fraîche et acidulée.",
     notes: "Tête : pomme | Cœur : fruit | Fond : musc"
   },
 
   litchi: {
-    desc: `Litchi – exotique doux`,
-    notes: "Tête : litchi | Cœur : fruit rouge | Fond : sucre"
+    desc: "Litchi : doux et exotique.",
+    notes: "Tête : litchi | Cœur : fruit | Fond : sucre"
   },
 
   melon: {
-    desc: `Melon – frais et sucré`,
+    desc: "Melon : frais et sucré.",
     notes: "Tête : melon | Cœur : fruit | Fond : frais"
   },
 
   pasteque: {
-    desc: `Pastèque – juteux et frais`,
-    notes: "Tête : pastèque | Cœur : fruit | Fond : eau fraîche"
+    desc: "Pastèque : juteux et frais.",
+    notes: "Tête : pastèque | Cœur : fruit | Fond : eau"
   },
 
   fruit_rouge: {
-    desc: `Fruit rouge – gourmand et pétillant`,
+    desc: "Fruit rouge : gourmand et pétillant.",
     notes: "Tête : fraise | Cœur : framboise | Fond : sucre"
   },
 
   smoothie: {
-    desc: `Smoothie – cocktail fruité gourmand`,
+    desc: "Smoothie : cocktail fruité.",
     notes: "Tête : fruits | Cœur : mélange | Fond : sucre"
   },
 
   oud: {
-    desc: `Bois de Oud – luxe et intensité`,
+    desc: "Bois de oud : luxe et intense.",
     notes: "Tête : épices | Cœur : oud | Fond : ambre"
   }
 
 };
 
-// 🌸 CHANGE PARFUM
 function changerParfum() {
   parfumChoisi = document.getElementById("parfum").value;
 
@@ -200,7 +292,6 @@ function changerParfum() {
     data[parfumChoisi].notes;
 }
 
-// 🛒 PANIER
 function ajouterPanier() {
   if (!parfumChoisi) {
     alert("Choisis un parfum !");
