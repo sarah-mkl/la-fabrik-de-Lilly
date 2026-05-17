@@ -1,78 +1,237 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>La Fabrik' de Lilly</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>La Fabrik' de Lilly</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:#fffaf7;
+color:#555;
+}
+
+/* HEADER */
+
+header{
+background:white;
+padding:25px;
+text-align:center;
+box-shadow:0 2px 8px rgba(0,0,0,0.05);
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+header h1{
+margin:0;
+font-size:38px;
+color:#d8a48f;
+}
+
+header p{
+margin-top:8px;
+font-size:16px;
+color:#888;
+}
+
+nav{
+margin-top:20px;
+}
+
+nav a{
+text-decoration:none;
+margin:0 15px;
+color:#777;
+font-weight:bold;
+}
+
+/* BANNIERE */
+
+.hero{
+height:500px;
+background-image:url('https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=1200');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+}
+
+.hero-content{
+background:rgba(0,0,0,0.35);
+padding:40px;
+border-radius:20px;
+}
+
+.hero h2{
+font-size:50px;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:20px;
+}
+
+/* SECTION */
+
+section{
+padding:70px 20px;
+text-align:center;
+}
+
+section h2{
+font-size:40px;
+color:#d8a48f;
+margin-bottom:40px;
+}
+
+/* PRODUITS */
+
+.products{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.product{
+background:white;
+width:250px;
+padding:20px;
+border-radius:20px;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.product:hover{
+transform:translateY(-5px);
+}
+
+.product img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:15px;
+}
+
+.product h3{
+margin-top:15px;
+color:#666;
+}
+
+.price{
+font-size:22px;
+color:#d8a48f;
+font-weight:bold;
+}
+
+button{
+background:#d8a48f;
+border:none;
+padding:12px 20px;
+border-radius:30px;
+color:white;
+font-weight:bold;
+cursor:pointer;
+margin-top:10px;
+}
+
+button:hover{
+background:#c58f79;
+}
+
+/* HISTOIRE */
+
+.story{
+background:#fff2ec;
+line-height:1.8;
+}
+
+/* FOOTER */
+
+footer{
+background:white;
+padding:30px;
+text-align:center;
+color:#999;
+margin-top:40px;
+}
+
+</style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">🕯️ La Fabrik' de Lilly</div>
-  <p>Créations artisanales parfumées</p>
-</header>
+<h1>🕯️ La Fabrik' de Lilly</h1>
+<p>Créations artisanales parfumées</p>
 
 <nav>
-  <a href="index.html">Accueil</a>
-  <a href="boutique.html">Boutique</a>
+<a href="index.html">Accueil</a>
+<a href="boutique.html">Boutique</a>
 </nav>
+</header>
 
-<!-- HERO (BANNIÈRE PRO) -->
-
-  <div class="hero-text">
-    <h1>Une ambiance douce et parfumée</h1>
-    <p>Bougies • Fondants • Sprays artisanaux</p>
-    <a href="boutique.html" class="btn">Découvrir la boutique</a>
-  </div>
-</section>
-  <section class="hero-simple">
-  <h1>Une ambiance douce et parfumée</h1>
-  <p>Bougies • Fondants • Sprays artisanaux</p>
+<section class="hero">
+<div class="hero-content">
+<h2>Une ambiance douce & parfumée</h2>
+<p>Bougies • Fondants • Sprays artisanaux</p>
+</div>
 </section>
 
-<!-- HISTOIRE -->
-<section class="histoire">
-  <h2>Notre histoire</h2>
-  <p>
-    La Fabrik' de Lilly est née d’une passion pour les parfums et les ambiances chaleureuses.
-    Chaque création est fabriquée à la main pour transformer votre intérieur en un cocon doux et parfumé.
-  </p>
-</section>
-
-<!-- COUPS DE COEUR -->
 <section>
-  <h2>💖 Nos coups de cœur</h2>
 
-  <div class="grid">
+<h2>Nos coups de cœur</h2>
 
-    <div class="card">🌸 Fleur de coton</div>
-    <div class="card">🍯 Madeleine gourmande</div>
-    <div class="card">🌊 Monoï pêche</div>
+<div class="products">
 
-  </div>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1602874801006-62a7f5b7d4cf?q=80&w=800">
+<h3>Bougie Fleurie</h3>
+<p class="price">8€</p>
+<button>Découvrir</button>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1612198790706-0ff08cb7260a?q=80&w=800">
+<h3>Fondant Gourmand</h3>
+<p class="price">4€</p>
+<button>Découvrir</button>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=800">
+<h3>Spray Maison</h3>
+<p class="price">6€</p>
+<button>Découvrir</button>
+</div>
+
+</div>
+
 </section>
 
-<!-- AVIS CLIENTS -->
-<section class="avis">
-  <h2>⭐ Avis clients</h2>
+<section class="story">
 
-  <div class="grid">
+<h2>Notre histoire</h2>
 
-    <div class="card">
-      “Parfums incroyables, ça sent toute la maison !”
-    </div>
+<p>
+La Fabrik’ de Lilly est née d’une passion pour les parfums doux,
+les ambiances cocooning et les créations artisanales.
+Chaque produit est imaginé avec soin pour apporter chaleur et bien-être à votre intérieur.
+</p>
 
-    <div class="card">
-      “Bougies de très bonne qualité, je recommande.”
-    </div>
-
-    <div class="card">
-      “Livraison rapide et odeurs magnifiques.”
-    </div>
-
-  </div>
 </section>
+
+<footer>
+© 2026 La Fabrik' de Lilly
+</footer>
 
 </body>
 </html>
