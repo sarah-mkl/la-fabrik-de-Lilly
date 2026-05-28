@@ -2,16 +2,13 @@
 <html lang="fr">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>La Fabrik' de Lilly</title>
 
 <style>
-
-/* =========================
-BASE
-========================= */
 
 body{
   margin:0;
@@ -20,9 +17,7 @@ body{
   color:#2b2b2b;
 }
 
-/* =========================
-HEADER
-========================= */
+/* HEADER */
 
 header{
   text-align:center;
@@ -31,9 +26,7 @@ header{
   border-bottom:1px solid #e6e0d8;
 }
 
-/* =========================
-LOGO
-========================= */
+/* LOGO */
 
 .logo{
   height:120px;
@@ -42,9 +35,7 @@ LOGO
   margin:0 auto 15px auto;
 }
 
-/* =========================
-SUBTITLE
-========================= */
+/* TEXTE SOUS LOGO */
 
 .subtitle{
   color:#777;
@@ -53,9 +44,7 @@ SUBTITLE
   letter-spacing:1px;
 }
 
-/* =========================
-MENU
-========================= */
+/* MENU */
 
 nav{
   display:flex;
@@ -79,15 +68,13 @@ nav a:hover{
   color:#b08968;
 }
 
-/* =========================
-HERO
-========================= */
+/* HERO */
 
 .hero-simple{
   text-align:center;
-  padding:100px 20px;
+  padding:90px 20px;
   background:
-  linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)),
+  linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
   url("https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=1974&auto=format&fit=crop")
   center/cover no-repeat;
 
@@ -95,7 +82,7 @@ HERO
 }
 
 .hero-simple h1{
-  font-size:50px;
+  font-size:46px;
   font-weight:300;
   letter-spacing:3px;
   margin-bottom:15px;
@@ -106,9 +93,7 @@ HERO
   font-style:italic;
 }
 
-/* =========================
-BUTTON
-========================= */
+/* BOUTON */
 
 button,
 .btn{
@@ -131,51 +116,50 @@ button:hover,
   transform:translateY(-2px);
 }
 
-/* =========================
-SECTION
-========================= */
+/* TITRES */
 
-.section{
-  max-width:1200px;
-  margin:auto;
-  padding:70px 20px;
-}
-
-.section h2{
+h2{
   text-align:center;
-  font-size:35px;
+  margin-top:50px;
+  font-size:30px;
   font-weight:400;
   letter-spacing:2px;
-  margin-bottom:15px;
+  color:#3a2e2a;
 }
 
-.section p{
+/* SECTION */
+
+.section,
+.accueil,
+.histoire{
+  max-width:900px;
+  margin:auto;
+  padding:60px 20px;
   text-align:center;
-  color:#666;
   line-height:1.8;
 }
 
-/* =========================
-GRID
-========================= */
+/* GRILLE */
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
-  margin-top:50px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:25px;
+  padding:30px;
+  max-width:1100px;
+  margin:auto;
 }
 
-/* =========================
-CARDS
-========================= */
+/* CARDS */
 
 .card{
   background:white;
   border-radius:20px;
-  overflow:hidden;
+  padding:25px;
+  text-align:center;
   box-shadow:0 8px 25px rgba(0,0,0,0.08);
   transition:0.3s;
+  border:1px solid #f0e2dc;
 }
 
 .card:hover{
@@ -184,72 +168,31 @@ CARDS
 
 .card img{
   width:100%;
-  height:320px;
-  object-fit:cover;
+  border-radius:15px;
+  margin-bottom:15px;
 }
 
-.card-content{
-  padding:25px;
-  text-align:center;
-}
-
-.card h3{
-  font-size:24px;
-  margin-top:0;
-}
-
-.card p{
-  color:#666;
-  line-height:1.7;
-}
-
-/* =========================
-PRICE
-========================= */
+/* PRIX */
 
 .price{
   color:#b08968;
-  font-size:24px;
+  font-size:22px;
   font-weight:bold;
-  margin:20px 0;
+  margin:15px 0;
 }
 
-/* =========================
-VALEURS
-========================= */
-
-.values{
-  background:#efe5dd;
-  padding:80px 20px;
-  text-align:center;
-}
-
-.values h2{
-  font-size:36px;
-  font-weight:300;
-  letter-spacing:2px;
-}
-
-.values p{
-  max-width:800px;
-  margin:auto;
-  line-height:2;
-  color:#555;
-}
-
-/* =========================
-PANIER
-========================= */
+/* PANIER */
 
 #panier{
   position:fixed;
+  top:120px;
   right:20px;
-  bottom:20px;
-  width:320px;
+  width:250px;
   background:white;
-  border-radius:25px;
-  padding:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.15);
+  border-radius:20px;
+  padding:15px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.12);
+  font-size:14px;
   z-index:999;
 }
 
@@ -259,31 +202,25 @@ PANIER
 }
 
 #liste-panier{
-  margin-top:20px;
-  max-height:250px;
-  overflow-y:auto;
+  margin-bottom:10px;
 }
 
 .panier-item{
-  display:flex;
-  justify-content:space-between;
-  margin-bottom:12px;
+  margin-bottom:10px;
   border-bottom:1px solid #eee;
-  padding-bottom:8px;
-  font-size:14px;
+  padding-bottom:5px;
 }
 
 .total{
   text-align:center;
-  margin-top:20px;
-  font-size:22px;
-  font-weight:bold;
+  font-size:20px;
   color:#b08968;
+  margin-top:15px;
+  font-weight:bold;
 }
 
 .btn-whatsapp{
   width:100%;
-  margin-top:20px;
   background:#25D366;
 }
 
@@ -291,9 +228,7 @@ PANIER
   background:#1ebe5d;
 }
 
-/* =========================
-FOOTER
-========================= */
+/* FOOTER */
 
 footer{
   text-align:center;
@@ -301,24 +236,7 @@ footer{
   color:#777;
   font-size:13px;
   border-top:1px solid #eee;
-}
-
-/* =========================
-RESPONSIVE
-========================= */
-
-@media(max-width:768px){
-
-  .hero-simple h1{
-    font-size:38px;
-  }
-
-  #panier{
-    width:90%;
-    right:5%;
-    bottom:10px;
-  }
-
+  margin-top:60px;
 }
 
 </style>
@@ -326,10 +244,6 @@ RESPONSIVE
 </head>
 
 <body>
-
-<!-- =========================
-HEADER
-========================= -->
 
 <header>
 
@@ -341,21 +255,13 @@ Bougies artisanales • Parfums de Grasse • Créations raffinées
 
 </header>
 
-<!-- =========================
-MENU
-========================= -->
-
 <nav>
 
 <a href="#">Accueil</a>
 <a href="#boutique">Boutique</a>
-<a href="#valeurs">À propos</a>
+<a href="#">À propos</a>
 
 </nav>
-
-<!-- =========================
-HERO
-========================= -->
 
 <section class="hero-simple">
 
@@ -370,10 +276,6 @@ Découvrir la boutique
 </a>
 
 </section>
-
-<!-- =========================
-BOUTIQUE
-========================= -->
 
 <section class="section" id="boutique">
 
@@ -391,8 +293,6 @@ Découvrez nos produits artisanaux faits avec passion.
 
 <img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=1200&auto=format&fit=crop">
 
-<div class="card-content">
-
 <h3>Bougie Vanille</h3>
 
 <p>
@@ -408,15 +308,12 @@ Ajouter au panier
 </button>
 
 </div>
-</div>
 
 <!-- PRODUIT -->
 
 <div class="card">
 
 <img src="https://images.unsplash.com/photo-1615529328331-f8917597711f?q=80&w=1200&auto=format&fit=crop">
-
-<div class="card-content">
 
 <h3>Fondant Fleur Blanche</h3>
 
@@ -433,15 +330,12 @@ Ajouter au panier
 </button>
 
 </div>
-</div>
 
 <!-- PRODUIT -->
 
 <div class="card">
 
 <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=1200&auto=format&fit=crop">
-
-<div class="card-content">
 
 <h3>Spray d’ambiance</h3>
 
@@ -458,31 +352,12 @@ Ajouter au panier
 </button>
 
 </div>
-</div>
 
 </div>
 
 </section>
 
-<!-- =========================
-VALEURS
-========================= -->
-
-<section class="values" id="valeurs">
-
-<h2>Notre engagement</h2>
-
-<p>
-Toutes nos créations sont fabriquées artisanalement avec de la cire de soja 100% végétale et des parfums de Grasse soigneusement sélectionnés.
-<br><br>
-La Fabrik’ de Lilly imagine des produits élégants, sensoriels et raffinés pour transformer chaque intérieur en moment de bien-être.
-</p>
-
-</section>
-
-<!-- =========================
-PANIER
-========================= -->
+<!-- PANIER -->
 
 <div id="panier">
 
@@ -500,19 +375,11 @@ Commander sur WhatsApp
 
 </div>
 
-<!-- =========================
-FOOTER
-========================= -->
-
 <footer>
 
 © 2026 La Fabrik' de Lilly
 
 </footer>
-
-<!-- =========================
-JAVASCRIPT
-========================= -->
 
 <script>
 
@@ -541,8 +408,11 @@ function ajouterAuPanier(nom, prix){
 
 function afficherPanier(){
 
-  const liste = document.getElementById("liste-panier");
-  const totalElement = document.getElementById("total");
+  const liste =
+  document.getElementById("liste-panier");
+
+  const totalElement =
+  document.getElementById("total");
 
   liste.innerHTML = "";
 
@@ -553,11 +423,14 @@ function afficherPanier(){
     total += item.prix * item.quantite;
 
     liste.innerHTML += `
-    
-    <div class="panier-item">
-      <span>${item.nom} x${item.quantite}</span>
-      <span>${(item.prix * item.quantite).toFixed(2)}€</span>
-    </div>
+
+      <div class="panier-item">
+
+        ${item.nom} x${item.quantite}
+
+        - ${(item.prix * item.quantite).toFixed(2)} €
+
+      </div>
 
     `;
   });
@@ -570,29 +443,33 @@ function commanderWhatsApp(){
   if(panier.length === 0){
 
     alert("Votre panier est vide");
-    return;
 
+    return;
   }
 
-  let message = "Bonjour, je souhaite commander :%0A%0A";
+  let message =
+  "Bonjour, je souhaite commander :%0A%0A";
 
   let total = 0;
 
   panier.forEach(item => {
 
-    message += `- ${item.nom} x${item.quantite}%0A`;
+    message +=
+    `- ${item.nom} x${item.quantite}%0A`;
 
     total += item.prix * item.quantite;
 
   });
 
-  message += `%0ATotal : ${total.toFixed(2)}€`;
+  message +=
+  `%0ATotal : ${total.toFixed(2)}€`;
 
-  /* REMPLACE PAR TON NUMERO */
+  /* TON NUMERO */
 
-  let numero = "33651461324";
+  let numero = "33600000000";
 
-  let url = `https://wa.me/${numero}?text=${message}`;
+  let url =
+  `https://wa.me/${numero}?text=${message}`;
 
   window.open(url, "_blank");
 }
