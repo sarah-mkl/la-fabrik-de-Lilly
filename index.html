@@ -2,7 +2,6 @@
 <html lang="fr">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,232 +10,266 @@
 <style>
 
 body{
-  margin:0;
-  font-family:Georgia, serif;
-  background:#f8f4ef;
-  color:#2b2b2b;
+    margin:0;
+    font-family:Georgia, serif;
+    background:#f8f4ef;
+    color:#2b2b2b;
 }
 
 /* HEADER */
 
 header{
-  text-align:center;
-  padding:50px 20px;
-  background:linear-gradient(135deg,#ffffff,#f3e6e1);
-  border-bottom:1px solid #e6e0d8;
-}
-
-/* LOGO */
-
-.logo{
-  height:120px;
-  width:auto;
-  display:block;
-  margin:0 auto 15px auto;
-}
-
-/* TEXTE SOUS LOGO */
-
-.subtitle{
-  color:#777;
-  font-style:italic;
-  font-size:15px;
-  letter-spacing:1px;
+    position:absolute;
+    top:0;
+    width:100%;
+    z-index:10;
+    padding:25px 0;
 }
 
 /* MENU */
 
 nav{
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  padding:15px;
-  background:white;
-  border-bottom:1px solid #eee;
+    display:flex;
+    justify-content:center;
+    gap:40px;
 }
 
 nav a{
-  text-decoration:none;
-  color:#2b2b2b;
-  font-size:13px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  transition:0.3s;
-}
-
-nav a:hover{
-  color:#b08968;
+    text-decoration:none;
+    color:#2b2b2b;
+    letter-spacing:2px;
+    font-size:13px;
+    background:rgba(255,255,255,0.75);
+    padding:10px 18px;
+    border-radius:30px;
+    backdrop-filter:blur(5px);
 }
 
 /* HERO */
 
-.hero-simple{
-  text-align:center;
-  padding:90px 20px;
-  background:
-  linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
-  url("https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=1974&auto=format&fit=crop")
-  center/cover no-repeat;
+.hero{
+    height:100vh;
 
-  color:white;
+    background:
+    linear-gradient(rgba(255,255,255,0.55),rgba(255,255,255,0.55)),
+    url("images/logo-ll.jpg")
+    center center / 70% no-repeat,
+
+    linear-gradient(180deg,#f8f4ef,#efe5dd);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+    padding:20px;
 }
 
-.hero-simple h1{
-  font-size:46px;
-  font-weight:300;
-  letter-spacing:3px;
-  margin-bottom:15px;
+.hero-content{
+    max-width:750px;
+    margin-top:120px;
 }
 
-.hero-simple p{
-  font-size:18px;
-  font-style:italic;
+.hero h1{
+    font-size:65px;
+    font-weight:300;
+    letter-spacing:4px;
+    margin-bottom:20px;
+    color:#2b2b2b;
 }
 
-/* BOUTON */
+.hero p{
+    font-size:19px;
+    line-height:1.9;
+    color:#4d4d4d;
+}
 
-button,
 .btn{
-  margin-top:20px;
-  display:inline-block;
-  padding:12px 25px;
-  border:none;
-  background:#2b2b2b;
-  color:white;
-  border-radius:30px;
-  cursor:pointer;
-  text-decoration:none;
-  letter-spacing:1px;
-  transition:0.3s;
+    display:inline-block;
+    margin-top:35px;
+    padding:15px 30px;
+    background:#2b2b2b;
+    color:white;
+    text-decoration:none;
+    border-radius:40px;
+    letter-spacing:2px;
+    transition:0.3s;
 }
 
-button:hover,
 .btn:hover{
-  background:#b08968;
-  transform:translateY(-2px);
-}
-
-/* TITRES */
-
-h2{
-  text-align:center;
-  margin-top:50px;
-  font-size:30px;
-  font-weight:400;
-  letter-spacing:2px;
-  color:#3a2e2a;
+    background:#b08968;
 }
 
 /* SECTION */
 
-.section,
-.accueil,
-.histoire{
-  max-width:900px;
-  margin:auto;
-  padding:60px 20px;
-  text-align:center;
-  line-height:1.8;
+.section{
+    padding:90px 20px;
+    max-width:1200px;
+    margin:auto;
 }
 
-/* GRILLE */
+.section-title{
+    text-align:center;
+    font-size:38px;
+    font-weight:300;
+    letter-spacing:3px;
+    margin-bottom:15px;
+}
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:25px;
-  padding:30px;
-  max-width:1100px;
-  margin:auto;
+.section-text{
+    text-align:center;
+    max-width:750px;
+    margin:auto;
+    color:#666;
+    line-height:1.9;
+    font-size:17px;
 }
 
 /* CARDS */
 
+.grid{
+    margin-top:60px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
 .card{
-  background:white;
-  border-radius:20px;
-  padding:25px;
-  text-align:center;
-  box-shadow:0 8px 25px rgba(0,0,0,0.08);
-  transition:0.3s;
-  border:1px solid #f0e2dc;
+    background:white;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    transition:0.3s;
 }
 
 .card:hover{
-  transform:translateY(-5px);
+    transform:translateY(-6px);
 }
 
 .card img{
-  width:100%;
-  border-radius:15px;
-  margin-bottom:15px;
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    display:block;
 }
 
-/* PRIX */
+.card-content{
+    padding:25px;
+    text-align:center;
+}
+
+.card h3{
+    margin-top:0;
+    font-size:24px;
+    font-weight:400;
+}
+
+.card p{
+    color:#666;
+    line-height:1.7;
+}
 
 .price{
-  color:#b08968;
-  font-size:22px;
-  font-weight:bold;
-  margin:15px 0;
+    margin:20px 0;
+    color:#b08968;
+    font-size:24px;
+    font-weight:bold;
+}
+
+/* BUTTON */
+
+button{
+    border:none;
+    background:#2b2b2b;
+    color:white;
+    padding:12px 22px;
+    border-radius:30px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#b08968;
 }
 
 /* PANIER */
 
 #panier{
-  position:fixed;
-  top:120px;
-  right:20px;
-  width:250px;
-  background:white;
-  border-radius:20px;
-  padding:15px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.12);
-  font-size:14px;
-  z-index:999;
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:260px;
+    background:white;
+    border-radius:20px;
+    padding:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.15);
+    z-index:999;
 }
 
 #panier h3{
-  text-align:center;
-  margin-top:0;
+    margin-top:0;
+    text-align:center;
 }
 
 #liste-panier{
-  margin-bottom:10px;
+    margin:15px 0;
 }
 
 .panier-item{
-  margin-bottom:10px;
-  border-bottom:1px solid #eee;
-  padding-bottom:5px;
+    margin-bottom:10px;
+    font-size:14px;
+    border-bottom:1px solid #eee;
+    padding-bottom:5px;
 }
 
 .total{
-  text-align:center;
-  font-size:20px;
-  color:#b08968;
-  margin-top:15px;
-  font-weight:bold;
+    text-align:center;
+    font-size:20px;
+    color:#b08968;
+    font-weight:bold;
+    margin-top:15px;
 }
 
 .btn-whatsapp{
-  width:100%;
-  background:#25D366;
+    width:100%;
+    background:#25D366;
 }
 
 .btn-whatsapp:hover{
-  background:#1ebe5d;
+    background:#1ebe5d;
+}
+
+/* BANDEAU */
+
+.values{
+    background:#efe5dd;
+    padding:80px 20px;
+    text-align:center;
+}
+
+.values h2{
+    font-size:38px;
+    font-weight:300;
+    margin-bottom:25px;
+    letter-spacing:2px;
+}
+
+.values p{
+    max-width:800px;
+    margin:auto;
+    line-height:2;
+    color:#555;
+    font-size:17px;
 }
 
 /* FOOTER */
 
 footer{
-  text-align:center;
-  padding:40px 20px;
-  color:#777;
-  font-size:13px;
-  border-top:1px solid #eee;
-  margin-top:60px;
+    text-align:center;
+    padding:40px;
+    color:#888;
+    font-size:13px;
+    border-top:1px solid #eee;
 }
 
 </style>
@@ -247,56 +280,54 @@ footer{
 
 <header>
 
-<img src="images/logo-ll.jpg" class="logo">
-
-<p class="subtitle">
-Bougies artisanales • Parfums de Grasse • Créations raffinées
-</p>
+<nav>
+<a href="index.html">ACCUEIL</a>
+<a href="boutique.html">BOUTIQUE</a>
+<a href="#">À PROPOS</a>
+</nav>
 
 </header>
 
-<nav>
+<section class="hero">
 
-<a href="#">Accueil</a>
-<a href="#boutique">Boutique</a>
-<a href="#">À propos</a>
-
-</nav>
-
-<section class="hero-simple">
+<div class="hero-content">
 
 <h1>La Fabrik’ de Lilly</h1>
 
 <p>
-Bougies artisanales à la cire de soja 100% végétale
+Bougies artisanales à la cire de soja 100% végétale.
+<br>
+Parfums de Grasse sans CMR pour une expérience élégante et sensorielle.
 </p>
 
-<a href="#boutique" class="btn">
-Découvrir la boutique
+<a href="boutique.html" class="btn">
+DÉCOUVRIR LA BOUTIQUE
 </a>
+
+</div>
 
 </section>
 
-<section class="section" id="boutique">
+<section class="section">
 
-<h2>Nos créations</h2>
+<h2 class="section-title">Coups de cœur</h2>
 
-<p>
-Découvrez nos produits artisanaux faits avec passion.
+<p class="section-text">
+Découvrez les créations préférées de nos clientes.
 </p>
 
 <div class="grid">
-
-<!-- PRODUIT -->
 
 <div class="card">
 
 <img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=1200&auto=format&fit=crop">
 
+<div class="card-content">
+
 <h3>Bougie Vanille</h3>
 
 <p>
-Une fragrance douce et chaleureuse.
+Une fragrance douce et réconfortante aux notes chaleureuses.
 </p>
 
 <div class="price">
@@ -308,17 +339,18 @@ Ajouter au panier
 </button>
 
 </div>
-
-<!-- PRODUIT -->
+</div>
 
 <div class="card">
 
 <img src="https://images.unsplash.com/photo-1615529328331-f8917597711f?q=80&w=1200&auto=format&fit=crop">
 
+<div class="card-content">
+
 <h3>Fondant Fleur Blanche</h3>
 
 <p>
-Des notes florales délicates et raffinées.
+Des notes florales raffinées pour une ambiance délicate.
 </p>
 
 <div class="price">
@@ -330,17 +362,18 @@ Ajouter au panier
 </button>
 
 </div>
-
-<!-- PRODUIT -->
+</div>
 
 <div class="card">
 
 <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=1200&auto=format&fit=crop">
 
+<div class="card-content">
+
 <h3>Spray d’ambiance</h3>
 
 <p>
-Parfume élégamment votre intérieur.
+Une senteur élégante pour parfumer votre intérieur instantanément.
 </p>
 
 <div class="price">
@@ -351,6 +384,7 @@ Parfume élégamment votre intérieur.
 Ajouter au panier
 </button>
 
+</div>
 </div>
 
 </div>
@@ -375,6 +409,18 @@ Commander sur WhatsApp
 
 </div>
 
+<section class="values">
+
+<h2>Notre engagement</h2>
+
+<p>
+Toutes nos créations sont fabriquées artisanalement avec de la cire de soja 100% végétale et des parfums de Grasse soigneusement sélectionnés, sans substances CMR.
+<br><br>
+La Fabrik’ de Lilly imagine des produits élégants, sensoriels et raffinés pour transformer chaque intérieur en moment de bien-être.
+</p>
+
+</section>
+
 <footer>
 
 © 2026 La Fabrik' de Lilly
@@ -387,91 +433,91 @@ let panier = [];
 
 function ajouterAuPanier(nom, prix){
 
-  let produit = panier.find(item => item.nom === nom);
+    let produit = panier.find(item => item.nom === nom);
 
-  if(produit){
+    if(produit){
 
-    produit.quantite++;
+        produit.quantite++;
 
-  } else {
+    } else {
 
-    panier.push({
-      nom: nom,
-      prix: prix,
-      quantite: 1
-    });
+        panier.push({
+            nom: nom,
+            prix: prix,
+            quantite: 1
+        });
 
-  }
+    }
 
-  afficherPanier();
+    afficherPanier();
 }
 
 function afficherPanier(){
 
-  const liste =
-  document.getElementById("liste-panier");
+    const liste =
+    document.getElementById("liste-panier");
 
-  const totalElement =
-  document.getElementById("total");
+    const totalElement =
+    document.getElementById("total");
 
-  liste.innerHTML = "";
+    liste.innerHTML = "";
 
-  let total = 0;
+    let total = 0;
 
-  panier.forEach(item => {
+    panier.forEach(item => {
 
-    total += item.prix * item.quantite;
+        total += item.prix * item.quantite;
 
-    liste.innerHTML += `
+        liste.innerHTML += `
 
-      <div class="panier-item">
+        <div class="panier-item">
 
-        ${item.nom} x${item.quantite}
+            ${item.nom} x${item.quantite}
 
-        - ${(item.prix * item.quantite).toFixed(2)} €
+            - ${(item.prix * item.quantite).toFixed(2)} €
 
-      </div>
+        </div>
 
-    `;
-  });
+        `;
+    });
 
-  totalElement.innerText = total.toFixed(2);
+    totalElement.innerText = total.toFixed(2);
 }
 
 function commanderWhatsApp(){
 
-  if(panier.length === 0){
+    if(panier.length === 0){
 
-    alert("Votre panier est vide");
+        alert("Votre panier est vide");
 
-    return;
-  }
+        return;
+    }
 
-  let message =
-  "Bonjour, je souhaite commander :%0A%0A";
+    let message =
+    "Bonjour, je souhaite commander :%0A%0A";
 
-  let total = 0;
+    let total = 0;
 
-  panier.forEach(item => {
+    panier.forEach(item => {
+
+        message +=
+        `- ${item.nom} x${item.quantite}%0A`;
+
+        total += item.prix * item.quantite;
+
+    });
 
     message +=
-    `- ${item.nom} x${item.quantite}%0A`;
+    `%0ATotal : ${total.toFixed(2)}€`;
 
-    total += item.prix * item.quantite;
+    /* TON NUMERO */
 
-  });
+    let numero = "33651461324";
 
-  message +=
-  `%0ATotal : ${total.toFixed(2)}€`;
+    let url =
+    `https://wa.me/${numero}?text=${message}`;
 
-  /* TON NUMERO */
-
-  let numero = "33600000000";
-
-  let url =
-  `https://wa.me/${numero}?text=${message}`;
-
-  window.open(url, "_blank");
+    window.open(url, "_blank");
 }
 
 </script>
