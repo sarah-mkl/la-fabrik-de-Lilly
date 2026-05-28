@@ -1,282 +1,231 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
+  <meta charset="UTF-8">
+  <title>Produit - La Fabrik' de Lilly</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
 
-<title>Produit - La Fabrik' de Lilly</title>
+    body {
+      font-family: Georgia, serif;
+      background: #faf7f2;
+      margin: 0;
+      color: #2b2b2b;
+    }
 
-<style>
+    header {
+      text-align: center;
+      padding: 30px;
+      background: #fff;
+      border-bottom: 1px solid #e6e0d8;
+    }
 
-body{
-  font-family:Georgia, serif;
-  background:#faf7f2;
-  margin:0;
-  color:#2b2b2b;
-}
+    nav {
+      text-align: center;
+      padding: 15px;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+    }
 
-/* HEADER */
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #2b2b2b;
+      font-size: 14px;
+    }
 
-header{
-  text-align:center;
-  padding:30px;
-  background:#fff;
-  border-bottom:1px solid #e6e0d8;
-}
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 40px 20px;
+    }
 
-header h1{
-  margin:0;
-  font-weight:400;
-  letter-spacing:2px;
-}
+    .box {
+      background: #fff;
+      padding: 30px;
+      border: 1px solid #eee;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
 
-/* NAV */
+    select,
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      font-family: inherit;
+    }
 
-nav{
-  text-align:center;
-  padding:15px;
-  background:#fff;
-  border-bottom:1px solid #eee;
-}
+    button {
+      background: #2b2b2b;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
 
-nav a{
-  margin:0 15px;
-  text-decoration:none;
-  color:#2b2b2b;
-  font-size:14px;
-  letter-spacing:1px;
-}
+    button:hover {
+      background: #444;
+    }
 
-nav a:hover{
-  color:#b08968;
-}
+    h2,
+    h3 {
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
 
-/* CONTAINER */
+    #description-produit {
+      line-height: 1.7;
+      color: #444;
+    }
 
-.container{
-  max-width:850px;
-  margin:auto;
-  padding:40px 20px;
-}
+    #notes-parfum {
+      font-style: italic;
+      color: #666;
+    }
 
-/* BOX */
+    /* PANIER */
 
-.box{
-  background:#fff;
-  padding:35px;
-  border:1px solid #eee;
-  box-shadow:0 5px 20px rgba(0,0,0,0.05);
-  border-radius:20px;
-}
+    #panier {
 
-/* IMAGE */
+      position: fixed;
 
-.produit-image{
-  width:100%;
-  border-radius:15px;
-  margin-bottom:25px;
-}
+      right: 20px;
 
-/* TITRES */
+      bottom: 20px;
 
-h2,
-h3{
-  font-weight:400;
-  letter-spacing:1px;
-}
+      width: 260px;
 
-/* TEXTE */
+      background: white;
 
-#description-produit{
-  line-height:1.7;
-  color:#444;
-}
+      border-radius: 20px;
 
-#notes-parfum{
-  font-style:italic;
-  color:#666;
-}
+      padding: 20px;
 
-/* SELECT */
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    }
 
-select{
-  width:100%;
-  padding:12px;
-  margin-top:10px;
-  border:1px solid #ddd;
-  border-radius:10px;
-  font-family:inherit;
-  background:white;
-}
+    #panier h3 {
 
-/* BUTTON */
+      margin-top: 0;
 
-button{
-  width:100%;
-  padding:14px;
-  margin-top:20px;
-  font-family:inherit;
-  border:none;
-  border-radius:30px;
-  background:#2b2b2b;
-  color:white;
-  cursor:pointer;
-  transition:0.3s;
-  font-size:15px;
-}
+      text-align: center;
+    }
 
-button:hover{
-  background:#b08968;
-}
+    #liste-panier {
 
-/* PANIER */
+      margin: 15px 0;
+    }
 
-#panier{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  width:260px;
-  background:white;
-  border-radius:20px;
-  padding:20px;
-  box-shadow:0 5px 20px rgba(0,0,0,0.15);
-}
+    .panier-item {
 
-#panier h3{
-  margin-top:0;
-  text-align:center;
-}
+      margin-bottom: 10px;
 
-#liste-panier{
-  margin:15px 0;
-  max-height:200px;
-  overflow-y:auto;
-}
+      border-bottom: 1px solid #eee;
 
-.panier-item{
-  margin-bottom:10px;
-  padding-bottom:8px;
-  border-bottom:1px solid #eee;
-  font-size:14px;
-}
+      padding-bottom: 5px;
 
-.total{
-  text-align:center;
-  font-size:20px;
-  font-weight:bold;
-  color:#b08968;
-  margin-top:15px;
-}
+      font-size: 14px;
+    }
 
-.btn-whatsapp{
-  background:#25D366;
-}
+    .total {
 
-.btn-whatsapp:hover{
-  background:#1ebe5d;
-}
+      text-align: center;
 
-/* RESPONSIVE */
+      font-size: 20px;
 
-@media(max-width:768px){
+      color: #b08968;
 
-  #panier{
-    width:90%;
-    right:5%;
-    bottom:10px;
-  }
+      font-weight: bold;
 
-}
+      margin-top: 15px;
+    }
 
-</style>
+    .btn-whatsapp {
 
+      background: #25D366;
+    }
+
+    .btn-whatsapp:hover {
+
+      background: #1ebe5d;
+    }
+
+  </style>
 </head>
 
 <body>
 
 <header>
-
-<h1>La Fabrik' de Lilly</h1>
-
+  <h1>La Fabrik' de Lilly</h1>
 </header>
 
 <nav>
-
-<a href="index.html">Accueil</a>
-<a href="boutique.html">Boutique</a>
-
+  <a href="index.html">Accueil</a>
+  <a href="boutique.html">Boutique</a>
 </nav>
 
 <div class="container">
 
-<div class="box">
+  <div class="box">
 
-<img
-class="produit-image"
-src="https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=1200&auto=format&fit=crop"
->
+    <h2>🕯️ Bougie 80g</h2>
 
-<h2>🕯️ Bougie 80g</h2>
+    <p><strong>Prix :</strong> 8€</p>
 
-<p><strong>Prix :</strong> 8€</p>
+    <label>🌸 Choisis ton parfum</label>
 
-<label>🌸 Choisis ton parfum</label>
+    <select id="parfum" onchange="changerParfum()">
 
-<select id="parfum" onchange="changerParfum()">
+      <option value="">-- Sélectionner --</option>
 
-<option value="">-- Sélectionner --</option>
+      <option value="Fleur de cerisier">Fleur de cerisier</option>
+      <option value="Fleur d’acacia">Fleur d’acacia</option>
+      <option value="Fleur de coton">Fleur de coton</option>
+      <option value="Orchidée">Orchidée</option>
+      <option value="Lavande">Lavande</option>
+      <option value="Jasmin">Jasmin</option>
+      <option value="Lys blanc">Lys blanc</option>
+      <option value="Azalée du Japon">Azalée du Japon</option>
+      <option value="Hibiscus">Hibiscus</option>
+      <option value="Frangipanier">Frangipanier</option>
 
-<option value="Fleur de cerisier">Fleur de cerisier</option>
-<option value="Fleur d’acacia">Fleur d’acacia</option>
-<option value="Fleur de coton">Fleur de coton</option>
-<option value="Orchidée">Orchidée</option>
-<option value="Lavande">Lavande</option>
-<option value="Jasmin">Jasmin</option>
-<option value="Lys blanc">Lys blanc</option>
-<option value="Azalée du Japon">Azalée du Japon</option>
-<option value="Hibiscus">Hibiscus</option>
-<option value="Frangipanier">Frangipanier</option>
+      <option value="Barbe à papa">Barbe à papa</option>
+      <option value="Madeleine gourmande">Madeleine gourmande</option>
+      <option value="Douce couverture">Douce couverture</option>
+      <option value="Pomme d’amour">Pomme d’amour</option>
 
-<option value="Barbe à papa">Barbe à papa</option>
-<option value="Madeleine gourmande">Madeleine gourmande</option>
-<option value="Douce couverture">Douce couverture</option>
-<option value="Pomme d’amour">Pomme d’amour</option>
+      <option value="Linge propre">Linge propre</option>
+      <option value="Adoucissant">Adoucissant</option>
 
-<option value="Linge propre">Linge propre</option>
-<option value="Adoucissant">Adoucissant</option>
+      <option value="Monoï pêche">Monoï pêche</option>
+      <option value="Monoï clémentine">Monoï clémentine</option>
+      <option value="Pomme verte">Pomme verte</option>
+      <option value="Litchi">Litchi</option>
+      <option value="Melon">Melon</option>
+      <option value="Pastèque">Pastèque</option>
+      <option value="Fruit rouge">Fruit rouge</option>
+      <option value="Smoothie">Smoothie</option>
 
-<option value="Monoï pêche">Monoï pêche</option>
-<option value="Monoï clémentine">Monoï clémentine</option>
-<option value="Pomme verte">Pomme verte</option>
-<option value="Litchi">Litchi</option>
-<option value="Melon">Melon</option>
-<option value="Pastèque">Pastèque</option>
-<option value="Fruit rouge">Fruit rouge</option>
-<option value="Smoothie">Smoothie</option>
+      <option value="Bois de oud">Bois de oud</option>
 
-<option value="Bois de oud">Bois de oud</option>
+    </select>
 
-</select>
+    <h3>📝 Descriptif</h3>
 
-<h3>📝 Descriptif</h3>
+    <p id="description-produit">
+      Choisis un parfum.
+    </p>
 
-<p id="description-produit">
-Choisis un parfum.
-</p>
+    <h3>🧪 Notes olfactives</h3>
 
-<h3>🧪 Notes olfactives</h3>
+    <p id="notes-parfum">
+      ---
+    </p>
 
-<p id="notes-parfum">
----
-</p>
+    <button onclick="ajouterPanier()">
+      Ajouter au panier
+    </button>
 
-<button onclick="ajouterPanier()">
-Ajouter au panier
-</button>
-
-</div>
+  </div>
 
 </div>
 
@@ -284,17 +233,17 @@ Ajouter au panier
 
 <div id="panier">
 
-<h3>🛒 Mon panier</h3>
+  <h3>🛒 Mon panier</h3>
 
-<div id="liste-panier"></div>
+  <div id="liste-panier"></div>
 
-<p class="total">
-Total : <span id="total">0</span> €
-</p>
+  <p class="total">
+    Total : <span id="total">0</span> €
+  </p>
 
-<button class="btn-whatsapp" onclick="commanderWhatsApp()">
-Commander sur WhatsApp
-</button>
+  <button class="btn-whatsapp" onclick="commanderWhatsApp()">
+    Commander sur WhatsApp
+  </button>
 
 </div>
 
@@ -308,41 +257,41 @@ let panier = [];
 
 const data = {
 
-  "Fleur de coton":{
-    desc:"Fleur de Coton : douceur et pureté.",
-    notes:"Tête : aldéhydes | Cœur : coton | Fond : musc blanc"
+  "Fleur de coton": {
+    desc: "Fleur de Coton : douceur et pureté.",
+    notes: "Tête : aldéhydes | Cœur : coton | Fond : musc blanc"
   },
 
-  "Fleur de cerisier":{
-    desc:"Fleur de Cerisier : floral doux et élégant.",
-    notes:"Tête : fruits rouges | Cœur : fleur de cerisier | Fond : musc"
+  "Fleur de cerisier": {
+    desc: "Fleur de Cerisier : floral doux et élégant.",
+    notes: "Tête : fruits rouges | Cœur : fleur de cerisier | Fond : musc"
   },
 
-  "Lavande":{
-    desc:"Lavande : relaxante et apaisante.",
-    notes:"Tête : lavande | Cœur : lavandin | Fond : bois"
+  "Lavande": {
+    desc: "Lavande : relaxante et apaisante.",
+    notes: "Tête : lavande | Cœur : lavandin | Fond : bois"
   },
 
-  "Barbe à papa":{
-    desc:"Barbe à papa : sucré et régressif.",
-    notes:"Tête : sucre | Cœur : vanille | Fond : caramel"
+  "Barbe à papa": {
+    desc: "Barbe à papa : sucré et régressif.",
+    notes: "Tête : sucre | Cœur : vanille | Fond : caramel"
   },
 
-  "Bois de oud":{
-    desc:"Bois de oud : luxe et intense.",
-    notes:"Tête : épices | Cœur : oud | Fond : ambre"
+  "Bois de oud": {
+    desc: "Bois de oud : luxe et intense.",
+    notes: "Tête : épices | Cœur : oud | Fond : ambre"
   }
 
 };
 
 /* CHANGER PARFUM */
 
-function changerParfum(){
+function changerParfum() {
 
   parfumChoisi =
   document.getElementById("parfum").value;
 
-  if(!parfumChoisi){
+  if (!parfumChoisi) {
 
     document.getElementById(
       "description-produit"
@@ -357,7 +306,7 @@ function changerParfum(){
     return;
   }
 
-  if(data[parfumChoisi]){
+  if (data[parfumChoisi]) {
 
     document.getElementById(
       "description-produit"
@@ -386,9 +335,9 @@ function changerParfum(){
 
 /* AJOUT PANIER */
 
-function ajouterPanier(){
+function ajouterPanier() {
 
-  if(!parfumChoisi){
+  if (!parfumChoisi) {
 
     alert("Choisis un parfum !");
 
@@ -397,19 +346,18 @@ function ajouterPanier(){
 
   panier.push({
 
-    nom:
-    "Bougie 80g - " + parfumChoisi,
+    nom: "Bougie 80g - " + parfumChoisi,
 
-    prix:8
+    prix: 8
 
   });
 
   afficherPanier();
 }
 
-/* AFFICHAGE PANIER */
+/* AFFICHER PANIER */
 
-function afficherPanier(){
+function afficherPanier() {
 
   let liste =
   document.getElementById("liste-panier");
@@ -444,9 +392,9 @@ function afficherPanier(){
 
 /* WHATSAPP */
 
-function commanderWhatsApp(){
+function commanderWhatsApp() {
 
-  if(panier.length === 0){
+  if (panier.length === 0) {
 
     alert("Le panier est vide");
 
