@@ -141,7 +141,15 @@
     <h3>🧪 Notes olfactives</h3>
     <p id="notes-parfum">---</p>
 
-    <button onclick="ajouterPanier()">Ajouter au panier</button>
+    <button onclick="ajouterAuPanier('Bougie Vanille',19.90)">
+Ajouter au panier
+</button>
+    <button onclick="ajouterAuPanier('Fondant Fleur Blanche',7.90)">
+Ajouter au panier
+</button>
+    <button onclick="ajouterAuPanier('Spray ambiance',14.90)">
+Ajouter au panier
+</button>
 
   </div>
 
@@ -302,6 +310,88 @@ function ajouterPanier() {
 }
 
 </script>
+<div id="panier">
 
+<h3>🛒 Mon panier</h3>
+
+<div id="liste-panier"></div>
+
+<p>
+Total : <span id="total">0</span> €
+</p>
+
+<button onclick="commanderWhatsApp()">
+Commander sur WhatsApp
+</button>
+
+</div>
+
+<script>
+
+let panier = [];
+
+function ajouterAuPanier(nom, prix){
+
+  panier.push({
+    nom: nom,
+    prix: prix
+  });
+
+  afficherPanier();
+}
+
+function afficherPanier(){
+
+  let liste =
+  document.getElementById("liste-panier");
+
+  let totalElement =
+  document.getElementById("total");
+
+  liste.innerHTML = "";
+
+  let total = 0;
+
+  panier.forEach(item => {
+
+    total += item.prix;
+
+    liste.innerHTML += `
+      <div>
+        ${item.nom} - ${item.prix} €
+      </div>
+    `;
+  });
+
+  totalElement.innerText = total.toFixed(2);
+}
+
+function commanderWhatsApp(){
+
+  let message =
+  "Bonjour, je souhaite commander :%0A%0A";
+
+  let total = 0;
+
+  panier.forEach(item => {
+
+    message +=
+    `- ${item.nom}%0A`;
+
+    total += item.prix;
+  });
+
+  message +=
+  `%0ATotal : ${total.toFixed(2)}€`;
+
+  let numero = "33651461324";
+
+  window.open(
+    `https://wa.me/${numero}?text=${message}`,
+    "_blank"
+  );
+}
+
+</script>
 </body>
 </html>
