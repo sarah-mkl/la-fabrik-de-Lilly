@@ -1,132 +1,127 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Produit - La Fabrik' de Lilly</title>
+<meta charset="UTF-8">
+<title>Produit - La Fabrik' de Lilly</title>
 
-  <style>
+<style>
 
-    body {
-      font-family: Georgia, serif;
-      background: #faf7f2;
-      margin: 0;
-      color: #2b2b2b;
-    }
+body {
+  font-family: Georgia, serif;
+  background: #faf7f2;
+  margin: 0;
+  color: #2b2b2b;
+}
 
-    header {
-      text-align: center;
-      padding: 30px;
-      background: #fff;
-      border-bottom: 1px solid #e6e0d8;
-    }
+header {
+  text-align: center;
+  padding: 30px;
+  background: #fff;
+  border-bottom: 1px solid #e6e0d8;
+}
 
-    nav {
-      text-align: center;
-      padding: 15px;
-      background: #fff;
-      border-bottom: 1px solid #eee;
-    }
+nav {
+  text-align: center;
+  padding: 15px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
 
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #2b2b2b;
-      font-size: 14px;
-    }
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #2b2b2b;
+  font-size: 14px;
+}
 
-    .container {
-      max-width: 800px;
-      margin: auto;
-      padding: 40px 20px;
-    }
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 40px 20px;
+}
 
-    .box {
-      background: #fff;
-      padding: 30px;
-      border: 1px solid #eee;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-    }
+.box {
+  background: #fff;
+  padding: 30px;
+  border: 1px solid #eee;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
 
-    select,
-    button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      font-family: inherit;
-    }
+select, button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  font-family: inherit;
+}
 
-    button {
-      background: #2b2b2b;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
+button {
+  background: #2b2b2b;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
 
-    button:hover {
-      background: #444;
-    }
+button:hover {
+  background: #444;
+}
 
-    h2, h3 {
-      font-weight: 400;
-      letter-spacing: 1px;
-    }
+h2, h3 {
+  font-weight: 400;
+  letter-spacing: 1px;
+}
 
-    #description-produit {
-      line-height: 1.7;
-      color: #444;
-    }
+#description-produit {
+  line-height: 1.7;
+  color: #444;
+}
 
-    #notes-parfum {
-      font-style: italic;
-      color: #666;
-    }
+#notes-parfum {
+  font-style: italic;
+  color: #666;
+}
 
-    /* PANIER */
+/* PANIER */
 
-    #panier {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      width: 260px;
-      background: white;
-      border-radius: 20px;
-      padding: 20px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-    }
+#panier {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 260px;
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
 
-    #panier h3 {
-      margin-top: 0;
-      text-align: center;
-    }
+#panier h3 {
+  margin-top: 0;
+  text-align: center;
+}
 
-    #liste-panier {
-      margin: 15px 0;
-    }
+.panier-item {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+  font-size: 14px;
+}
 
-    .panier-item {
-      margin-bottom: 10px;
-      border-bottom: 1px solid #eee;
-      padding-bottom: 5px;
-      font-size: 14px;
-    }
+.total {
+  text-align: center;
+  font-size: 20px;
+  color: #b08968;
+  font-weight: bold;
+  margin-top: 15px;
+}
 
-    .total {
-      text-align: center;
-      font-size: 20px;
-      color: #b08968;
-      font-weight: bold;
-      margin-top: 15px;
-    }
+.btn-whatsapp {
+  background: #25D366;
+}
 
-    .btn-whatsapp {
-      background: #25D366;
-    }
+.btn-whatsapp:hover {
+  background: #1ebe5d;
+}
 
-    .btn-whatsapp:hover {
-      background: #1ebe5d;
-    }
-
-  </style>
+</style>
 </head>
 
 <body>
@@ -145,15 +140,12 @@
   <div class="box">
 
     <h2>🕯️ Bougie 80g</h2>
-
     <p><strong>Prix :</strong> 8€</p>
 
     <label>🌸 Choisis ton parfum</label>
 
     <select id="parfum" onchange="changerParfum()">
-
       <option value="">-- Sélectionner --</option>
-
       <option value="cerisier">Fleur de cerisier</option>
       <option value="acacia">Fleur d’acacia</option>
       <option value="coton">Fleur de coton</option>
@@ -164,15 +156,12 @@
       <option value="azalee">Azalée du Japon</option>
       <option value="hibiscus">Hibiscus</option>
       <option value="frangipanier">Frangipanier</option>
-
       <option value="barbe_papa">Barbe à papa</option>
       <option value="madeleine">Madeleine gourmande</option>
       <option value="couverture">Douce couverture</option>
       <option value="pomme_amour">Pomme d’amour</option>
-
       <option value="linge">Linge propre</option>
       <option value="adoucissant">Adoucissant</option>
-
       <option value="monoip">Monoï pêche</option>
       <option value="monoic">Monoï clémentine</option>
       <option value="pomme">Pomme verte</option>
@@ -181,42 +170,29 @@
       <option value="pasteque">Pastèque</option>
       <option value="fruit_rouge">Fruit rouge</option>
       <option value="smoothie">Smoothie</option>
-
       <option value="oud">Bois de oud</option>
-
     </select>
 
-    <h3>📝 Descriptif</h3>
-
-    <p id="description-produit">
-      Choisis un parfum.
-    </p>
+    <h3>📝 Description</h3>
+    <p id="description-produit">Choisis un parfum.</p>
 
     <h3>🧪 Notes olfactives</h3>
+    <p id="notes-parfum">---</p>
 
-    <p id="notes-parfum">
-      ---
-    </p>
-
-    <button onclick="ajouterPanier()">
-      Ajouter au panier
-    </button>
+    <button onclick="ajouterPanier()">Ajouter au panier</button>
 
   </div>
 
 </div>
 
 <!-- PANIER -->
-
 <div id="panier">
 
   <h3>🛒 Mon panier</h3>
 
   <div id="liste-panier"></div>
 
-  <p class="total">
-    Total : <span id="total">0</span> €
-  </p>
+  <p class="total">Total : <span id="total">0</span> €</p>
 
   <button class="btn-whatsapp" onclick="commanderWhatsApp()">
     Commander sur WhatsApp
@@ -227,182 +203,100 @@
 <script>
 
 let parfumChoisi = "";
+let panier = JSON.parse(localStorage.getItem("panier")) || [];
 
-let panier = [];
+const nomsParfums = {
+  cerisier: "Fleur de cerisier",
+  acacia: "Fleur d’acacia",
+  coton: "Fleur de coton",
+  orchidee: "Orchidée",
+  lavande: "Lavande",
+  jasmin: "Jasmin",
+  lys: "Lys blanc",
+  azalee: "Azalée du Japon",
+  hibiscus: "Hibiscus",
+  frangipanier: "Frangipanier",
+  barbe_papa: "Barbe à papa",
+  madeleine: "Madeleine gourmande",
+  couverture: "Douce couverture",
+  pomme_amour: "Pomme d’amour",
+  linge: "Linge propre",
+  adoucissant: "Adoucissant",
+  monoip: "Monoï pêche",
+  monoic: "Monoï clémentine",
+  pomme: "Pomme verte",
+  litchi: "Litchi",
+  melon: "Melon",
+  pasteque: "Pastèque",
+  fruit_rouge: "Fruit rouge",
+  smoothie: "Smoothie",
+  oud: "Bois de oud"
+};
 
 const data = {
-
-  coton: {
-    desc: "Fleur de Coton : douceur et pureté. Une ambiance cocooning et propre.",
-    notes: "Tête : aldéhydes | Cœur : coton | Fond : musc blanc"
-  },
-
-  cerisier: {
-    desc: "Fleur de Cerisier : floral doux et élégant.",
-    notes: "Tête : fruits rouges | Cœur : fleur de cerisier | Fond : musc"
-  },
-
-  acacia: {
-    desc: "Fleur d’Acacia : doux et légèrement miellé.",
-    notes: "Tête : miel | Cœur : acacia | Fond : bois doux"
-  },
-
-  orchidee: {
-    desc: "Orchidée : floral raffiné et élégant.",
-    notes: "Tête : fleurs blanches | Cœur : orchidée | Fond : vanille"
-  },
-
-  lavande: {
-    desc: "Lavande : relaxante et apaisante.",
-    notes: "Tête : lavande | Cœur : lavandin | Fond : bois"
-  },
-
-  jasmin: {
-    desc: "Jasmin : floral intense et sensuel.",
-    notes: "Tête : jasmin | Cœur : fleurs blanches | Fond : musc"
-  },
-
-  lys: {
-    desc: "Lys blanc : pur et élégant.",
-    notes: "Tête : floral | Cœur : lys | Fond : musc"
-  },
-
-  azalee: {
-    desc: "Azalée : floral délicat.",
-    notes: "Tête : floral | Cœur : azalée | Fond : bois doux"
-  },
-
-  hibiscus: {
-    desc: "Hibiscus : exotique et fruité.",
-    notes: "Tête : fruits rouges | Cœur : hibiscus | Fond : vanille"
-  },
-
-  frangipanier: {
-    desc: "Frangipanier : solaire et tropical.",
-    notes: "Tête : coco | Cœur : frangipanier | Fond : vanille"
-  },
-
-  barbe_papa: {
-    desc: "Barbe à papa : sucré et régressif.",
-    notes: "Tête : sucre | Cœur : vanille | Fond : caramel"
-  },
-
-  madeleine: {
-    desc: "Madeleine : pâtisserie gourmande.",
-    notes: "Tête : beurre | Cœur : pâte sucrée | Fond : vanille"
-  },
-
-  couverture: {
-    desc: "Douce couverture : cocooning total.",
-    notes: "Tête : sucre | Cœur : musc | Fond : vanille chaude"
-  },
-
-  pomme_amour: {
-    desc: "Pomme d’amour : gourmand caramélisé.",
-    notes: "Tête : pomme | Cœur : caramel | Fond : sucre"
-  },
-
-  linge: {
-    desc: "Linge propre : fraîcheur pure.",
-    notes: "Tête : frais | Cœur : coton | Fond : musc"
-  },
-
-  adoucissant: {
-    desc: "Adoucissant : doux et propre.",
-    notes: "Tête : frais | Cœur : propre | Fond : musc"
-  },
-
-  monoip: {
-    desc: "Monoï pêche : exotique fruité.",
-    notes: "Tête : pêche | Cœur : monoï | Fond : coco"
-  },
-
-  monoic: {
-    desc: "Monoï clémentine : solaire.",
-    notes: "Tête : clémentine | Cœur : monoï | Fond : vanille"
-  },
-
-  pomme: {
-    desc: "Pomme verte : fraîche et acidulée.",
-    notes: "Tête : pomme | Cœur : fruit | Fond : musc"
-  },
-
-  litchi: {
-    desc: "Litchi : doux et exotique.",
-    notes: "Tête : litchi | Cœur : fruit | Fond : sucre"
-  },
-
-  melon: {
-    desc: "Melon : frais et sucré.",
-    notes: "Tête : melon | Cœur : fruit | Fond : frais"
-  },
-
-  pasteque: {
-    desc: "Pastèque : juteux et frais.",
-    notes: "Tête : pastèque | Cœur : fruit | Fond : eau"
-  },
-
-  fruit_rouge: {
-    desc: "Fruit rouge : gourmand et pétillant.",
-    notes: "Tête : fraise | Cœur : framboise | Fond : sucre"
-  },
-
-  smoothie: {
-    desc: "Smoothie : cocktail fruité.",
-    notes: "Tête : fruits | Cœur : mélange | Fond : sucre"
-  },
-
-  oud: {
-    desc: "Bois de oud : luxe et intense.",
-    notes: "Tête : épices | Cœur : oud | Fond : ambre"
-  }
-
+  coton: { desc:"Douceur et pureté.", notes:"Coton / musc blanc" },
+  cerisier: { desc:"Floral doux et élégant.", notes:"Fruits rouges / fleur de cerisier" },
+  acacia: { desc:"Doux et miellé.", notes:"Miel / bois doux" },
+  orchidee: { desc:"Floral raffiné.", notes:"Fleurs blanches / vanille" },
+  lavande: { desc:"Relaxante.", notes:"Lavande / bois" },
+  jasmin: { desc:"Intense et sensuel.", notes:"Jasmin / musc" },
+  lys: { desc:"Pur et élégant.", notes:"Lys / floral" },
+  azalee: { desc:"Délicat floral.", notes:"Floral / bois doux" },
+  hibiscus: { desc:"Exotique fruité.", notes:"Fruits rouges / vanille" },
+  frangipanier: { desc:"Solaire tropical.", notes:"Coco / vanille" },
+  barbe_papa: { desc:"Gourmand sucré.", notes:"Sucre / vanille" },
+  madeleine: { desc:"Pâtisserie.", notes:"Beurre / vanille" },
+  couverture: { desc:"Cocooning.", notes:"Musc / vanille" },
+  pomme_amour: { desc:"Caramélisé.", notes:"Pomme / caramel" },
+  linge: { desc:"Propre frais.", notes:"Coton / musc" },
+  adoucissant: { desc:"Doux propre.", notes:"Frais / musc" },
+  monoip: { desc:"Exotique pêche.", notes:"Pêche / coco" },
+  monoic: { desc:"Solaire clémentine.", notes:"Agrumes / vanille" },
+  pomme: { desc:"Fraîche acidulée.", notes:"Pomme / musc" },
+  litchi: { desc:"Doux exotique.", notes:"Litchi / sucre" },
+  melon: { desc:"Frais sucré.", notes:"Melon / frais" },
+  pasteque: { desc:"Juteux frais.", notes:"Pastèque / eau" },
+  fruit_rouge: { desc:"Gourmand fruité.", notes:"Fraise / framboise" },
+  smoothie: { desc:"Cocktail fruité.", notes:"Fruits mélangés" },
+  oud: { desc:"Luxe intense.", notes:"Épices / bois oud" }
 };
 
 function changerParfum() {
+  parfumChoisi = document.getElementById("parfum").value;
 
-  parfumChoisi =
-  document.getElementById("parfum").value;
+  if (!parfumChoisi) {
+    document.getElementById("description-produit").textContent = "Choisis un parfum.";
+    document.getElementById("notes-parfum").textContent = "---";
+    return;
+  }
 
-  if (!parfumChoisi) return;
-
-  document.getElementById("description-produit").textContent =
-    data[parfumChoisi].desc;
-
-  document.getElementById("notes-parfum").textContent =
-    data[parfumChoisi].notes;
+  document.getElementById("description-produit").textContent = data[parfumChoisi].desc;
+  document.getElementById("notes-parfum").textContent = data[parfumChoisi].notes;
 }
 
 function ajouterPanier() {
-
   if (!parfumChoisi) {
-
     alert("Choisis un parfum !");
     return;
   }
 
   panier.push({
-    nom: "Bougie 80g - " + parfumChoisi,
+    nom: "Bougie 80g - " + nomsParfums[parfumChoisi],
     prix: 8
   });
 
+  sauvegarder();
   afficherPanier();
 }
 
 function afficherPanier() {
-
-  let liste =
-  document.getElementById("liste-panier");
-
-  let totalElement =
-  document.getElementById("total");
+  let liste = document.getElementById("liste-panier");
+  let totalElement = document.getElementById("total");
 
   liste.innerHTML = "";
-
   let total = 0;
 
   panier.forEach(item => {
-
     total += item.prix;
 
     liste.innerHTML += `
@@ -412,41 +306,34 @@ function afficherPanier() {
     `;
   });
 
-  totalElement.innerText =
-  total.toFixed(2);
+  totalElement.textContent = total.toFixed(2);
+}
+
+function sauvegarder() {
+  localStorage.setItem("panier", JSON.stringify(panier));
 }
 
 function commanderWhatsApp() {
-
   if (panier.length === 0) {
-
     alert("Le panier est vide");
     return;
   }
 
-  let message =
-  "Bonjour, je souhaite commander :%0A%0A";
-
+  let message = "Bonjour, je souhaite commander :%0A%0A";
   let total = 0;
 
   panier.forEach(item => {
-
-    message +=
-    `- ${item.nom}%0A`;
-
+    message += "- " + item.nom + "%0A";
     total += item.prix;
   });
 
-  message +=
-  `%0ATotal : ${total.toFixed(2)}€`;
+  message += "%0ATotal : " + total.toFixed(2) + "€";
 
-  let numero = "33651461324";
-
-  window.open(
-    `https://wa.me/${numero}?text=${message}`,
-    "_blank"
-  );
+  window.open("https://wa.me/33651461324?text=" + message, "_blank");
 }
+
+// init
+afficherPanier();
 
 </script>
 
