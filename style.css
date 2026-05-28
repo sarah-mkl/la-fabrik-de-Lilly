@@ -1,430 +1,304 @@
-/* =========================
-BASE
-========================= */
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
 body{
-  font-family:Georgia, serif;
-  background:#f8f4ef;
-  color:#2b2b2b;
-  overflow-x:hidden;
+    margin:0;
+    font-family:Georgia, serif;
+    background:#f8f4ef;
+    color:#2b2b2b;
 }
 
-/* =========================
-HEADER
-========================= */
+/* HEADER */
 
 header{
-  text-align:center;
-  padding:50px 20px;
-  background:
-  linear-gradient(135deg,#ffffff,#f3e6e1);
-
-  border-bottom:1px solid #e6e0d8;
+    position:absolute;
+    top:0;
+    width:100%;
+    z-index:10;
+    padding:25px 0;
 }
 
-/* =========================
-LOGO
-========================= */
-
-.logo{
-  width:auto;
-  height:120px;
-  object-fit:contain;
-  margin-bottom:15px;
-}
-
-/* =========================
-SUBTITLE
-========================= */
-
-.subtitle{
-  color:#777;
-  font-style:italic;
-  font-size:15px;
-  letter-spacing:1px;
-  margin-top:10px;
-}
-
-/* =========================
-MENU
-========================= */
+/* MENU */
 
 nav{
-  position:sticky;
-  top:0;
-  z-index:999;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:25px;
-  padding:18px;
-  background:rgba(255,255,255,0.92);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid #eee;
+    display:flex;
+    justify-content:center;
+    gap:40px;
 }
 
 nav a{
-  text-decoration:none;
-  color:#2b2b2b;
-  font-size:13px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  transition:0.3s;
-  position:relative;
-}
-
-nav a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-5px;
-  width:0%;
-  height:1px;
-  background:#b08968;
-  transition:0.3s;
+    text-decoration:none;
+    color:#2b2b2b;
+    letter-spacing:2px;
+    font-size:13px;
+    background:rgba(255,255,255,0.75);
+    padding:10px 18px;
+    border-radius:30px;
+    backdrop-filter:blur(5px);
+    transition:0.3s;
 }
 
 nav a:hover{
-  color:#b08968;
+    background:#2b2b2b;
+    color:white;
 }
 
-nav a:hover::after{
-  width:100%;
+/* HERO */
+
+.hero{
+    height:100vh;
+
+    background:
+    linear-gradient(rgba(255,255,255,0.55),rgba(255,255,255,0.55)),
+    url("images/logo-ll.jpg")
+    center center / 70% no-repeat,
+
+    linear-gradient(180deg,#f8f4ef,#efe5dd);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+    padding:20px;
 }
 
-/* =========================
-HERO
-========================= */
-
-.hero-simple{
-  min-height:85vh;
-
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-
-  padding:100px 20px;
-
-  background:
-  linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)),
-  url("https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=1974&auto=format&fit=crop")
-  center center / cover no-repeat;
-
-  color:white;
+.hero-content{
+    max-width:750px;
+    margin-top:120px;
 }
 
-.hero-simple h1{
-  font-size:60px;
-  font-weight:300;
-  letter-spacing:4px;
-  margin-bottom:20px;
+.hero h1{
+    font-size:65px;
+    font-weight:300;
+    letter-spacing:4px;
+    margin-bottom:20px;
+    color:#2b2b2b;
 }
 
-.hero-simple p{
-  font-size:20px;
-  max-width:700px;
-  line-height:1.8;
-  font-style:italic;
+.hero p{
+    font-size:19px;
+    line-height:1.9;
+    color:#4d4d4d;
 }
 
-/* =========================
-BUTTONS
-========================= */
+/* BTN */
 
-button,
 .btn{
-  margin-top:25px;
-  display:inline-block;
-  padding:14px 28px;
-  border:none;
-  border-radius:40px;
-  background:#2b2b2b;
-  color:white;
-  text-decoration:none;
-  cursor:pointer;
-  letter-spacing:1px;
-  font-size:14px;
-  transition:0.3s;
+    display:inline-block;
+    margin-top:35px;
+    padding:15px 30px;
+    background:#2b2b2b;
+    color:white;
+    text-decoration:none;
+    border-radius:40px;
+    letter-spacing:2px;
+    transition:0.3s;
 }
 
-button:hover,
 .btn:hover{
-  background:#b08968;
-  transform:translateY(-3px);
+    background:#b08968;
 }
 
-/* =========================
-SECTIONS
-========================= */
+/* SECTION */
 
 .section{
-  max-width:1200px;
-  margin:auto;
-  padding:90px 20px;
+    padding:90px 20px;
+    max-width:1200px;
+    margin:auto;
 }
 
-.section h2{
-  text-align:center;
-  font-size:38px;
-  font-weight:300;
-  letter-spacing:3px;
-  margin-bottom:15px;
-  color:#3a2e2a;
+.section-title{
+    text-align:center;
+    font-size:38px;
+    font-weight:300;
+    letter-spacing:3px;
+    margin-bottom:15px;
 }
 
-.section p{
-  text-align:center;
-  color:#666;
-  line-height:1.9;
-  max-width:800px;
-  margin:auto;
+.section-text{
+    text-align:center;
+    max-width:750px;
+    margin:auto;
+    color:#666;
+    line-height:1.9;
+    font-size:17px;
 }
 
-/* =========================
-GRID
-========================= */
+/* GRID */
 
 .grid{
-  margin-top:60px;
-
-  display:grid;
-  grid-template-columns:
-  repeat(auto-fit,minmax(280px,1fr));
-
-  gap:35px;
+    margin-top:60px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
 }
 
-/* =========================
-CARDS
-========================= */
+/* CARD */
 
 .card{
-  background:white;
-  border-radius:25px;
-  overflow:hidden;
-
-  box-shadow:
-  0 10px 30px rgba(0,0,0,0.08);
-
-  transition:0.3s;
-
-  border:1px solid #f3e6e1;
+    background:white;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    transition:0.3s;
 }
 
 .card:hover{
-  transform:translateY(-6px);
+    transform:translateY(-6px);
 }
 
 .card img{
-  width:100%;
-  height:340px;
-  object-fit:cover;
-  display:block;
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    display:block;
 }
 
 .card-content{
-  padding:28px;
-  text-align:center;
+    padding:25px;
+    text-align:center;
 }
 
 .card h3{
-  font-size:26px;
-  font-weight:400;
-  margin-bottom:15px;
+    margin-top:0;
+    font-size:24px;
+    font-weight:400;
 }
 
 .card p{
-  color:#666;
-  line-height:1.8;
+    color:#666;
+    line-height:1.7;
 }
 
-/* =========================
-PRICE
-========================= */
+/* PRICE */
 
 .price{
-  margin:20px 0;
-  color:#b08968;
-  font-size:28px;
-  font-weight:bold;
+    margin:20px 0;
+    color:#b08968;
+    font-size:24px;
+    font-weight:bold;
 }
 
-/* =========================
-VALUES SECTION
-========================= */
+/* BUTTON */
 
-.values{
-  background:#efe5dd;
-  padding:90px 20px;
-  text-align:center;
+button{
+    border:none;
+    background:#2b2b2b;
+    color:white;
+    padding:12px 22px;
+    border-radius:30px;
+    cursor:pointer;
+    transition:0.3s;
+    font-family:inherit;
 }
 
-.values h2{
-  font-size:40px;
-  font-weight:300;
-  letter-spacing:3px;
-  margin-bottom:25px;
+button:hover{
+    background:#b08968;
 }
 
-.values p{
-  max-width:850px;
-  margin:auto;
-  line-height:2;
-  color:#555;
-  font-size:17px;
-}
-
-/* =========================
-PANIER
-========================= */
+/* PANIER */
 
 #panier{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-
-  width:320px;
-
-  background:white;
-
-  border-radius:25px;
-
-  padding:22px;
-
-  box-shadow:
-  0 10px 35px rgba(0,0,0,0.15);
-
-  z-index:999;
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:260px;
+    background:white;
+    border-radius:20px;
+    padding:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.15);
+    z-index:999;
 }
 
 #panier h3{
-  text-align:center;
-  margin-bottom:20px;
-  font-size:24px;
+    margin-top:0;
+    text-align:center;
+    font-size:22px;
 }
 
 #liste-panier{
-  max-height:240px;
-  overflow-y:auto;
+    margin:15px 0;
+    max-height:200px;
+    overflow-y:auto;
 }
 
 .panier-item{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-  padding:10px 0;
-
-  border-bottom:1px solid #eee;
-
-  font-size:14px;
+    margin-bottom:10px;
+    font-size:14px;
+    border-bottom:1px solid #eee;
+    padding-bottom:6px;
 }
 
 .total{
-  margin-top:20px;
-  text-align:center;
-  font-size:24px;
-  font-weight:bold;
-  color:#b08968;
+    text-align:center;
+    font-size:20px;
+    color:#b08968;
+    font-weight:bold;
+    margin-top:15px;
 }
 
-/* =========================
-WHATSAPP BUTTON
-========================= */
-
 .btn-whatsapp{
-  width:100%;
-  margin-top:20px;
-  background:#25D366;
-  font-size:15px;
+    width:100%;
+    background:#25D366;
+    margin-top:15px;
 }
 
 .btn-whatsapp:hover{
-  background:#1ebe5d;
+    background:#1ebe5d;
 }
 
-/* =========================
-FOOTER
-========================= */
+/* BANDEAU */
+
+.values{
+    background:#efe5dd;
+    padding:80px 20px;
+    text-align:center;
+}
+
+.values h2{
+    font-size:38px;
+    font-weight:300;
+    margin-bottom:25px;
+    letter-spacing:2px;
+}
+
+.values p{
+    max-width:800px;
+    margin:auto;
+    line-height:2;
+    color:#555;
+    font-size:17px;
+}
+
+/* FOOTER */
 
 footer{
-  text-align:center;
-  padding:45px 20px;
-  color:#777;
-  font-size:13px;
-  border-top:1px solid #eee;
-  margin-top:60px;
-  background:white;
+    text-align:center;
+    padding:40px;
+    color:#888;
+    font-size:13px;
+    border-top:1px solid #eee;
 }
 
-/* =========================
-SCROLLBAR
-========================= */
+/* RESPONSIVE */
 
-::-webkit-scrollbar{
-  width:8px;
-}
+@media(max-width:768px){
 
-::-webkit-scrollbar-thumb{
-  background:#d6b49a;
-  border-radius:20px;
-}
+    .hero h1{
+        font-size:42px;
+    }
 
-/* =========================
-RESPONSIVE
-========================= */
+    .hero p{
+        font-size:16px;
+    }
 
-@media(max-width:900px){
+    nav{
+        flex-wrap:wrap;
+        gap:15px;
+    }
 
-  .hero-simple h1{
-    font-size:42px;
-  }
-
-  .hero-simple p{
-    font-size:17px;
-  }
-
-  #panier{
-    width:90%;
-    right:5%;
-    bottom:10px;
-  }
-
-}
-
-@media(max-width:600px){
-
-  nav{
-    flex-wrap:wrap;
-    gap:15px;
-  }
-
-  .hero-simple{
-    padding:80px 20px;
-  }
-
-  .hero-simple h1{
-    font-size:34px;
-  }
-
-  .section h2{
-    font-size:30px;
-  }
-
-  .card img{
-    height:280px;
-  }
+    #panier{
+        width:90%;
+        right:5%;
+        bottom:10px;
+    }
 
 }
