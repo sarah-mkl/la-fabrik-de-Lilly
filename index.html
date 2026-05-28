@@ -192,6 +192,51 @@ button:hover{
     background:#b08968;
 }
 
+/* PANIER */
+
+.panier{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:320px;
+    background:white;
+    border-radius:25px;
+    padding:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+    z-index:999;
+}
+
+.panier h3{
+    margin-top:0;
+    text-align:center;
+}
+
+.panier-item{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:10px;
+    font-size:15px;
+}
+
+.total{
+    margin-top:20px;
+    font-size:22px;
+    text-align:center;
+    color:#b08968;
+    font-weight:bold;
+}
+
+.whatsapp-btn{
+    width:100%;
+    margin-top:20px;
+    background:#25D366;
+    font-size:16px;
+}
+
+.whatsapp-btn:hover{
+    background:#1ebd5a;
+}
+
 /* BANDEAU */
 
 .values{
@@ -253,7 +298,7 @@ Bougies artisanales à la cire de soja 100% végétale.
 Parfums de Grasse sans CMR pour une expérience élégante et sensorielle.
 </p>
 
-<a href="boutique.html" class="btn">
+<a href="#boutique" class="btn">
 DÉCOUVRIR LA BOUTIQUE
 </a>
 
@@ -261,7 +306,7 @@ DÉCOUVRIR LA BOUTIQUE
 
 </section>
 
-<section class="section">
+<section class="section" id="boutique">
 
 <h2 class="section-title">Coups de cœur</h2>
 
@@ -271,11 +316,14 @@ Découvrez les créations préférées de nos clientes.
 
 <div class="grid">
 
+<!-- PRODUIT 1 -->
+
 <div class="card">
 
 <img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=1200&auto=format&fit=crop">
 
 <div class="card-content">
+
 <h3>Bougie Vanille</h3>
 
 <p>
@@ -286,18 +334,21 @@ Une fragrance douce et réconfortante aux notes chaleureuses.
 19,90€
 </div>
 
-<button>
+<button onclick="ajouterAuPanier('Bougie Vanille',19.90)">
 Ajouter au panier
 </button>
 
 </div>
 </div>
 
+<!-- PRODUIT 2 -->
+
 <div class="card">
 
 <img src="https://images.unsplash.com/photo-1615529328331-f8917597711f?q=80&w=1200&auto=format&fit=crop">
 
 <div class="card-content">
+
 <h3>Fondant Fleur Blanche</h3>
 
 <p>
@@ -308,18 +359,21 @@ Des notes florales raffinées pour une ambiance délicate.
 7,90€
 </div>
 
-<button>
+<button onclick="ajouterAuPanier('Fondant Fleur Blanche',7.90)">
 Ajouter au panier
 </button>
 
 </div>
 </div>
 
+<!-- PRODUIT 3 -->
+
 <div class="card">
 
 <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=1200&auto=format&fit=crop">
 
 <div class="card-content">
+
 <h3>Spray d’ambiance</h3>
 
 <p>
@@ -330,7 +384,7 @@ Une senteur élégante pour parfumer votre intérieur instantanément.
 14,90€
 </div>
 
-<button>
+<button onclick="ajouterAuPanier('Spray d’ambiance',14.90)">
 Ajouter au panier
 </button>
 
@@ -340,6 +394,24 @@ Ajouter au panier
 </div>
 
 </section>
+
+<!-- PANIER -->
+
+<div class="panier">
+
+<h3>🛒 Mon panier</h3>
+
+<div id="panier-items"></div>
+
+<div class="total">
+Total : <span id="total">0</span> €
+</div>
+
+<button class="whatsapp-btn" onclick="commanderWhatsApp()">
+Commander sur WhatsApp
+</button>
+
+</div>
 
 <section class="values">
 
@@ -358,6 +430,87 @@ La Fabrik’ de Lilly imagine des produits élégants, sensoriels et raffinés p
 © 2026 La Fabrik' de Lilly
 
 </footer>
+
+<script>
+
+let panier = [];
+
+function ajouterAuPanier(nom, prix){
+
+    let produitExistant = panier.find(item => item.nom === nom);
+
+    if(produitExistant){
+        produitExistant.quantite++;
+    }else{
+        panier.push({
+            nom: nom,
+            prix: prix,
+            quantite: 1
+        });
+    }
+
+    afficherPanier();
+}
+
+function afficherPanier(){
+
+    const panierItems = document.getElementById("panier-items");
+    const totalElement = document.getElementById("total");
+
+    panierItems.innerHTML = "";
+
+    let total = 0;
+
+    panier.forEach((item,index)=>{
+
+        total += item.prix * item.quantite;
+
+        panierItems.innerHTML += `
+        
+        <div class="panier-item">
+            <span>${item.nom} x${item.quantite}</span>
+
+            <span>
+                ${(item.prix * item.quantite).toFixed(2)} €
+            </span>
+        </div>
+
+        `;
+    });
+
+    totalElement.innerText = total.toFixed(2);
+}
+
+function commanderWhatsApp(){
+
+    if(panier.length === 0){
+        alert("Votre panier est vide");
+        return;
+    }
+
+    let message = "Bonjour, je souhaite commander :%0A%0A";
+
+    let total = 0;
+
+    panier.forEach(item => {
+
+        message += `- ${item.nom} x${item.quantite}%0A`;
+
+        total += item.prix * item.quantite;
+    });
+
+    message += `%0ATotal : ${total.toFixed(2)} €`;
+
+    /* REMPLACE PAR TON NUMERO */
+
+    let numero = "33600000000";
+
+    let url = `https://wa.me/${numero}?text=${message}`;
+
+    window.open(url, "_blank");
+}
+
+</script>
 
 </body>
 </html>
