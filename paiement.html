@@ -15,18 +15,10 @@ body{
   linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)),
   url("images/logo-ll.jpg") center/70% no-repeat fixed,
   linear-gradient(180deg,#f8f4ef,#efe5dd);
-  color:#2b2b2b;
-}
-
-header{
-  text-align:center;
-  padding:25px;
-  background:rgba(255,255,255,0.85);
-  border-bottom:1px solid #eee;
 }
 
 .container{
-  max-width:800px;
+  max-width:700px;
   margin:auto;
   padding:40px 20px;
 }
@@ -44,11 +36,18 @@ header{
 }
 
 .total{
-  text-align:center;
   font-size:22px;
+  text-align:center;
   margin-top:15px;
-  font-weight:bold;
   color:#b08968;
+}
+
+input{
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+  border-radius:10px;
+  border:1px solid #ddd;
 }
 
 button{
@@ -58,7 +57,6 @@ button{
   border:none;
   border-radius:10px;
   cursor:pointer;
-  font-family:inherit;
 }
 
 .whatsapp{
@@ -66,13 +64,9 @@ button{
   color:white;
 }
 
-.clear{
+.back{
   background:#2b2b2b;
   color:white;
-}
-
-.back{
-  background:#ddd;
 }
 
 </style>
@@ -80,30 +74,24 @@ button{
 
 <body>
 
-<header>
-<h1>Validation commande</h1>
-</header>
-
 <div class="container">
 
 <div class="box">
 
-<h2>Récapitulatif</h2>
+<h2>Validation commande</h2>
 
-<div id="liste"></div>
+<input id="name" placeholder="Ton prénom">
 
-<p class="total">Total : <span id="total">0</span> €</p>
+<div id="list"></div>
 
-<button class="whatsapp" onclick="sendWhatsApp()">
+<p class="total">Total : <span id="total">0</span>€</p>
+
+<button class="whatsapp" onclick="send()">
 Commander sur WhatsApp
 </button>
 
-<button class="clear" onclick="viderPanier()">
-Vider le panier
-</button>
-
 <button class="back" onclick="window.location.href='boutique.html'">
-← Retour boutique
+Retour boutique
 </button>
 
 </div>
@@ -114,54 +102,50 @@ Vider le panier
 
 let panier = JSON.parse(localStorage.getItem("panier")) || [];
 
-function afficher(){
+function load(){
 
-  let liste = document.getElementById("liste");
+  let box = document.getElementById("list");
   let total = 0;
 
-  liste.innerHTML = "";
+  box.innerHTML = "";
 
-  panier.forEach(p => {
+  panier.forEach(p=>{
     total += p.prix;
 
-    let div = document.createElement("div");
-    div.className = "item";
-    div.textContent = p.nom + " - " + p.prix + "€";
-    liste.appendChild(div);
+    let d = document.createElement("div");
+    d.className = "item";
+    d.textContent = p.nom + " - " + p.prix + "€";
+    box.appendChild(d);
   });
 
   document.getElementById("total").textContent = total;
 }
 
-function sendWhatsApp(){
+function send(){
 
-  if(panier.length === 0){
-    alert("Ton panier est vide !");
+  let name = document.getElementById("name").value;
+
+  if(!name){
+    alert("Entre ton prénom");
     return;
   }
 
-  let msg = "🌸 Nouvelle commande La Fabrik' de Lilly 🌸%0A%0A";
+  let msg = "🌸 Commande La Fabrik' de Lilly 🌸%0A%0A";
+  msg += "Nom : " + name + "%0A%0A";
+
   let total = 0;
 
-  panier.forEach(p => {
+  panier.forEach(p=>{
     msg += "• " + p.nom + " - " + p.prix + "€%0A";
     total += p.prix;
   });
 
   msg += "%0A💰 Total : " + total + "€";
 
-  let phone = "33651461324";
-
-  window.open("https://wa.me/" + phone + "?text=" + msg);
+  window.open("https://wa.me/33651461324?text=" + msg);
 }
 
-function viderPanier(){
-  panier = [];
-  localStorage.setItem("panier", JSON.stringify(panier));
-  afficher();
-}
-
-window.onload = afficher;
+window.onload = load;
 
 </script>
 
