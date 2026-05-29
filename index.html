@@ -13,257 +13,94 @@ body{
 margin:0;
 font-family:Georgia, serif;
 background:#f8f4ef;
+height:100vh;
+overflow:hidden;
 color:#2b2b2b;
 }
 
-/* HEADER */
+/* LOGO = ELEMENT PRINCIPAL */
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:url("images/logo-ll.jpg") center/80% no-repeat;
+opacity:0.35;
+z-index:-1;
+}
+
+/* TITRE SIMPLE EN HAUT */
 header{
 position:absolute;
-top:0;
+top:25px;
 width:100%;
-z-index:10;
-padding:25px 0;
-}
-
-nav{
-display:flex;
-justify-content:center;
-gap:40px;
-}
-
-nav a{
-text-decoration:none;
-color:#2b2b2b;
-letter-spacing:2px;
-font-size:13px;
-background:rgba(255,255,255,0.75);
-padding:10px 18px;
-border-radius:30px;
-backdrop-filter:blur(5px);
-transition:0.3s;
-}
-
-nav a:hover{
-background:#2b2b2b;
-color:white;
-}
-
-/* HERO PLUS PRO */
-.hero{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
 text-align:center;
-padding:20px;
-
-/* fond logo + overlay plus doux */
-background:
-linear-gradient(rgba(255,255,255,0.45),rgba(255,255,255,0.45)),
-url("images/logo-ll.jpg") center center / 75% no-repeat,
-linear-gradient(180deg,#f8f4ef,#efe5dd);
+font-size:34px;
+font-weight:400;
+letter-spacing:2px;
 }
 
-/* BLOCS */
-.hero-content{
-max-width:750px;
-padding:50px 40px;
-background:rgba(255,255,255,0.60);
-border-radius:30px;
-box-shadow:0 15px 40px rgba(0,0,0,0.10);
-backdrop-filter:blur(6px);
+/* BAS SIMPLE */
+.footer{
+position:absolute;
+bottom:50px;
+width:100%;
+text-align:center;
 }
 
-/* TITRE MARQUE */
-.hero h1{
-font-size:70px;
-font-weight:300;
-letter-spacing:5px;
-margin-bottom:15px;
+.footer p{
+margin:0 0 20px 0;
+font-size:16px;
+color:#555;
 }
 
-/* SOUS TEXTE */
-.hero p{
-font-size:18px;
-line-height:1.8;
-color:#4d4d4d;
-}
-
-/* BOUTON PLUS PREMIUM */
+/* BOUTON PROPRE */
 .btn{
 display:inline-block;
-margin-top:35px;
-padding:16px 40px;
+padding:14px 35px;
 background:#2b2b2b;
 color:white;
 text-decoration:none;
 border-radius:40px;
-letter-spacing:2px;
-font-size:14px;
 transition:0.3s;
-box-shadow:0 10px 25px rgba(0,0,0,0.15);
+letter-spacing:1px;
 }
 
 .btn:hover{
-background:#b08968;
+background:#444;
 transform:translateY(-3px);
 }
 
-/* SECTION */
-.section{
-padding:90px 20px;
-max-width:1200px;
-margin:auto;
+/* RESPONSIVE */
+@media(max-width:768px){
+body::before{
+background-size:95%;
+opacity:0.30;
 }
-
-.section-title{
-text-align:center;
-font-size:40px;
-font-weight:300;
-letter-spacing:3px;
-margin-bottom:15px;
+header{
+font-size:26px;
 }
-
-.section-text{
-text-align:center;
-max-width:750px;
-margin:auto;
-color:#666;
-line-height:1.9;
-font-size:17px;
-}
-
-/* CARDS */
-.grid{
-margin-top:60px;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:30px;
-}
-
-.card{
-background:white;
-border-radius:25px;
-overflow:hidden;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-6px);
-}
-
-.card img{
-width:100%;
-height:320px;
-object-fit:cover;
-}
-
-.card-content{
-padding:25px;
-text-align:center;
-}
-
-.card h3{
-font-size:24px;
-font-weight:400;
-}
-
-.price{
-margin:20px 0;
-color:#b08968;
-font-size:24px;
-font-weight:bold;
-}
-
-button{
-border:none;
-background:#2b2b2b;
-color:white;
-padding:12px 22px;
-border-radius:30px;
-cursor:pointer;
-transition:0.3s;
-}
-
-button:hover{
-background:#b08968;
-}
-
-/* PANIER */
-#panier{
-position:fixed;
-right:20px;
-bottom:20px;
-width:260px;
-background:white;
-border-radius:20px;
-padding:20px;
-box-shadow:0 5px 20px rgba(0,0,0,0.15);
-z-index:999;
-}
-
-.total{
-text-align:center;
-font-size:20px;
-color:#b08968;
-font-weight:bold;
-}
-
-/* VALUES */
-.values{
-background:#efe5dd;
-padding:80px 20px;
-text-align:center;
-}
-
-.values h2{
-font-size:38px;
-font-weight:300;
-letter-spacing:2px;
-}
-
-/* FOOTER */
-footer{
-text-align:center;
-padding:40px;
-color:#888;
-font-size:13px;
-border-top:1px solid #eee;
 }
 
 </style>
-
 </head>
 
 <body>
 
 <header>
-<nav>
-<a href="index.html">ACCUEIL</a>
-<a href="boutique.html">BOUTIQUE</a>
-<a href="#">À PROPOS</a>
-</nav>
+La Fabrik' de Lilly
 </header>
 
-<section class="hero">
-
-<div class="hero-content">
-
-<h1>La Fabrik' de Lilly</h1>
+<div class="footer">
 
 <p>
-Bougies artisanales à la cire de soja 100% végétale.<br>
-Parfums de Grasse sans CMR pour une ambiance chaleureuse et élégante.
+Bougies artisanales • Parfums de Grasse • Fabrication soignée
 </p>
 
-<a href="boutique.html" class="btn">
-DÉCOUVRIR LA BOUTIQUE
+<a class="btn" href="menu.html">
+Découvrir la boutique
 </a>
 
 </div>
-
-</section>
 
 </body>
 </html>
