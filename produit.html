@@ -2,80 +2,90 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Produit - La Fabrik' de Lilly</title>
 
 <style>
 
-body {
+body{
   font-family: Georgia, serif;
-  background: #faf7f2;
-  margin: 0;
-  color: #2b2b2b;
+  background:#faf7f2;
+  margin:0;
+  color:#2b2b2b;
 }
 
-header {
-  text-align: center;
-  padding: 30px;
-  background: #fff;
-  border-bottom: 1px solid #e6e0d8;
+header{
+  text-align:center;
+  padding:30px;
+  background:white;
+  border-bottom:1px solid #eee;
 }
 
-.container {
-  max-width: 800px;
-  margin: auto;
-  padding: 40px 20px;
+.container{
+  max-width:800px;
+  margin:auto;
+  padding:40px 20px;
 }
 
-.box {
-  background: #fff;
-  padding: 30px;
-  border: 1px solid #eee;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+.box{
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.08);
 }
 
-select, button {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  font-family: inherit;
+select,button{
+  width:100%;
+  padding:12px;
+  margin-top:12px;
+  font-family:inherit;
+  border-radius:10px;
 }
 
-button {
-  background: #2b2b2b;
-  color: white;
-  border: none;
-  cursor: pointer;
+button{
+  background:#2b2b2b;
+  color:white;
+  border:none;
+  cursor:pointer;
 }
 
-button:hover {
-  background: #444;
+button:hover{
+  background:#444;
 }
 
 /* PANIER */
-#panier {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  width: 260px;
-  background: white;
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+
+#panier{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:280px;
+  background:white;
+  border-radius:20px;
+  padding:20px;
+  box-shadow:0 5px 25px rgba(0,0,0,0.15);
 }
 
-.total {
-  text-align: center;
-  font-size: 20px;
-  color: #b08968;
-  font-weight: bold;
+.total{
+  text-align:center;
+  font-size:22px;
+  color:#b08968;
+  font-weight:bold;
+  margin-top:15px;
 }
 
-.btn-whatsapp {
-  background: #25D366;
+.btn-whatsapp{
+  background:#25D366;
 }
 
-.btn-whatsapp:hover {
-  background: #1ebe5d;
+.btn-whatsapp:hover{
+  background:#1ebe5d;
+}
+
+.article{
+  border-bottom:1px solid #eee;
+  padding:10px 0;
 }
 
 </style>
@@ -91,131 +101,189 @@ button:hover {
 
   <div class="box">
 
-    <h2 id="titre-produit">Produit</h2>
+    <h2 id="titre-produit"></h2>
 
-    <p><strong>Prix :</strong> <span id="prix"></span> €</p>
+    <p>
+      <strong>Prix :</strong>
+      <span id="prix"></span> €
+    </p>
 
     <label>Choisis ton parfum</label>
 
     <select id="parfum" onchange="changerParfum()">
+
       <option value="">-- Sélectionner --</option>
+
       <option value="coton">Fleur de coton</option>
       <option value="cerisier">Fleur de cerisier</option>
-      <option value="lavande">Lavande</option>
+      <option value="monoï">Monoï</option>
+      <option value="vanille">Vanille</option>
       <option value="jasmin">Jasmin</option>
+      <option value="lavande">Lavande</option>
       <option value="oud">Bois de oud</option>
+      <option value="ambre">Ambre</option>
+      <option value="musc">Musc blanc</option>
+      <option value="fruits">Fruits rouges</option>
+      <option value="bubble">Bubble gum</option>
+      <option value="pomme">Pomme d'amour</option>
+      <option value="citron">Tarte citron</option>
+      <option value="cookie">Cookie</option>
+      <option value="fraise">Fraise chantilly</option>
+
     </select>
 
-    <p id="description">Choisis un parfum</p>
+    <p id="description">
+      Choisis un parfum
+    </p>
+
     <p id="notes"></p>
 
-    <button onclick="ajouterPanier()">Ajouter au panier</button>
+    <button onclick="ajouterPanier()">
+      Ajouter au panier
+    </button>
 
   </div>
 
 </div>
 
 <!-- PANIER -->
+
 <div id="panier">
 
   <h3>🛒 Panier</h3>
 
   <div id="liste"></div>
 
-  <p class="total">Total : <span id="total">0</span> €</p>
+  <p class="total">
+    Total : <span id="total">0</span> €
+  </p>
 
   <button class="btn-whatsapp" onclick="whatsapp()">
-    Commander
+    Commander sur WhatsApp
   </button>
 
 </div>
 
 <script>
 
-/* 🔥 ICI TU CHANGES JUSTE ÇA */
-let produitActuel = "Bougie 80g";   // 👉 change ici (Bougie / Spray / Fondant)
-let prixProduit = 8;               // 👉 change ici prix
+/* =========================================
+   RECUP PRODUIT DEPUIS URL
+========================================= */
+
+const params = new URLSearchParams(window.location.search);
+
+let produitActuel = params.get("produit") || "Bougie";
+let prixProduit = Number(params.get("prix")) || 8;
+
+/* =========================================
+   AFFICHAGE
+========================================= */
 
 document.getElementById("titre-produit").textContent = produitActuel;
 document.getElementById("prix").textContent = prixProduit;
 
+/* =========================================
+   VARIABLES
+========================================= */
+
 let parfumChoisi = "";
-let panier = [];
+let panier = JSON.parse(localStorage.getItem("panier")) || [];
+
+/* =========================================
+   PARFUMS
+========================================= */
 
 const data = {
-  coton: { desc:"Douceur cocooning", notes:"Coton / musc blanc" },
-  cerisier: { desc:"Floral doux", notes:"Fruits rouges / fleur" },
-  lavande: { desc:"Relaxant", notes:"Lavande / bois" },
-  jasmin: { desc:"Floral intense", notes:"Jasmin / musc" },
-  oud: { desc:"Luxe intense", notes:"Bois / épices" }
+
+  coton:{
+    desc:"Une odeur douce et cocooning",
+    notes:"Coton frais • Musc blanc"
+  },
+
+  cerisier:{
+    desc:"Un floral délicat et élégant",
+    notes:"Fleur de cerisier • Fruits rouges"
+  },
+
+  monoï:{
+    desc:"Parfum solaire et vacances",
+    notes:"Monoï • Fleur blanche"
+  },
+
+  vanille:{
+    desc:"Une senteur gourmande",
+    notes:"Vanille • Sucre"
+  },
+
+  jasmin:{
+    desc:"Floral intense et chic",
+    notes:"Jasmin • Musc"
+  },
+
+  lavande:{
+    desc:"Relaxant et frais",
+    notes:"Lavande • Bois"
+  },
+
+  oud:{
+    desc:"Ambiance orientale luxueuse",
+    notes:"Bois de oud • Épices"
+  },
+
+  ambre:{
+    desc:"Parfum chaud et raffiné",
+    notes:"Ambre • Vanille"
+  },
+
+  musc:{
+    desc:"Très doux et propre",
+    notes:"Musc blanc • Fleur"
+  },
+
+  fruits:{
+    desc:"Explosion fruitée",
+    notes:"Fruits rouges • Sucre"
+  },
+
+  bubble:{
+    desc:"Très gourmand",
+    notes:"Bubble gum • Bonbon"
+  },
+
+  pomme:{
+    desc:"Sucré et caramélisé",
+    notes:"Pomme • Caramel"
+  },
+
+  citron:{
+    desc:"Frais et pâtissier",
+    notes:"Citron • Meringue"
+  },
+
+  cookie:{
+    desc:"Ultra gourmand",
+    notes:"Cookie chaud • Vanille"
+  },
+
+  fraise:{
+    desc:"Parfum sucré et crémeux",
+    notes:"Fraise • Chantilly"
+  }
+
 };
 
-function changerParfum() {
+/* =========================================
+   CHANGER PARFUM
+========================================= */
 
-  parfumChoisi = document.getElementById("parfum").value;
+function changerParfum(){
 
-  if (!parfumChoisi) return;
+  parfumChoisi =
+    document.getElementById("parfum").value;
 
-  document.getElementById("description").textContent = data[parfumChoisi].desc;
-  document.getElementById("notes").textContent = data[parfumChoisi].notes;
-}
+  if(!parfumChoisi) return;
 
-function ajouterPanier() {
+  document.getElementById("description").textContent =
+    data[parfumChoisi].desc;
 
-  if (!parfumChoisi) {
-    alert("Choisis un parfum !");
-    return;
-  }
-
-  panier.push({
-    nom: produitActuel + " - " + parfumChoisi,
-    prix: prixProduit
-  });
-
-  afficher();
-}
-
-function afficher() {
-
-  let liste = document.getElementById("liste");
-  let total = 0;
-
-  liste.innerHTML = "";
-
-  panier.forEach(item => {
-    total += item.prix;
-
-    liste.innerHTML += `
-      <div>
-        ${item.nom} - ${item.prix} €
-      </div>
-    `;
-  });
-
-  document.getElementById("total").textContent = total;
-}
-
-function whatsapp() {
-
-  if (panier.length === 0) {
-    alert("Panier vide");
-    return;
-  }
-
-  let msg = "Commande :%0A%0A";
-  let total = 0;
-
-  panier.forEach(item => {
-    msg += "- " + item.nom + "%0A";
-    total += item.prix;
-  });
-
-  msg += "%0ATotal : " + total + "€";
-
-  window.open("https://wa.me/33651461324?text=" + msg, "_blank");
-}
-
-</script>
-
-</body>
-</html>
+  document.getElementById("
