@@ -12,57 +12,66 @@
 body{
 margin:0;
 font-family:Georgia, serif;
-background:#f8f4ef;
 height:100vh;
 overflow:hidden;
+background:#f8f4ef;
 color:#2b2b2b;
 }
 
-/* LOGO = ELEMENT PRINCIPAL */
-body::before{
-content:"";
+/* LOGO FLOTTANT */
+.logo-bg{
 position:fixed;
-inset:0;
-background:url("images/logo-ll.jpg") center/80% no-repeat;
-opacity:0.35;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:600px;
+opacity:0.20;
 z-index:-1;
+animation: float 6s ease-in-out infinite;
 }
 
-/* TITRE SIMPLE EN HAUT */
-header{
+@keyframes float{
+0%{transform:translate(-50%,-50%) translateY(0px);}
+50%{transform:translate(-50%,-50%) translateY(-20px);}
+100%{transform:translate(-50%,-50%) translateY(0px);}
+}
+
+/* TITRE EN HAUT */
+.header{
 position:absolute;
 top:25px;
 width:100%;
 text-align:center;
-font-size:34px;
+font-size:32px;
+letter-spacing:3px;
 font-weight:400;
-letter-spacing:2px;
+color:#000;
 }
 
-/* BAS SIMPLE */
+/* BAS */
 .footer{
 position:absolute;
-bottom:50px;
+bottom:60px;
 width:100%;
 text-align:center;
 }
 
 .footer p{
-margin:0 0 20px 0;
 font-size:16px;
 color:#555;
+margin-bottom:20px;
 }
 
-/* BOUTON PROPRE */
+/* BOUTON */
 .btn{
 display:inline-block;
-padding:14px 35px;
+padding:15px 40px;
 background:#2b2b2b;
 color:white;
 text-decoration:none;
 border-radius:40px;
+letter-spacing:2px;
 transition:0.3s;
-letter-spacing:1px;
 }
 
 .btn:hover{
@@ -72,12 +81,11 @@ transform:translateY(-3px);
 
 /* RESPONSIVE */
 @media(max-width:768px){
-body::before{
-background-size:95%;
-opacity:0.30;
+.logo-bg{
+width:380px;
 }
-header{
-font-size:26px;
+.header{
+font-size:24px;
 }
 }
 
@@ -86,14 +94,19 @@ font-size:26px;
 
 <body>
 
-<header>
-La Fabrik' de Lilly
-</header>
+<!-- LOGO -->
+<img class="logo-bg" src="images/logo-ll.jpg">
 
+<!-- HEADER -->
+<div class="header">
+La Fabrik' de Lilly
+</div>
+
+<!-- BAS -->
 <div class="footer">
 
 <p>
-Bougies artisanales • Parfums de Grasse • Fabrication soignée
+Bougies artisanales • Parfums de Grasse • Créations faites avec passion
 </p>
 
 <a class="btn" href="menu.html">
