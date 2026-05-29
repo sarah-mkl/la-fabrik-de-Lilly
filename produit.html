@@ -160,11 +160,19 @@ button:hover{
 
 <script>
 
-/* PRODUIT VIA URL */
+/* 🔥 PRODUIT (CORRIGÉ) */
 const params = new URLSearchParams(window.location.search);
 
-let produitActuel = params.get("produit") || "Bougie";
-let prix = Number(params.get("prix")) || 8;
+let produitActuel = params.get("produit");
+let prix = Number(params.get("prix"));
+
+if(!produitActuel){
+  produitActuel = "Produit inconnu";
+}
+
+if(!prix){
+  prix = 0;
+}
 
 document.getElementById("titre").textContent = produitActuel;
 document.getElementById("prix").textContent = prix;
