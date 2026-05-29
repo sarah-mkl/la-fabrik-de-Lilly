@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +18,6 @@ body{
   color:#2b2b2b;
 }
 
-/* HEADER */
 header{
   text-align:center;
   padding:25px;
@@ -27,31 +25,25 @@ header{
   border-bottom:1px solid #eee;
 }
 
-/* NAV */
 nav{
   display:flex;
   justify-content:center;
   gap:30px;
   padding:15px;
   background:rgba(255,255,255,0.85);
-  border-bottom:1px solid #eee;
 }
 
 nav a{
   text-decoration:none;
   color:#2b2b2b;
   font-size:13px;
-  letter-spacing:2px;
 }
 
-/* TITRES */
 h2{
   text-align:center;
-  margin-top:50px;
-  font-weight:300;
+  margin-top:40px;
 }
 
-/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -88,25 +80,9 @@ button{
 a{
   display:inline-block;
   margin-top:10px;
-  text-decoration:none;
-  color:#2b2b2b;
   font-weight:bold;
-}
-
-/* TAGS */
-.tags{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:10px;
-  padding:20px;
-}
-
-.tags span{
-  background:white;
-  padding:8px 14px;
-  border-radius:20px;
-  border:1px solid #eee;
+  color:#2b2b2b;
+  text-decoration:none;
 }
 
 /* PANIER */
@@ -128,7 +104,6 @@ a{
   inset:0;
   background:rgba(0,0,0,0.4);
   display:none;
-  z-index:999;
 }
 
 #cart{
@@ -139,9 +114,9 @@ a{
   height:100%;
   background:white;
   transition:0.3s;
-  z-index:1000;
   display:flex;
   flex-direction:column;
+  z-index:1001;
 }
 
 #cart.open{ right:0; }
@@ -173,13 +148,10 @@ a{
 
 <body>
 
-<!-- PANIER -->
 <button id="cart-btn" onclick="toggleCart()">🛒</button>
-
 <div id="cart-overlay" onclick="toggleCart()"></div>
 
 <div id="cart">
-
   <div class="cart-header">
     <h3>Panier</h3>
     <span onclick="toggleCart()">✖</span>
@@ -191,7 +163,6 @@ a{
     <p>Total : <span id="cart-total">0</span>€</p>
     <button onclick="viderPanier()">Vider</button>
   </div>
-
 </div>
 
 <header>
@@ -201,7 +172,6 @@ a{
 <nav>
   <a href="index.html">Accueil</a>
   <a href="boutique.html">Boutique</a>
-  <a href="nous-decouvrir.html">Nous-decouvrir</a>
 </nav>
 
 <h2>🛍️ Nos produits</h2>
@@ -238,40 +208,6 @@ a{
 
 </div>
 
-<h2>🌸 Parfums disponibles</h2>
-
-<div class="tags">
-
-<span>Fleur de cerisier</span>
-<span>Fleur d’acacia</span>
-<span>Fleur de coton</span>
-<span>Orchidée</span>
-<span>Lavande</span>
-<span>Jasmin</span>
-<span>Lys blanc</span>
-<span>Azalée du Japon</span>
-<span>Hibiscus</span>
-
-<span>Barbe à papa</span>
-<span>Frangipanier</span>
-<span>Madeleine gourmande</span>
-<span>Douce couverture</span>
-
-<span>Linge propre</span>
-<span>Adoucissant</span>
-<span>Bois de oud</span>
-
-<span>Monoï pêche</span>
-<span>Monoï clémentine</span>
-<span>Pomme verte</span>
-<span>Litchi</span>
-<span>Melon</span>
-<span>Pastèque</span>
-<span>Fruit rouge</span>
-<span>Pomme d’amour</span>
-<span>Smoothie</span>
-
-</div>
 <script>
 
 let panier = JSON.parse(localStorage.getItem("panier")) || [];
@@ -281,33 +217,29 @@ function save(){
 }
 
 function ajouterAuPanier(nom, prix){
-
-  panier.push({ nom, prix });
-
+  panier.push({nom, prix});
   save();
-  afficherPanier();
+  afficher();
   ouvrirCart();
 }
 
-function afficherPanier(){
-
+function afficher(){
   let items = document.getElementById("cart-items");
   let total = 0;
 
   items.innerHTML = "";
 
-  panier.forEach((p, i) => {
-
+  panier.forEach((p,i)=>{
     total += p.prix;
 
     let div = document.createElement("div");
-    div.style.padding = "8px";
-    div.style.borderBottom = "1px solid #eee";
+    div.style.padding="8px";
+    div.style.borderBottom="1px solid #eee";
 
     div.innerHTML = `
       ${p.nom} - ${p.prix}€
       <button onclick="supprimer(${i})"
-      style="float:right;background:red;color:white;border:none;border-radius:10px;cursor:pointer;">X</button>
+      style="float:right;background:red;color:white;border:none;border-radius:10px;">X</button>
     `;
 
     items.appendChild(div);
@@ -317,15 +249,15 @@ function afficherPanier(){
 }
 
 function supprimer(i){
-  panier.splice(i, 1);
+  panier.splice(i,1);
   save();
-  afficherPanier();
+  afficher();
 }
 
 function viderPanier(){
   panier = [];
   save();
-  afficherPanier();
+  afficher();
 }
 
 function toggleCart(){
@@ -338,10 +270,9 @@ function ouvrirCart(){
   document.getElementById("cart-overlay").classList.add("show");
 }
 
-window.onload = function(){
-  afficherPanier();
-}
+window.onload = afficher;
 
 </script>
+
 </body>
 </html>
