@@ -9,21 +9,21 @@
 <style>
 
 body{
-  font-family: Georgia, serif;
-  background:#faf7f2;
   margin:0;
+  font-family:Georgia, serif;
+  background:#faf7f2;
   color:#2b2b2b;
 }
 
 header{
   text-align:center;
-  padding:30px;
+  padding:25px;
   background:white;
   border-bottom:1px solid #eee;
 }
 
 .container{
-  max-width:800px;
+  max-width:850px;
   margin:auto;
   padding:40px 20px;
 }
@@ -31,7 +31,7 @@ header{
 .box{
   background:white;
   padding:30px;
-  border-radius:20px;
+  border-radius:18px;
   box-shadow:0 5px 20px rgba(0,0,0,0.08);
 }
 
@@ -39,8 +39,8 @@ select,button{
   width:100%;
   padding:12px;
   margin-top:12px;
-  font-family:inherit;
   border-radius:10px;
+  font-family:inherit;
 }
 
 button{
@@ -55,37 +55,31 @@ button:hover{
 }
 
 /* PANIER */
-
 #panier{
   position:fixed;
   right:20px;
   bottom:20px;
-  width:280px;
+  width:270px;
   background:white;
-  border-radius:20px;
-  padding:20px;
-  box-shadow:0 5px 25px rgba(0,0,0,0.15);
+  border-radius:18px;
+  padding:15px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.15);
 }
 
 .total{
   text-align:center;
-  font-size:22px;
+  font-size:20px;
   color:#b08968;
   font-weight:bold;
-  margin-top:15px;
+}
+
+.item{
+  border-bottom:1px solid #eee;
+  padding:8px 0;
 }
 
 .btn-whatsapp{
   background:#25D366;
-}
-
-.btn-whatsapp:hover{
-  background:#1ebe5d;
-}
-
-.article{
-  border-bottom:1px solid #eee;
-  padding:10px 0;
 }
 
 </style>
@@ -101,189 +95,166 @@ button:hover{
 
   <div class="box">
 
-    <h2 id="titre-produit"></h2>
-
-    <p>
-      <strong>Prix :</strong>
-      <span id="prix"></span> €
-    </p>
+    <h2 id="titre"></h2>
+    <p><strong>Prix :</strong> <span id="prix"></span> €</p>
 
     <label>Choisis ton parfum</label>
 
     <select id="parfum" onchange="changerParfum()">
-
       <option value="">-- Sélectionner --</option>
 
-      <option value="coton">Fleur de coton</option>
-      <option value="cerisier">Fleur de cerisier</option>
-      <option value="monoï">Monoï</option>
-      <option value="vanille">Vanille</option>
-      <option value="jasmin">Jasmin</option>
-      <option value="lavande">Lavande</option>
-      <option value="oud">Bois de oud</option>
-      <option value="ambre">Ambre</option>
-      <option value="musc">Musc blanc</option>
-      <option value="fruits">Fruits rouges</option>
-      <option value="bubble">Bubble gum</option>
-      <option value="pomme">Pomme d'amour</option>
-      <option value="citron">Tarte citron</option>
-      <option value="cookie">Cookie</option>
-      <option value="fraise">Fraise chantilly</option>
+      <optgroup label="Floraux">
+        <option value="cerisier">Fleur de cerisier</option>
+        <option value="acacia">Fleur d’acacia</option>
+        <option value="coton">Fleur de coton</option>
+        <option value="orchidee">Orchidée</option>
+        <option value="lavande">Lavande</option>
+        <option value="jasmin">Jasmin</option>
+        <option value="lys">Lys blanc</option>
+        <option value="azalee">Azalée du Japon</option>
+        <option value="hibiscus">Hibiscus</option>
+      </optgroup>
+
+      <optgroup label="Gourmands">
+        <option value="barbe">Barbe à papa</option>
+        <option value="frangipanier">Frangipanier</option>
+        <option value="madeleine">Madeleine gourmande</option>
+        <option value="douce">Douce couverture</option>
+      </optgroup>
+
+      <optgroup label="Divers">
+        <option value="linge">Linge propre</option>
+        <option value="oud">Bois de oud</option>
+        <option value="adoucissant">Adoucissant</option>
+      </optgroup>
+
+      <optgroup label="Fruités">
+        <option value="monoip">Monoï pêche</option>
+        <option value="monoic">Monoï clémentine</option>
+        <option value="pomme">Pomme verte</option>
+        <option value="litchi">Litchi</option>
+        <option value="melon">Melon</option>
+        <option value="pastèque">Pastèque melon</option>
+        <option value="fruitrouge">Fruit rouge</option>
+        <option value="pommeamour">Pomme d’amour</option>
+        <option value="smoothie">Smoothie</option>
+      </optgroup>
 
     </select>
 
-    <p id="description">
-      Choisis un parfum
-    </p>
+    <p id="desc">Choisis un parfum</p>
 
-    <p id="notes"></p>
-
-    <button onclick="ajouterPanier()">
-      Ajouter au panier
-    </button>
+    <button onclick="ajouter()">Ajouter au panier</button>
 
   </div>
 
 </div>
 
 <!-- PANIER -->
-
 <div id="panier">
-
   <h3>🛒 Panier</h3>
-
   <div id="liste"></div>
-
-  <p class="total">
-    Total : <span id="total">0</span> €
-  </p>
-
-  <button class="btn-whatsapp" onclick="whatsapp()">
-    Commander sur WhatsApp
-  </button>
-
+  <p class="total">Total : <span id="total">0</span> €</p>
+  <button class="btn-whatsapp" onclick="whatsapp()">Commander</button>
 </div>
 
 <script>
 
-/* =========================================
-   RECUP PRODUIT DEPUIS URL
-========================================= */
-
+/* PRODUIT VIA URL */
 const params = new URLSearchParams(window.location.search);
 
 let produitActuel = params.get("produit") || "Bougie";
-let prixProduit = Number(params.get("prix")) || 8;
+let prix = Number(params.get("prix")) || 8;
 
-/* =========================================
-   AFFICHAGE
-========================================= */
+document.getElementById("titre").textContent = produitActuel;
+document.getElementById("prix").textContent = prix;
 
-document.getElementById("titre-produit").textContent = produitActuel;
-document.getElementById("prix").textContent = prixProduit;
-
-/* =========================================
-   VARIABLES
-========================================= */
-
+/* PARFUM */
 let parfumChoisi = "";
-let panier = JSON.parse(localStorage.getItem("panier")) || [];
+let panier = [];
 
-/* =========================================
-   PARFUMS
-========================================= */
+const parfums = {
+  coton:"Doux et propre",
+  cerisier:"Floral léger",
+  acacia:"Floral doux",
+  orchidee:"Floral élégant",
+  lavande:"Relaxant",
+  jasmin:"Intense floral",
+  lys:"Propre et chic",
+  azalee:"Floral japonais",
+  hibiscus:"Exotique floral",
 
-const data = {
+  barbe:"Très sucré",
+  frangipanier:"Tropical doux",
+  madeleine:"Gourmand",
+  douce:"Crémeux",
 
-  coton:{
-    desc:"Une odeur douce et cocooning",
-    notes:"Coton frais • Musc blanc"
-  },
+  linge:"Propre frais",
+  oud:"Boisé intense",
+  adoucissant:"Doux propre",
 
-  cerisier:{
-    desc:"Un floral délicat et élégant",
-    notes:"Fleur de cerisier • Fruits rouges"
-  },
-
-  monoï:{
-    desc:"Parfum solaire et vacances",
-    notes:"Monoï • Fleur blanche"
-  },
-
-  vanille:{
-    desc:"Une senteur gourmande",
-    notes:"Vanille • Sucre"
-  },
-
-  jasmin:{
-    desc:"Floral intense et chic",
-    notes:"Jasmin • Musc"
-  },
-
-  lavande:{
-    desc:"Relaxant et frais",
-    notes:"Lavande • Bois"
-  },
-
-  oud:{
-    desc:"Ambiance orientale luxueuse",
-    notes:"Bois de oud • Épices"
-  },
-
-  ambre:{
-    desc:"Parfum chaud et raffiné",
-    notes:"Ambre • Vanille"
-  },
-
-  musc:{
-    desc:"Très doux et propre",
-    notes:"Musc blanc • Fleur"
-  },
-
-  fruits:{
-    desc:"Explosion fruitée",
-    notes:"Fruits rouges • Sucre"
-  },
-
-  bubble:{
-    desc:"Très gourmand",
-    notes:"Bubble gum • Bonbon"
-  },
-
-  pomme:{
-    desc:"Sucré et caramélisé",
-    notes:"Pomme • Caramel"
-  },
-
-  citron:{
-    desc:"Frais et pâtissier",
-    notes:"Citron • Meringue"
-  },
-
-  cookie:{
-    desc:"Ultra gourmand",
-    notes:"Cookie chaud • Vanille"
-  },
-
-  fraise:{
-    desc:"Parfum sucré et crémeux",
-    notes:"Fraise • Chantilly"
-  }
-
+  monoip:"Tropical pêche",
+  monoic:"Tropical agrumes",
+  pomme:"Frais",
+  litchi:"Fruité doux",
+  melon:"Frais sucré",
+  pastèque:"Ultra frais",
+  fruitrouge:"Sucré",
+  pommeamour:"Caramel",
+  smoothie:"Fruité gourmand"
 };
 
-/* =========================================
-   CHANGER PARFUM
-========================================= */
-
 function changerParfum(){
-
-  parfumChoisi =
-    document.getElementById("parfum").value;
-
+  parfumChoisi = document.getElementById("parfum").value;
   if(!parfumChoisi) return;
+  document.getElementById("desc").textContent = parfums[parfumChoisi];
+}
 
-  document.getElementById("description").textContent =
-    data[parfumChoisi].desc;
+function ajouter(){
 
-  document.getElementById("
+  if(!parfumChoisi){
+    alert("Choisis un parfum");
+    return;
+  }
+
+  panier.push({
+    nom: produitActuel + " - " + parfumChoisi,
+    prix: prix
+  });
+
+  afficher();
+}
+
+function afficher(){
+
+  let total = 0;
+  let html = "";
+
+  panier.forEach(p=>{
+    total += p.prix;
+    html += `<div class="item">${p.nom} - ${p.prix}€</div>`;
+  });
+
+  document.getElementById("liste").innerHTML = html;
+  document.getElementById("total").textContent = total;
+}
+
+function whatsapp(){
+
+  let msg = "Commande:%0A%0A";
+  let total = 0;
+
+  panier.forEach(p=>{
+    msg += "- " + p.nom + "%0A";
+    total += p.prix;
+  });
+
+  msg += "%0ATotal: " + total + "€";
+
+  window.open("https://wa.me/33651461324?text=" + msg);
+}
+
+</script>
+
+</body>
+</html>
