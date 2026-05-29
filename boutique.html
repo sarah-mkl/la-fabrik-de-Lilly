@@ -272,31 +272,35 @@ a{
 <span>Smoothie</span>
 
 </div>
-
 <script>
 
-let panier = JSON.parse(localStorage.getItem("panier")) || [];
+let panier = [];
+
+/* CHARGEMENT AU DÉMARRAGE */
+window.onload = function(){
+  let saved = localStorage.getItem("panier");
+  if(saved){
+    panier = JSON.parse(saved);
+  }
+  afficherPanier();
+};
+
+/* SAUVEGARDE */
+function save(){
+  localStorage.setItem("panier", JSON.stringify(panier));
+}
 
 /* AJOUT */
 function ajouterAuPanier(nom, prix){
 
-  panier.push({
-    nom: nom,
-    prix: prix,
-    id: Date.now()
-  });
+  panier.push({ nom, prix });
 
-  savePanier();
+  save();
   afficherPanier();
   ouvrirCart();
 }
 
-/* SAUVEGARDE */
-function savePanier(){
-  localStorage.setItem("panier", JSON.stringify(panier));
-}
-
-/* AFFICHAGE */
+/* AFFICHER */
 function afficherPanier(){
 
   let items = document.getElementById("cart-items");
@@ -304,7 +308,7 @@ function afficherPanier(){
 
   items.innerHTML = "";
 
-  panier.forEach((p, index) => {
+  panier.forEach((p, i) => {
 
     total += p.prix;
 
@@ -314,7 +318,9 @@ function afficherPanier(){
 
     div.innerHTML = `
       ${p.nom} - ${p.prix}€
-      <button onclick="supprimer(${index})" style="float:right;background:red;border:none;color:white;border-radius:10px;padding:3px 8px;cursor:pointer;">X</button>
+      <button onclick="supprimer(${i})"
+      style="float:right;background:red;color:white;border:none;border-radius:10px;cursor:pointer;">
+      X</button>
     `;
 
     items.appendChild(div);
@@ -324,20 +330,20 @@ function afficherPanier(){
 }
 
 /* SUPPRIMER */
-function supprimer(index){
-  panier.splice(index, 1);
-  savePanier();
+function supprimer(i){
+  panier.splice(i, 1);
+  save();
   afficherPanier();
 }
 
 /* VIDER */
 function viderPanier(){
   panier = [];
-  savePanier();
+  save();
   afficherPanier();
 }
 
-/* OUVRIR / FERMER */
+/* OUVRIR */
 function toggleCart(){
   document.getElementById("cart").classList.toggle("open");
   document.getElementById("cart-overlay").classList.toggle("show");
@@ -346,11 +352,6 @@ function toggleCart(){
 function ouvrirCart(){
   document.getElementById("cart").classList.add("open");
   document.getElementById("cart-overlay").classList.add("show");
-}
-
-/* AU CHARGEMENT */
-window.onload = function(){
-  afficherPanier();
 }
 
 </script>
