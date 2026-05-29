@@ -2,34 +2,57 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Bougies</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bougies parfumées</title>
 
 <style>
+
 body{
 margin:0;
-font-family:Georgia;
-background:#f8f4ef;
+font-family:Georgia, serif;
+background:
+linear-gradient(rgba(255,255,255,0.65),rgba(255,255,255,0.65)),
+url("images/logo-ll.jpg") center/70% no-repeat fixed,
+linear-gradient(180deg,#f8f4ef,#efe5dd);
+color:#2b2b2b;
 }
 
 .container{
-max-width:700px;
+max-width:900px;
 margin:auto;
-padding:20px;
+padding:30px;
+}
+
+h2{
+text-align:center;
+margin-bottom:30px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
 }
 
 .card{
 background:white;
-padding:15px;
-margin:10px 0;
-border-radius:15px;
+padding:25px;
+border-radius:20px;
 text-align:center;
+box-shadow:0 10px 20px rgba(0,0,0,0.08);
 }
 
 a{
+display:inline-block;
+margin-top:10px;
+padding:12px 18px;
+background:#2b2b2b;
+color:white;
 text-decoration:none;
-color:#2b2b2b;
-font-weight:bold;
+border-radius:25px;
 }
+
 </style>
 </head>
 
@@ -38,13 +61,45 @@ font-weight:bold;
 <div class="container">
 
 <h2>🕯️ Bougies parfumées</h2>
-<p>Choisissez votre famille olfactive</p>
 
-<div class="card"><a href="famille-gourmandes.html">🍰 Gourmandes</a></div>
-<div class="card"><a href="famille-florales.html">🌸 Florales</a></div>
-<div class="card"><a href="famille-fraiches.html">🌿 Fraîches</a></div>
-<div class="card"><a href="famille-fruitees.html">🍓 Fruitées</a></div>
-<div class="card"><a href="famille-boisees.html">🪵 Boisées</a></div>
+<div class="grid">
+
+<div class="card">
+<h3>🍰 Gourmandes</h3>
+<a href="famille-gourmandes.html">
+Explorer
+</a>
+</div>
+
+<div class="card">
+<h3>🌸 Florales</h3>
+<a href="famille-florales.html">
+Explorer
+</a>
+</div>
+
+<div class="card">
+<h3>🍓 Fruitées</h3>
+<a href="famille-fruitees.html">
+Explorer
+</a>
+</div>
+
+<div class="card">
+<h3>🌿 Fraîches</h3>
+<a href="famille-fraiches.html">
+Explorer
+</a>
+</div>
+
+<div class="card">
+<h3>🪵 Boisées</h3>
+<a href="famille-boisees.html">
+Explorer
+</a>
+</div>
+
+</div>
 
 </div>
 
