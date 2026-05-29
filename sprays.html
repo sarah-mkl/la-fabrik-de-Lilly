@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sprays - La Fabrik' de Lilly</title>
+<title>Sprays d’ambiance - La Fabrik' de Lilly</title>
 
 <style>
 
@@ -16,15 +16,15 @@ background:#f8f4ef;
 color:#2b2b2b;
 }
 
-/* HEADER */
+/* TITRE */
 .header{
 text-align:center;
 padding:25px;
-font-size:36px;
+font-size:38px;
 letter-spacing:2px;
 }
 
-/* CONTAINER */
+/* HAUT PAGE */
 .container{
 display:flex;
 justify-content:space-between;
@@ -36,7 +36,7 @@ gap:40px;
 .text{
 flex:1;
 font-size:16px;
-line-height:1.8;
+line-height:1.9;
 color:#555;
 }
 
@@ -47,7 +47,7 @@ text-align:center;
 
 .image img{
 width:100%;
-max-width:400px;
+max-width:430px;
 border-radius:25px;
 box-shadow:0 10px 25px rgba(0,0,0,0.15);
 }
@@ -58,7 +58,7 @@ text-align:center;
 margin-top:60px;
 padding:30px;
 background:#efe5dd;
-font-size:26px;
+font-size:28px;
 letter-spacing:2px;
 }
 
@@ -70,26 +70,50 @@ gap:20px;
 padding:40px 10%;
 }
 
+/* 🌟 HOVER PREMIUM DORÉ */
 .cat{
 text-decoration:none;
 color:#2b2b2b;
 background:white;
 padding:25px;
-border-radius:20px;
-box-shadow:0 10px 20px rgba(0,0,0,0.08);
-transition:0.3s ease;
+border-radius:22px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+transition:0.35s ease;
 display:block;
+position:relative;
+overflow:hidden;
 }
 
+/* effet lumière dorée */
+.cat::before{
+content:"";
+position:absolute;
+inset:-2px;
+background:radial-gradient(circle at top left,
+rgba(176,137,104,0.45),
+transparent 60%);
+opacity:0;
+transition:0.4s ease;
+}
+
+/* HOVER */
 .cat:hover{
-transform:translateY(-6px);
-box-shadow:0 15px 30px rgba(0,0,0,0.12);
-background:#2b2b2b;
-color:white;
+transform:translateY(-8px) scale(1.03);
+box-shadow:0 18px 50px rgba(0,0,0,0.18);
+border:1px solid rgba(176,137,104,0.6);
 }
 
+.cat:hover::before{
+opacity:1;
+}
+
+/* texte */
 .cat p{
-color:inherit;
+color:#666;
+}
+
+.cat:hover p{
+color:#555;
 }
 
 </style>
@@ -97,7 +121,9 @@ color:inherit;
 
 <body>
 
-<div class="header">Sprays d’ambiance</div>
+<div class="header">
+Sprays d’ambiance
+</div>
 
 <div class="container">
 
@@ -105,11 +131,13 @@ color:inherit;
 
 Offrez une touche instantanée de fraîcheur et d’élégance à votre intérieur.<br><br>
 
-Nos sprays parfumés diffusent une senteur raffinée en quelques secondes.<br><br>
+Nos sprays d’ambiance sont conçus pour diffuser un parfum raffiné en quelques secondes.<br><br>
 
-Conçus avec des parfums de Grasse, ils apportent une ambiance douce et agréable.<br><br>
+Formulés avec des parfums de Grasse, ils apportent une atmosphère chic et agréable.<br><br>
 
-Idéal pour rafraîchir une pièce ou créer une atmosphère chaleureuse.<br><br>
+Parfaits pour rafraîchir une pièce ou créer une ambiance chaleureuse à tout moment.<br><br>
+
+Un geste simple pour transformer votre intérieur en espace de bien-être.<br><br>
 
 </div>
 
@@ -119,29 +147,16 @@ Idéal pour rafraîchir une pièce ou créer une atmosphère chaleureuse.<br><br
 
 </div>
 
-<div class="banner">Choisissez la famille olfactive qui vous correspond</div>
+<div class="banner">
+Choisissez la famille olfactive qui vous correspond
+</div>
 
 <div class="categories">
 
-<a class="cat" href="#">
-<h3>Gourmand</h3>
-<p>Doux et sucré</p>
-</a>
-
-<a class="cat" href="#">
-<h3>Floral</h3>
-<p>Élégant et délicat</p>
-</a>
-
-<a class="cat" href="#">
-<h3>Boisé</h3>
-<p>Chaleureux</p>
-</a>
-
-<a class="cat" href="#">
-<h3>Fraîcheur</h3>
-<p>Léger et pur</p>
-</a>
+<a class="cat"><h3>Gourmand</h3><p>Sucré & chaleureux</p></a>
+<a class="cat"><h3>Floral</h3><p>Élégant & doux</p></a>
+<a class="cat"><h3>Boisé</h3><p>Chaleureux & profond</p></a>
+<a class="cat"><h3>Fraîcheur</h3><p>Léger & pur</p></a>
 
 </div>
 
