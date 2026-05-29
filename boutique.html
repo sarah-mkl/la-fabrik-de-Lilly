@@ -36,7 +36,6 @@ nav{
 nav a{
   text-decoration:none;
   color:#2b2b2b;
-  font-size:13px;
 }
 
 h2{
@@ -64,7 +63,6 @@ h2{
 .price{
   color:#b08968;
   font-weight:bold;
-  font-size:18px;
 }
 
 button{
@@ -75,14 +73,6 @@ button{
   color:white;
   border-radius:20px;
   cursor:pointer;
-}
-
-a{
-  display:inline-block;
-  margin-top:10px;
-  font-weight:bold;
-  color:#2b2b2b;
-  text-decoration:none;
 }
 
 /* PANIER */
@@ -96,7 +86,6 @@ a{
   padding:12px;
   border-radius:50%;
   cursor:pointer;
-  z-index:1000;
 }
 
 #cart-overlay{
@@ -104,7 +93,6 @@ a{
   inset:0;
   background:rgba(0,0,0,0.4);
   display:none;
-  z-index:999;
 }
 
 #cart{
@@ -117,7 +105,6 @@ a{
   transition:0.3s;
   display:flex;
   flex-direction:column;
-  z-index:1000;
 }
 
 #cart.open{ right:0; }
@@ -193,28 +180,28 @@ a{
     <h3>Bougie 80g</h3>
     <p class="price">8€</p>
     <a href="produit.html?nom=Bougie%2080g&prix=8">Voir produit</a>
-    <button onclick="ajouterAuPanier('Bougie 80g',8)">Ajouter</button>
+    <button onclick="add('Bougie 80g',8)">Ajouter</button>
   </div>
 
   <div class="card">
     <h3>Fondant 12g</h3>
     <p class="price">4€</p>
     <a href="produit.html?nom=Fondant%2012g&prix=4">Voir produit</a>
-    <button onclick="ajouterAuPanier('Fondant 12g',4)">Ajouter</button>
+    <button onclick="add('Fondant 12g',4)">Ajouter</button>
   </div>
 
   <div class="card">
     <h3>Spray 50ml</h3>
     <p class="price">6€</p>
     <a href="produit.html?nom=Spray%2050ml&prix=6">Voir produit</a>
-    <button onclick="ajouterAuPanier('Spray 50ml',6)">Ajouter</button>
+    <button onclick="add('Spray 50ml',6)">Ajouter</button>
   </div>
 
   <div class="card">
     <h3>Diffuseur voiture</h3>
     <p class="price">4€</p>
     <a href="produit.html?nom=Diffuseur%20voiture&prix=4">Voir produit</a>
-    <button onclick="ajouterAuPanier('Diffuseur voiture',4)">Ajouter</button>
+    <button onclick="add('Diffuseur voiture',4)">Ajouter</button>
   </div>
 
 </div>
@@ -227,49 +214,45 @@ function save(){
   localStorage.setItem("panier", JSON.stringify(panier));
 }
 
-function ajouterAuPanier(nom, prix){
+function add(nom, prix){
   panier.push({nom, prix});
   save();
-  afficher();
-  ouvrirCart();
+  render();
+  openCart();
 }
 
-function afficher(){
-
-  let items = document.getElementById("cart-items");
+function render(){
+  let box = document.getElementById("cart-items");
   let total = 0;
 
-  items.innerHTML = "";
+  box.innerHTML = "";
 
   panier.forEach((p,i)=>{
     total += p.prix;
 
-    let div = document.createElement("div");
-    div.style.padding="8px";
-    div.style.borderBottom="1px solid #eee";
+    let d = document.createElement("div");
+    d.innerHTML = `${p.nom} - ${p.prix}€ 
+    <button onclick="removeItem(${i})"
+    style="float:right;background:red;color:white;border:none;border-radius:8px;">X</button>`;
+    d.style.padding="8px";
+    d.style.borderBottom="1px solid #eee";
 
-    div.innerHTML = `
-      ${p.nom} - ${p.prix}€
-      <button onclick="supprimer(${i})"
-      style="float:right;background:red;color:white;border:none;border-radius:10px;">X</button>
-    `;
-
-    items.appendChild(div);
+    box.appendChild(d);
   });
 
   document.getElementById("cart-total").textContent = total;
 }
 
-function supprimer(i){
+function removeItem(i){
   panier.splice(i,1);
   save();
-  afficher();
+  render();
 }
 
 function viderPanier(){
   panier = [];
   save();
-  afficher();
+  render();
 }
 
 function toggleCart(){
@@ -277,12 +260,12 @@ function toggleCart(){
   document.getElementById("cart-overlay").classList.toggle("show");
 }
 
-function ouvrirCart(){
+function openCart(){
   document.getElementById("cart").classList.add("open");
   document.getElementById("cart-overlay").classList.add("show");
 }
 
-window.onload = afficher;
+window.onload = render;
 
 </script>
 
