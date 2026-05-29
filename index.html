@@ -16,39 +16,39 @@ min-height:100vh;
 overflow:hidden;
 text-align:center;
 background: linear-gradient(180deg,#f8f4ef,#efe5dd);
-}
-
-/* ANIMATION ENTREE */
-body{
 animation: fadeIn 1.2s ease-in-out;
 }
 
+/* animation entrée */
 @keyframes fadeIn{
 from{opacity:0;}
 to{opacity:1;}
 }
 
-/* LOGO FOND (IMPORTANT: visible + simple) */
+/* LOGO PLEINE PAGE */
 .logo-bg{
 position:fixed;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-width:450px;
-opacity:0.12;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:contain;
+opacity:0.15;
 z-index:-1;
+pointer-events:none;
 }
 
-/* TITRE */
+/* TITRE EN HAUT */
 .header{
 position:absolute;
 top:20px;
 width:100%;
 font-size:28px;
 font-weight:400;
+letter-spacing:1px;
 }
 
-/* BOX */
+/* BOX CENTRE */
 .hero{
 margin-top:120px;
 display:inline-block;
@@ -80,22 +80,24 @@ background:#2b2b2b;
 color:white;
 text-decoration:none;
 border-radius:40px;
+transition:0.3s;
 }
 
 .btn:hover{
 background:#444;
+transform:translateY(-3px);
 }
 
 .bottom{
 margin-top:30px;
 font-size:13px;
 opacity:0.7;
+letter-spacing:2px;
 }
 
-/* MOBILE */
 @media(max-width:768px){
 h1{font-size:38px;}
-.logo-bg{width:280px;}
+.subtitle{font-size:16px;}
 }
 
 </style>
@@ -104,7 +106,7 @@ h1{font-size:38px;}
 <body>
 
 <!-- LOGO -->
-  <img class="logo-bg" src="images/logo-ll.jpg?v=1">
+<img class="logo-bg" src="images/logo-ll.jpg">
 
 <!-- TITRE -->
 <div class="header">
