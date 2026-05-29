@@ -145,9 +145,10 @@ button:hover{
     <p id="desc">Choisis un parfum</p>
 
     <button onclick="ajouter()">Ajouter au panier</button>
+
     <button onclick="window.location.href='boutique.html'">
-← Retour boutique
-</button>
+      ← Retour boutique
+    </button>
 
   </div>
 
@@ -163,13 +164,15 @@ button:hover{
 
 <script>
 
-/* 🔥 FIX IMPORTANT : on utilise "nom" (comme ta boutique) */
+/* 🔥 PANIER LOCAL STORAGE */
+let panier = JSON.parse(localStorage.getItem("panier")) || [];
+
+/* PRODUIT */
 const params = new URLSearchParams(window.location.search);
 
 let produitActuel = params.get("nom");
 let prix = Number(params.get("prix"));
 
-/* sécurité si accès direct */
 if(!produitActuel){
   produitActuel = "Produit inconnu";
 }
@@ -183,7 +186,6 @@ document.getElementById("prix").textContent = prix;
 
 /* PARFUM */
 let parfumChoisi = "";
-let panier = [];
 
 const parfums = {
   coton:"Doux et propre",
@@ -222,6 +224,7 @@ function changerParfum(){
   document.getElementById("desc").textContent = parfums[parfumChoisi];
 }
 
+/* AJOUT PANIER */
 function ajouter(){
 
   if(!parfumChoisi){
@@ -234,10 +237,15 @@ function ajouter(){
     prix: prix
   });
 
+  localStorage.setItem("panier", JSON.stringify(panier));
+
   afficher();
 }
 
+/* AFFICHER PANIER */
 function afficher(){
+
+  panier = JSON.parse(localStorage.getItem("panier")) || [];
 
   let total = 0;
   let html = "";
@@ -251,6 +259,7 @@ function afficher(){
   document.getElementById("total").textContent = total;
 }
 
+/* WHATSAPP */
 function whatsapp(){
 
   let msg = "Commande:%0A%0A";
@@ -265,6 +274,9 @@ function whatsapp(){
 
   window.open("https://wa.me/33651461324?text=" + msg);
 }
+
+/* INIT */
+afficher();
 
 </script>
 
