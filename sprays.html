@@ -9,16 +9,88 @@
 
 <style>
 
-/* même style */
-body{margin:0;font-family:Georgia,serif;background:#f8f4ef;color:#2b2b2b;}
-.header{text-align:center;padding:25px;font-size:36px;}
-.container{display:flex;justify-content:space-between;align-items:center;padding:60px 10%;gap:40px;}
-.text{flex:1;font-size:16px;line-height:1.8;color:#555;}
-.image{flex:1;text-align:center;}
-.image img{width:100%;max-width:400px;border-radius:25px;box-shadow:0 10px 25px rgba(0,0,0,0.15);}
-.banner{text-align:center;margin-top:60px;padding:30px;background:#efe5dd;font-size:26px;}
-.categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;padding:40px 10%;}
-.cat{background:white;padding:25px;border-radius:20px;box-shadow:0 10px 20px rgba(0,0,0,0.08);}
+body{
+margin:0;
+font-family:Georgia, serif;
+background:#f8f4ef;
+color:#2b2b2b;
+}
+
+/* HEADER */
+.header{
+text-align:center;
+padding:25px;
+font-size:36px;
+letter-spacing:2px;
+}
+
+/* CONTAINER */
+.container{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:60px 10%;
+gap:40px;
+}
+
+.text{
+flex:1;
+font-size:16px;
+line-height:1.8;
+color:#555;
+}
+
+.image{
+flex:1;
+text-align:center;
+}
+
+.image img{
+width:100%;
+max-width:400px;
+border-radius:25px;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* BANNIÈRE */
+.banner{
+text-align:center;
+margin-top:60px;
+padding:30px;
+background:#efe5dd;
+font-size:26px;
+letter-spacing:2px;
+}
+
+/* CATEGORIES */
+.categories{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+padding:40px 10%;
+}
+
+.cat{
+text-decoration:none;
+color:#2b2b2b;
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 10px 20px rgba(0,0,0,0.08);
+transition:0.3s ease;
+display:block;
+}
+
+.cat:hover{
+transform:translateY(-6px);
+box-shadow:0 15px 30px rgba(0,0,0,0.12);
+background:#2b2b2b;
+color:white;
+}
+
+.cat p{
+color:inherit;
+}
 
 </style>
 </head>
@@ -31,15 +103,13 @@ body{margin:0;font-family:Georgia,serif;background:#f8f4ef;color:#2b2b2b;}
 
 <div class="text">
 
-Nos sprays d’ambiance permettent de parfumer instantanément votre intérieur.<br><br>
+Offrez une touche instantanée de fraîcheur et d’élégance à votre intérieur.<br><br>
 
-Une simple vaporisation suffit pour créer une atmosphère agréable et raffinée.<br><br>
+Nos sprays parfumés diffusent une senteur raffinée en quelques secondes.<br><br>
 
-Fabriqués avec des parfums de Grasse, ils offrent une diffusion rapide et élégante.<br><br>
+Conçus avec des parfums de Grasse, ils apportent une ambiance douce et agréable.<br><br>
 
-Idéal pour rafraîchir une pièce ou prolonger une ambiance parfumée.<br><br>
-
-Un geste simple pour transformer votre quotidien.<br><br>
+Idéal pour rafraîchir une pièce ou créer une atmosphère chaleureuse.<br><br>
 
 </div>
 
@@ -53,10 +123,25 @@ Un geste simple pour transformer votre quotidien.<br><br>
 
 <div class="categories">
 
-<div class="cat"><h3>Gourmand</h3><p>Doux et sucré</p></div>
-<div class="cat"><h3>Floral</h3><p>Élégant</p></div>
-<div class="cat"><h3>Boisé</h3><p>Chaleureux</p></div>
-<div class="cat"><h3>Fraîcheur</h3><p>Propre et léger</p></div>
+<a class="cat" href="#">
+<h3>Gourmand</h3>
+<p>Doux et sucré</p>
+</a>
+
+<a class="cat" href="#">
+<h3>Floral</h3>
+<p>Élégant et délicat</p>
+</a>
+
+<a class="cat" href="#">
+<h3>Boisé</h3>
+<p>Chaleureux</p>
+</a>
+
+<a class="cat" href="#">
+<h3>Fraîcheur</h3>
+<p>Léger et pur</p>
+</a>
 
 </div>
 
