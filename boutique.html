@@ -274,23 +274,12 @@ a{
 </div>
 <script>
 
-let panier = [];
+let panier = JSON.parse(localStorage.getItem("panier")) || [];
 
-/* CHARGEMENT AU DÉMARRAGE */
-window.onload = function(){
-  let saved = localStorage.getItem("panier");
-  if(saved){
-    panier = JSON.parse(saved);
-  }
-  afficherPanier();
-};
-
-/* SAUVEGARDE */
 function save(){
   localStorage.setItem("panier", JSON.stringify(panier));
 }
 
-/* AJOUT */
 function ajouterAuPanier(nom, prix){
 
   panier.push({ nom, prix });
@@ -300,7 +289,6 @@ function ajouterAuPanier(nom, prix){
   ouvrirCart();
 }
 
-/* AFFICHER */
 function afficherPanier(){
 
   let items = document.getElementById("cart-items");
@@ -319,8 +307,7 @@ function afficherPanier(){
     div.innerHTML = `
       ${p.nom} - ${p.prix}€
       <button onclick="supprimer(${i})"
-      style="float:right;background:red;color:white;border:none;border-radius:10px;cursor:pointer;">
-      X</button>
+      style="float:right;background:red;color:white;border:none;border-radius:10px;cursor:pointer;">X</button>
     `;
 
     items.appendChild(div);
@@ -329,21 +316,18 @@ function afficherPanier(){
   document.getElementById("cart-total").textContent = total;
 }
 
-/* SUPPRIMER */
 function supprimer(i){
   panier.splice(i, 1);
   save();
   afficherPanier();
 }
 
-/* VIDER */
 function viderPanier(){
   panier = [];
   save();
   afficherPanier();
 }
 
-/* OUVRIR */
 function toggleCart(){
   document.getElementById("cart").classList.toggle("open");
   document.getElementById("cart-overlay").classList.toggle("show");
@@ -354,7 +338,10 @@ function ouvrirCart(){
   document.getElementById("cart-overlay").classList.add("show");
 }
 
-</script>
+window.onload = function(){
+  afficherPanier();
+}
 
+</script>
 </body>
 </html>
