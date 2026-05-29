@@ -162,19 +162,18 @@ button:hover{
 
 const params = new URLSearchParams(window.location.search);
 
-let produitActuel = params.get("produit");
-let prix = Number(params.get("prix"));
+const produitActuel = params.get("produit");
+const prixParam = params.get("prix");
 
-if(!produitActuel){
-  produitActuel = "Bougie parfumée";
+/* ❌ si rien dans l’URL → on affiche un message clair */
+if(!produitActuel || !prixParam){
+  document.getElementById("titre").textContent = "Produit non chargé";
+  document.getElementById("prix").textContent = "0";
+  alert("Erreur : produit non envoyé depuis la boutique");
+} else {
+  document.getElementById("titre").textContent = produitActuel;
+  document.getElementById("prix").textContent = prixParam;
 }
-
-if(!prix){
-  prix = 8;
-}
-
-document.getElementById("titre").textContent = produitActuel;
-document.getElementById("prix").textContent = prix;
 
 let parfumChoisi = "";
 let panier = [];
@@ -187,10 +186,10 @@ const parfums = {
   lavande:"Relaxant",
   jasmin:"Intense floral",
   lys:"Propre et chic",
-  azaleedujapon:"Floral japonais",
+  azalee:"Floral japonais",
   hibiscus:"Exotique floral",
 
-  barbeapapa:"Très sucré",
+  barbe:"Très sucré",
   frangipanier:"Tropical doux",
   madeleine:"Gourmand",
   douce:"Crémeux",
@@ -199,8 +198,8 @@ const parfums = {
   oud:"Boisé intense",
   adoucissant:"Doux propre",
 
-  monoipeche:"Tropical pêche",
-  monoiclementine:"Tropical agrumes",
+  monoip:"Tropical pêche",
+  monoic:"Tropical agrumes",
   pomme:"Frais",
   litchi:"Fruité doux",
   melon:"Frais sucré",
@@ -223,8 +222,11 @@ function ajouter(){
     return;
   }
 
+  const nom = document.getElementById("titre").textContent;
+  const prix = Number(document.getElementById("prix").textContent);
+
   panier.push({
-    nom: produitActuel + " - " + parfumChoisi,
+    nom: nom + " - " + parfumChoisi,
     prix: prix
   });
 
@@ -259,6 +261,7 @@ function whatsapp(){
 
   window.open("https://wa.me/33651461324?text=" + msg);
 }
+
 
 </script>
 
