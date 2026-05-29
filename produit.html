@@ -2,129 +2,80 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Produit</title>
 
 <style>
-
 body{
-  margin:0;
-  font-family:Georgia, serif;
-  background:#faf7f2;
-  color:#2b2b2b;
-}
-
-header{
-  text-align:center;
-  padding:25px;
-  background:white;
-  border-bottom:1px solid #eee;
-}
-
-.container{
-  max-width:800px;
-  margin:auto;
-  padding:40px 20px;
+margin:0;
+font-family:Georgia;
+background:#f8f4ef;
 }
 
 .box{
-  background:white;
-  padding:25px;
-  border-radius:18px;
-  box-shadow:0 5px 20px rgba(0,0,0,0.08);
-}
-
-select,button{
-  width:100%;
-  padding:12px;
-  margin-top:12px;
-  border-radius:10px;
+max-width:700px;
+margin:auto;
+background:white;
+padding:20px;
+border-radius:20px;
+margin-top:40px;
 }
 
 button{
-  background:#2b2b2b;
-  color:white;
-  border:none;
+width:100%;
+padding:12px;
+background:#2b2b2b;
+color:white;
+border:none;
+margin-top:10px;
+border-radius:10px;
 }
-
 </style>
 </head>
 
 <body>
 
-<header>
-<h1>La Fabrik' de Lilly</h1>
-</header>
-
-<div class="container">
-
 <div class="box">
 
-<h2 id="titre"></h2>
-<p>Prix : <span id="prix"></span>€</p>
+<h2 id="name"></h2>
+<p id="price"></p>
 
-<select id="parfum" onchange="changerParfum()">
-<option value="">Choisir parfum</option>
+<p>
+Une bougie artisanale élégante et parfumée qui transforme votre intérieur en un cocon chaleureux et réconfortant.  
+Parfaite pour créer une ambiance douce et relaxante au quotidien.
+</p>
 
-<option value="coton">Fleur de coton</option>
-<option value="cerisier">Fleur de cerisier</option>
-<option value="lavande">Lavande</option>
-<option value="jasmin">Jasmin</option>
-<option value="oud">Bois de oud</option>
-<option value="barbe">Barbe à papa</option>
-<option value="monoip">Monoï pêche</option>
-<option value="pomme">Pomme verte</option>
+<h3>🔥 Pyramide olfactive</h3>
+<p>Tête : notes sucrées<br>Cœur : vanille<br>Fond : caramel</p>
 
-</select>
+<h3>🧪 Composition</h3>
+<p>Cire végétale + parfum de Grasse</p>
 
-<p id="desc"></p>
+<h3>💡 Conseils</h3>
+<p>Couper la mèche avant utilisation, ne pas dépasser 2h</p>
 
-<button onclick="ajouter()">Ajouter au panier</button>
-<button onclick="window.location.href='boutique.html'">Retour boutique</button>
+<h3>🚚 Livraison</h3>
+<p>24/48h France entière</p>
 
-</div>
+<button onclick="add()">Ajouter au panier</button>
 
 </div>
 
 <script>
 
-let panier = JSON.parse(localStorage.getItem("panier")) || [];
+let panier=JSON.parse(localStorage.getItem("panier"))||[];
 
-function save(){
-  localStorage.setItem("panier", JSON.stringify(panier));
-}
+let url=new URLSearchParams(location.search);
 
-const params = new URLSearchParams(window.location.search);
+let nom=url.get("nom");
+let prix=Number(url.get("prix"));
 
-let produit = params.get("nom") || "Produit";
-let prix = Number(params.get("prix") || 0);
+document.getElementById("name").innerText=nom;
+document.getElementById("price").innerText=prix+"€";
 
-document.getElementById("titre").textContent = produit;
-document.getElementById("prix").textContent = prix;
-
-let parfum = "";
-
-function changerParfum(){
-  parfum = document.getElementById("parfum").value;
-  document.getElementById("desc").textContent = parfum;
-}
-
-function ajouter(){
-
-  if(!parfum){
-    alert("Choisis un parfum");
-    return;
-  }
-
-  panier.push({
-    nom: produit + " - " + parfum,
-    prix: prix
-  });
-
-  save();
-
-  alert("Ajouté au panier !");
+function add(){
+panier.push({nom,prix});
+localStorage.setItem("panier",JSON.stringify(panier));
+alert("Ajouté au panier");
 }
 
 </script>
