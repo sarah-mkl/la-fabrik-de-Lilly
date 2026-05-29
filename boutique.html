@@ -104,6 +104,7 @@ a{
   inset:0;
   background:rgba(0,0,0,0.4);
   display:none;
+  z-index:999;
 }
 
 #cart{
@@ -116,7 +117,7 @@ a{
   transition:0.3s;
   display:flex;
   flex-direction:column;
-  z-index:1001;
+  z-index:1000;
 }
 
 #cart.open{ right:0; }
@@ -137,13 +138,11 @@ a{
 .cart-footer{
   padding:20px;
   border-top:1px solid #eee;
-  <button onclick="window.location.href='paiement.html'">
-Valider commande
-</button>
 }
 
 .cart-footer button{
   width:100%;
+  margin-top:10px;
 }
 
 </style>
@@ -155,17 +154,26 @@ Valider commande
 <div id="cart-overlay" onclick="toggleCart()"></div>
 
 <div id="cart">
+
   <div class="cart-header">
     <h3>Panier</h3>
-    <span onclick="toggleCart()">✖</span>
+    <span onclick="toggleCart()" style="cursor:pointer;">✖</span>
   </div>
 
   <div id="cart-items"></div>
 
   <div class="cart-footer">
     <p>Total : <span id="cart-total">0</span>€</p>
-    <button onclick="viderPanier()">Vider</button>
+
+    <button onclick="window.location.href='paiement.html'">
+      Valider commande
+    </button>
+
+    <button onclick="viderPanier()">
+      Vider panier
+    </button>
   </div>
+
 </div>
 
 <header>
@@ -227,6 +235,7 @@ function ajouterAuPanier(nom, prix){
 }
 
 function afficher(){
+
   let items = document.getElementById("cart-items");
   let total = 0;
 
