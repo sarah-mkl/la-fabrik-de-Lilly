@@ -160,21 +160,25 @@ button:hover{
 
 <script>
 
+/* 🔥 FIX IMPORTANT : on utilise "nom" (comme ta boutique) */
 const params = new URLSearchParams(window.location.search);
 
-const produitActuel = params.get("produit");
-const prixParam = params.get("prix");
+let produitActuel = params.get("nom");
+let prix = Number(params.get("prix"));
 
-/* ❌ si rien dans l’URL → on affiche un message clair */
-if(!produitActuel || !prixParam){
-  document.getElementById("titre").textContent = "Produit non chargé";
-  document.getElementById("prix").textContent = "0";
-  alert("Erreur : produit non envoyé depuis la boutique");
-} else {
-  document.getElementById("titre").textContent = produitActuel;
-  document.getElementById("prix").textContent = prixParam;
+/* sécurité si accès direct */
+if(!produitActuel){
+  produitActuel = "Produit inconnu";
 }
 
+if(!prix){
+  prix = 0;
+}
+
+document.getElementById("titre").textContent = produitActuel;
+document.getElementById("prix").textContent = prix;
+
+/* PARFUM */
 let parfumChoisi = "";
 let panier = [];
 
@@ -222,11 +226,8 @@ function ajouter(){
     return;
   }
 
-  const nom = document.getElementById("titre").textContent;
-  const prix = Number(document.getElementById("prix").textContent);
-
   panier.push({
-    nom: nom + " - " + parfumChoisi,
+    nom: produitActuel + " - " + parfumChoisi,
     prix: prix
   });
 
@@ -261,7 +262,6 @@ function whatsapp(){
 
   window.open("https://wa.me/33651461324?text=" + msg);
 }
-
 
 </script>
 
