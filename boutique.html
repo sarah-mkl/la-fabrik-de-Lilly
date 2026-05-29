@@ -277,33 +277,59 @@ a{
 
 let panier = [];
 
+/* AJOUT PANIER (plus propre) */
 function ajouterAuPanier(nom, prix){
-  panier.push({nom, prix});
+
+  panier.push({
+    nom: nom,
+    prix: prix,
+    id: Date.now()
+  });
+
   afficherPanier();
   ouvrirCart();
 }
 
+/* AFFICHAGE */
 function afficherPanier(){
+
   let items = document.getElementById("cart-items");
   let total = 0;
 
   items.innerHTML = "";
 
-  panier.forEach(p=>{
-    let div = document.createElement("div");
-    div.textContent = p.nom + " - " + p.prix + "€";
-    items.appendChild(div);
+  panier.forEach((p, index) => {
+
     total += p.prix;
+
+    let div = document.createElement("div");
+    div.style.padding = "8px";
+    div.style.borderBottom = "1px solid #eee";
+
+    div.innerHTML = `
+      ${p.nom} - ${p.prix}€
+      <button onclick="supprimer(${index})" style="float:right;background:red;border:none;color:white;border-radius:10px;padding:3px 8px;cursor:pointer;">X</button>
+    `;
+
+    items.appendChild(div);
   });
 
   document.getElementById("cart-total").textContent = total;
 }
 
+/* SUPPRIMER 1 PRODUIT */
+function supprimer(index){
+  panier.splice(index, 1);
+  afficherPanier();
+}
+
+/* VIDER */
 function viderPanier(){
   panier = [];
   afficherPanier();
 }
 
+/* OUVRIR / FERMER */
 function toggleCart(){
   document.getElementById("cart").classList.toggle("open");
   document.getElementById("cart-overlay").classList.toggle("show");
