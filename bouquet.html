@@ -9,16 +9,41 @@
 
 <style>
 
-/* même base */
 body{margin:0;font-family:Georgia,serif;background:#f8f4ef;color:#2b2b2b;}
+
 .header{text-align:center;padding:25px;font-size:36px;}
+
 .container{display:flex;justify-content:space-between;align-items:center;padding:60px 10%;gap:40px;}
+
 .text{flex:1;font-size:16px;line-height:1.8;color:#555;}
+
 .image{flex:1;text-align:center;}
+
 .image img{width:100%;max-width:400px;border-radius:25px;box-shadow:0 10px 25px rgba(0,0,0,0.15);}
+
 .banner{text-align:center;margin-top:60px;padding:30px;background:#efe5dd;font-size:26px;}
+
 .categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;padding:40px 10%;}
-.cat{background:white;padding:25px;border-radius:20px;}
+
+.cat{
+text-decoration:none;
+color:#2b2b2b;
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 10px 20px rgba(0,0,0,0.08);
+transition:0.3s ease;
+display:block;
+}
+
+.cat:hover{
+transform:translateY(-6px);
+box-shadow:0 15px 30px rgba(0,0,0,0.12);
+background:#2b2b2b;
+color:white;
+}
+
+.cat p{color:inherit;}
 
 </style>
 </head>
@@ -31,13 +56,11 @@ body{margin:0;font-family:Georgia,serif;background:#f8f4ef;color:#2b2b2b;}
 
 <div class="text">
 
-Nos bouquets parfumés diffusent une senteur continue et élégante dans votre intérieur.<br><br>
+Un parfum continu et élégant pour sublimer votre intérieur.<br><br>
 
-Une solution décorative et parfumée à la fois, idéale pour sublimer vos pièces.<br><br>
+Une décoration parfumée à la fois esthétique et raffinée.<br><br>
 
-Fabriqués avec soin, ils apportent une touche de raffinement durable.<br><br>
-
-Parfait pour une ambiance chic et constante.<br><br>
+Idéal pour une ambiance chic et durable.<br><br>
 
 </div>
 
@@ -51,10 +74,10 @@ Parfait pour une ambiance chic et constante.<br><br>
 
 <div class="categories">
 
-<div class="cat"><h3>Gourmand</h3><p>Doux</p></div>
-<div class="cat"><h3>Floral</h3><p>Élégant</p></div>
-<div class="cat"><h3>Boisé</h3><p>Chic</p></div>
-<div class="cat"><h3>Fraîcheur</h3><p>Léger</p></div>
+<a class="cat" href="#"><h3>Gourmand</h3><p>Doux</p></a>
+<a class="cat" href="#"><h3>Floral</h3><p>Élégant</p></a>
+<a class="cat" href="#"><h3>Boisé</h3><p>Chic</p></a>
+<a class="cat" href="#"><h3>Fraîcheur</h3><p>Léger</p></a>
 
 </div>
 
