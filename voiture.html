@@ -8,21 +8,13 @@
 <title>Diffuseur voiture</title>
 
 <style>
-
 body{margin:0;font-family:Georgia,serif;background:#f8f4ef;color:#2b2b2b;}
-
-.header{text-align:center;padding:25px;font-size:36px;}
-
+.header{text-align:center;padding:25px;font-size:38px;}
 .container{display:flex;justify-content:space-between;align-items:center;padding:60px 10%;gap:40px;}
-
-.text{flex:1;font-size:16px;line-height:1.8;color:#555;}
-
+.text{flex:1;font-size:16px;line-height:1.9;color:#555;}
 .image{flex:1;text-align:center;}
-
-.image img{width:100%;max-width:400px;border-radius:25px;box-shadow:0 10px 25px rgba(0,0,0,0.15);}
-
-.banner{text-align:center;margin-top:60px;padding:30px;background:#efe5dd;font-size:26px;}
-
+.image img{width:100%;max-width:430px;border-radius:25px;box-shadow:0 10px 25px rgba(0,0,0,0.15);}
+.banner{text-align:center;margin-top:60px;padding:30px;background:#efe5dd;font-size:28px;}
 .categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;padding:40px 10%;}
 
 .cat{
@@ -30,22 +22,35 @@ text-decoration:none;
 color:#2b2b2b;
 background:white;
 padding:25px;
-border-radius:20px;
-box-shadow:0 10px 20px rgba(0,0,0,0.08);
-transition:0.3s ease;
+border-radius:22px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+transition:0.35s ease;
+position:relative;
+overflow:hidden;
 display:block;
 }
 
-.cat:hover{
-transform:translateY(-6px);
-box-shadow:0 15px 30px rgba(0,0,0,0.12);
-background:#2b2b2b;
-color:white;
+.cat::before{
+content:"";
+position:absolute;
+inset:-2px;
+background:radial-gradient(circle at top left,
+rgba(176,137,104,0.5),
+transparent 60%);
+opacity:0;
+transition:0.4s;
 }
 
-.cat p{color:inherit;}
+.cat:hover{
+transform:translateY(-8px) scale(1.03);
+box-shadow:0 18px 50px rgba(0,0,0,0.18);
+border:1px solid rgba(176,137,104,0.6);
+}
 
+.cat:hover::before{opacity:1;}
+.cat p{color:#666;}
 </style>
+
 </head>
 
 <body>
@@ -55,15 +60,7 @@ color:white;
 <div class="container">
 
 <div class="text">
-
-Parfumez vos trajets avec élégance grâce à nos diffuseurs voiture.<br><br>
-
-Une diffusion subtile et continue pour un confort quotidien.<br><br>
-
-Design pratique et senteurs raffinées.<br><br>
-
-Une ambiance agréable même en déplacement.<br><br>
-
+Parfumez vos trajets avec élégance et subtilité.<br><br>
 </div>
 
 <div class="image">
@@ -76,10 +73,10 @@ Une ambiance agréable même en déplacement.<br><br>
 
 <div class="categories">
 
-<a class="cat" href="#"><h3>Gourmand</h3><p>Chaud</p></a>
-<a class="cat" href="#"><h3>Floral</h3><p>Frais</p></a>
-<a class="cat" href="#"><h3>Boisé</h3><p>Puissant</p></a>
-<a class="cat" href="#"><h3>Fraîcheur</h3><p>Léger</p></a>
+<a class="cat"><h3>Gourmand</h3><p>Chaud</p></a>
+<a class="cat"><h3>Floral</h3><p>Frais</p></a>
+<a class="cat"><h3>Boisé</h3><p>Puissant</p></a>
+<a class="cat"><h3>Fraîcheur</h3><p>Léger</p></a>
 
 </div>
 
