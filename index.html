@@ -13,22 +13,31 @@ margin:0;
 font-family:Georgia, serif;
 color:#2b2b2b;
 
+/* FOND + LOGO PLUS VISIBLE */
 background:
-linear-gradient(rgba(255,255,255,0.30),rgba(255,255,255,0.30)),
-url("images/logo-ll.jpg") center center / 50% no-repeat fixed,
+linear-gradient(rgba(255,255,255,0.35),rgba(255,255,255,0.35)),
+url("images/logo-ll.jpg") center center / 60% no-repeat fixed,
 linear-gradient(180deg,#f8f4ef,#efe5dd);
 
 min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
 text-align:center;
 overflow:hidden;
 }
 
-/* CONTENU */
+/* HEADER EN HAUT */
+.header{
+position:absolute;
+top:20px;
+left:0;
+width:100%;
+font-size:28px;
+font-weight:400;
+letter-spacing:1px;
+}
 
+/* CONTENU */
 .hero{
+margin-top:120px;
 padding:40px;
 background:rgba(255,255,255,0.55);
 backdrop-filter:blur(4px);
@@ -36,10 +45,11 @@ border-radius:30px;
 box-shadow:0 15px 40px rgba(0,0,0,0.08);
 max-width:600px;
 width:90%;
+margin-left:auto;
+margin-right:auto;
 }
 
 /* TITRE */
-
 h1{
 font-size:55px;
 margin-bottom:10px;
@@ -55,7 +65,6 @@ line-height:1.6;
 }
 
 /* BOUTON */
-
 .btn{
 display:inline-block;
 padding:16px 35px;
@@ -74,7 +83,6 @@ background:#444;
 }
 
 /* PETIT TEXTE */
-
 .bottom{
 margin-top:30px;
 font-size:13px;
@@ -83,20 +91,11 @@ opacity:0.7;
 }
 
 /* MOBILE */
-
 @media(max-width:768px){
 
-h1{
-font-size:38px;
-}
-
-.subtitle{
-font-size:16px;
-}
-
-.hero{
-padding:30px 20px;
-}
+h1{font-size:38px;}
+.subtitle{font-size:16px;}
+.hero{padding:30px 20px;}
 
 }
 
@@ -105,9 +104,14 @@ padding:30px 20px;
 
 <body>
 
+<!-- TITRE EN HAUT -->
+<div class="header">
+La Fabrik' de Lilly
+</div>
+
 <div class="hero">
 
-<h1>La Fabrik' de Lilly</h1>
+<h1>Bienvenue</h1>
 
 <p class="subtitle">
 Bougies parfumées artisanales, fondants, sprays d’ambiance et créations parfumées conçues avec passion.
