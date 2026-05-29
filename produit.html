@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Produit - La Fabrik' de Lilly</title>
+<title>Produit</title>
 
 <style>
 
@@ -23,14 +23,14 @@ header{
 }
 
 .container{
-  max-width:850px;
+  max-width:800px;
   margin:auto;
   padding:40px 20px;
 }
 
 .box{
   background:white;
-  padding:30px;
+  padding:25px;
   border-radius:18px;
   box-shadow:0 5px 20px rgba(0,0,0,0.08);
 }
@@ -40,46 +40,12 @@ select,button{
   padding:12px;
   margin-top:12px;
   border-radius:10px;
-  font-family:inherit;
 }
 
 button{
   background:#2b2b2b;
   color:white;
   border:none;
-  cursor:pointer;
-}
-
-button:hover{
-  background:#444;
-}
-
-/* PANIER */
-#panier{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  width:270px;
-  background:white;
-  border-radius:18px;
-  padding:15px;
-  box-shadow:0 5px 20px rgba(0,0,0,0.15);
-}
-
-.total{
-  text-align:center;
-  font-size:20px;
-  color:#b08968;
-  font-weight:bold;
-}
-
-.item{
-  border-bottom:1px solid #eee;
-  padding:8px 0;
-}
-
-.btn-whatsapp{
-  background:#25D366;
 }
 
 </style>
@@ -88,195 +54,78 @@ button:hover{
 <body>
 
 <header>
-  <h1>La Fabrik' de Lilly</h1>
+<h1>La Fabrik' de Lilly</h1>
 </header>
 
 <div class="container">
 
-  <div class="box">
+<div class="box">
 
-    <h2 id="titre"></h2>
-    <p><strong>Prix :</strong> <span id="prix"></span> €</p>
+<h2 id="titre"></h2>
+<p>Prix : <span id="prix"></span>€</p>
 
-    <label>Choisis ton parfum</label>
+<select id="parfum" onchange="changerParfum()">
+<option value="">Choisir parfum</option>
 
-    <select id="parfum" onchange="changerParfum()">
-      <option value="">-- Sélectionner --</option>
+<option value="coton">Fleur de coton</option>
+<option value="cerisier">Fleur de cerisier</option>
+<option value="lavande">Lavande</option>
+<option value="jasmin">Jasmin</option>
+<option value="oud">Bois de oud</option>
+<option value="barbe">Barbe à papa</option>
+<option value="monoip">Monoï pêche</option>
+<option value="pomme">Pomme verte</option>
 
-      <optgroup label="Floraux">
-        <option value="cerisier">Fleur de cerisier</option>
-        <option value="acacia">Fleur d’acacia</option>
-        <option value="coton">Fleur de coton</option>
-        <option value="orchidee">Orchidée</option>
-        <option value="lavande">Lavande</option>
-        <option value="jasmin">Jasmin</option>
-        <option value="lys">Lys blanc</option>
-        <option value="azalee">Azalée du Japon</option>
-        <option value="hibiscus">Hibiscus</option>
-      </optgroup>
+</select>
 
-      <optgroup label="Gourmands">
-        <option value="barbe">Barbe à papa</option>
-        <option value="frangipanier">Frangipanier</option>
-        <option value="madeleine">Madeleine gourmande</option>
-        <option value="douce">Douce couverture</option>
-      </optgroup>
+<p id="desc"></p>
 
-      <optgroup label="Divers">
-        <option value="linge">Linge propre</option>
-        <option value="oud">Bois de oud</option>
-        <option value="adoucissant">Adoucissant</option>
-      </optgroup>
-
-      <optgroup label="Fruités">
-        <option value="monoip">Monoï pêche</option>
-        <option value="monoic">Monoï clémentine</option>
-        <option value="pomme">Pomme verte</option>
-        <option value="litchi">Litchi</option>
-        <option value="melon">Melon</option>
-        <option value="pastèque">Pastèque melon</option>
-        <option value="fruitrouge">Fruit rouge</option>
-        <option value="pommeamour">Pomme d’amour</option>
-        <option value="smoothie">Smoothie</option>
-      </optgroup>
-
-    </select>
-
-    <p id="desc">Choisis un parfum</p>
-
-    <button onclick="ajouter()">Ajouter au panier</button>
-
-    <button onclick="window.location.href='boutique.html'">
-      ← Retour boutique
-    </button>
-
-  </div>
+<button onclick="ajouter()">Ajouter au panier</button>
+<button onclick="window.location.href='boutique.html'">Retour boutique</button>
 
 </div>
 
-<!-- PANIER -->
-<div id="panier">
-  <h3>🛒 Panier</h3>
-  <div id="liste"></div>
-  <p class="total">Total : <span id="total">0</span> €</p>
-  <button class="btn-whatsapp" onclick="whatsapp()">Commander</button>
 </div>
 
 <script>
 
-/* 🔥 PANIER LOCAL STORAGE */
 let panier = JSON.parse(localStorage.getItem("panier")) || [];
 
-/* PRODUIT */
+function save(){
+  localStorage.setItem("panier", JSON.stringify(panier));
+}
+
 const params = new URLSearchParams(window.location.search);
 
-let produitActuel = params.get("nom");
-let prix = Number(params.get("prix"));
+let produit = params.get("nom") || "Produit";
+let prix = Number(params.get("prix") || 0);
 
-if(!produitActuel){
-  produitActuel = "Produit inconnu";
-}
-
-if(!prix){
-  prix = 0;
-}
-
-document.getElementById("titre").textContent = produitActuel;
+document.getElementById("titre").textContent = produit;
 document.getElementById("prix").textContent = prix;
 
-/* PARFUM */
-let parfumChoisi = "";
-
-const parfums = {
-  coton:"Doux et propre",
-  cerisier:"Floral léger",
-  acacia:"Floral doux",
-  orchidee:"Floral élégant",
-  lavande:"Relaxant",
-  jasmin:"Intense floral",
-  lys:"Propre et chic",
-  azalee:"Floral japonais",
-  hibiscus:"Exotique floral",
-
-  barbe:"Très sucré",
-  frangipanier:"Tropical doux",
-  madeleine:"Gourmand",
-  douce:"Crémeux",
-
-  linge:"Propre frais",
-  oud:"Boisé intense",
-  adoucissant:"Doux propre",
-
-  monoip:"Tropical pêche",
-  monoic:"Tropical agrumes",
-  pomme:"Frais",
-  litchi:"Fruité doux",
-  melon:"Frais sucré",
-  pastèque:"Ultra frais",
-  fruitrouge:"Sucré",
-  pommeamour:"Caramel",
-  smoothie:"Fruité gourmand"
-};
+let parfum = "";
 
 function changerParfum(){
-  parfumChoisi = document.getElementById("parfum").value;
-  if(!parfumChoisi) return;
-  document.getElementById("desc").textContent = parfums[parfumChoisi];
+  parfum = document.getElementById("parfum").value;
+  document.getElementById("desc").textContent = parfum;
 }
 
-/* AJOUT PANIER */
 function ajouter(){
 
-  if(!parfumChoisi){
+  if(!parfum){
     alert("Choisis un parfum");
     return;
   }
 
   panier.push({
-    nom: produitActuel + " - " + parfumChoisi,
+    nom: produit + " - " + parfum,
     prix: prix
   });
 
-  localStorage.setItem("panier", JSON.stringify(panier));
+  save();
 
-  afficher();
+  alert("Ajouté au panier !");
 }
-
-/* AFFICHER PANIER */
-function afficher(){
-
-  panier = JSON.parse(localStorage.getItem("panier")) || [];
-
-  let total = 0;
-  let html = "";
-
-  panier.forEach(p=>{
-    total += p.prix;
-    html += `<div class="item">${p.nom} - ${p.prix}€</div>`;
-  });
-
-  document.getElementById("liste").innerHTML = html;
-  document.getElementById("total").textContent = total;
-}
-
-/* WHATSAPP */
-function whatsapp(){
-
-  let msg = "Commande:%0A%0A";
-  let total = 0;
-
-  panier.forEach(p=>{
-    msg += "- " + p.nom + "%0A";
-    total += p.prix;
-  });
-
-  msg += "%0ATotal: " + total + "€";
-
-  window.open("https://wa.me/33651461324?text=" + msg);
-}
-
-/* INIT */
-afficher();
 
 </script>
 
