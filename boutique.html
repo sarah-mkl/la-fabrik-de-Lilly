@@ -275,9 +275,9 @@ a{
 
 <script>
 
-let panier = [];
+let panier = JSON.parse(localStorage.getItem("panier")) || [];
 
-/* AJOUT PANIER (plus propre) */
+/* AJOUT */
 function ajouterAuPanier(nom, prix){
 
   panier.push({
@@ -286,8 +286,14 @@ function ajouterAuPanier(nom, prix){
     id: Date.now()
   });
 
+  savePanier();
   afficherPanier();
   ouvrirCart();
+}
+
+/* SAUVEGARDE */
+function savePanier(){
+  localStorage.setItem("panier", JSON.stringify(panier));
 }
 
 /* AFFICHAGE */
@@ -317,15 +323,17 @@ function afficherPanier(){
   document.getElementById("cart-total").textContent = total;
 }
 
-/* SUPPRIMER 1 PRODUIT */
+/* SUPPRIMER */
 function supprimer(index){
   panier.splice(index, 1);
+  savePanier();
   afficherPanier();
 }
 
 /* VIDER */
 function viderPanier(){
   panier = [];
+  savePanier();
   afficherPanier();
 }
 
@@ -338,6 +346,11 @@ function toggleCart(){
 function ouvrirCart(){
   document.getElementById("cart").classList.add("open");
   document.getElementById("cart-overlay").classList.add("show");
+}
+
+/* AU CHARGEMENT */
+window.onload = function(){
+  afficherPanier();
 }
 
 </script>
