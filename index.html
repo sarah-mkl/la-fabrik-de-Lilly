@@ -12,57 +12,69 @@ body{
 margin:0;
 font-family:Georgia, serif;
 height:100vh;
-background: linear-gradient(180deg,#f8f4ef,#efe5dd);
 overflow:hidden;
+background: linear-gradient(180deg,#f8f4ef,#efe5dd);
 }
 
-/* TITRE EN HAUT */
+/* LOGO FOND PLEINE PAGE */
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:url("images/logo-ll.jpg") center/cover no-repeat;
+opacity:0.22;
+z-index:-1;
+}
+
+/* TITRE EN HAUT (STYLE BOUTIQUE) */
 .header{
 position:absolute;
-top:20px;
+top:30px;
 width:100%;
 text-align:center;
-font-size:28px;
+font-size:52px;
 font-weight:400;
-letter-spacing:1px;
+letter-spacing:2px;
 color:#2b2b2b;
 }
 
-/* LOGO CENTRÉ */
-.logo{
+/* CENTRAGE VISUEL */
+.center-space{
 position:absolute;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-width:350px;
-opacity:0.35;
+text-align:center;
 }
 
-/* BAS DE PAGE */
+/* BAS */
 .footer{
 position:absolute;
-bottom:60px;
+bottom:70px;
 width:100%;
 text-align:center;
+padding:0 20px;
 }
 
 /* TEXTE */
 .footer p{
 font-size:18px;
-margin-bottom:20px;
 color:#5e5e5e;
+margin-bottom:25px;
 line-height:1.6;
 }
 
 /* BOUTON */
 .btn{
 display:inline-block;
-padding:16px 35px;
+padding:16px 40px;
 background:#2b2b2b;
 color:white;
 text-decoration:none;
 border-radius:40px;
+font-size:16px;
 transition:0.3s;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
 }
 
 .btn:hover{
@@ -70,24 +82,30 @@ background:#444;
 transform:translateY(-3px);
 }
 
+/* RESPONSIVE */
+@media(max-width:768px){
+.header{font-size:36px;}
+.footer p{font-size:16px;}
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- HAUT -->
+<!-- TITRE -->
 <div class="header">
 La Fabrik' de Lilly
 </div>
 
-<!-- LOGO CENTRE -->
-<img class="logo" src="images/logo-ll.jpg" alt="logo">
+<!-- ESPACE CENTRE (vide volontaire style luxe) -->
+<div class="center-space"></div>
 
 <!-- BAS -->
 <div class="footer">
 
 <p>
-Bougies parfumées artisanales, fondants, sprays d’ambiance et créations parfumées
+Bougies parfumées artisanales, fondants, sprays d’ambiance et créations parfumées conçues avec passion.
 </p>
 
 <a class="btn" href="menu.html">
