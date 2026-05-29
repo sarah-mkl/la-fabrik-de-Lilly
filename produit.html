@@ -160,24 +160,22 @@ button:hover{
 
 <script>
 
-/* 🔥 PRODUIT (CORRIGÉ) */
 const params = new URLSearchParams(window.location.search);
 
 let produitActuel = params.get("produit");
 let prix = Number(params.get("prix"));
 
 if(!produitActuel){
-  produitActuel = "Produit inconnu";
+  produitActuel = "Bougie parfumée";
 }
 
 if(!prix){
-  prix = 0;
+  prix = 8;
 }
 
 document.getElementById("titre").textContent = produitActuel;
 document.getElementById("prix").textContent = prix;
 
-/* PARFUM */
 let parfumChoisi = "";
 let panier = [];
 
@@ -189,10 +187,10 @@ const parfums = {
   lavande:"Relaxant",
   jasmin:"Intense floral",
   lys:"Propre et chic",
-  azalee:"Floral japonais",
+  azaleedujapon:"Floral japonais",
   hibiscus:"Exotique floral",
 
-  barbe:"Très sucré",
+  barbeapapa:"Très sucré",
   frangipanier:"Tropical doux",
   madeleine:"Gourmand",
   douce:"Crémeux",
@@ -201,8 +199,8 @@ const parfums = {
   oud:"Boisé intense",
   adoucissant:"Doux propre",
 
-  monoip:"Tropical pêche",
-  monoic:"Tropical agrumes",
+  monoipeche:"Tropical pêche",
+  monoiclementine:"Tropical agrumes",
   pomme:"Frais",
   litchi:"Fruité doux",
   melon:"Frais sucré",
