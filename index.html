@@ -12,49 +12,69 @@ body{
 margin:0;
 font-family:Georgia, serif;
 color:#2b2b2b;
-
-/* FOND + LOGO PLUS VISIBLE */
-background:
-linear-gradient(rgba(255,255,255,0.35),rgba(255,255,255,0.35)),
-url("images/logo-ll.jpg") center center / 60% no-repeat fixed,
-linear-gradient(180deg,#f8f4ef,#efe5dd);
-
 min-height:100vh;
-text-align:center;
 overflow:hidden;
+text-align:center;
+
+/* fond doux sans logo ici */
+background: linear-gradient(180deg,#f8f4ef,#efe5dd);
 }
 
-/* HEADER EN HAUT */
+/* ANIMATION D’ENTRÉE PAGE */
+body{
+animation: fadeIn 1.2s ease-in-out;
+}
+
+@keyframes fadeIn{
+from{opacity:0; transform:scale(1.02);}
+to{opacity:1; transform:scale(1);}
+}
+
+/* LOGO FLOTTANT EN FOND */
+.logo-bg{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:500px;
+opacity:0.08;
+z-index:-1;
+animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float{
+0%{transform:translate(-50%,-50%) translateY(0px);}
+50%{transform:translate(-50%,-50%) translateY(-20px);}
+100%{transform:translate(-50%,-50%) translateY(0px);}
+}
+
+/* TITRE EN HAUT */
 .header{
 position:absolute;
 top:20px;
-left:0;
 width:100%;
 font-size:28px;
 font-weight:400;
 letter-spacing:1px;
 }
 
-/* CONTENU */
+/* BOX CENTRALE */
 .hero{
 margin-top:120px;
+display:inline-block;
 padding:40px;
-background:rgba(255,255,255,0.55);
-backdrop-filter:blur(4px);
+background:rgba(255,255,255,0.6);
+backdrop-filter:blur(6px);
 border-radius:30px;
 box-shadow:0 15px 40px rgba(0,0,0,0.08);
 max-width:600px;
 width:90%;
-margin-left:auto;
-margin-right:auto;
 }
 
-/* TITRE */
 h1{
 font-size:55px;
 margin-bottom:10px;
 font-weight:400;
-letter-spacing:1px;
 }
 
 .subtitle{
@@ -64,7 +84,6 @@ color:#5e5e5e;
 line-height:1.6;
 }
 
-/* BOUTON */
 .btn{
 display:inline-block;
 padding:16px 35px;
@@ -74,7 +93,6 @@ text-decoration:none;
 border-radius:40px;
 font-size:16px;
 transition:0.3s;
-box-shadow:0 8px 20px rgba(0,0,0,0.15);
 }
 
 .btn:hover{
@@ -82,7 +100,6 @@ transform:translateY(-3px);
 background:#444;
 }
 
-/* PETIT TEXTE */
 .bottom{
 margin-top:30px;
 font-size:13px;
@@ -92,11 +109,9 @@ opacity:0.7;
 
 /* MOBILE */
 @media(max-width:768px){
-
 h1{font-size:38px;}
 .subtitle{font-size:16px;}
-.hero{padding:30px 20px;}
-
+.logo-bg{width:300px;}
 }
 
 </style>
@@ -104,11 +119,15 @@ h1{font-size:38px;}
 
 <body>
 
-<!-- TITRE EN HAUT -->
+<!-- LOGO FLOTTANT -->
+<img class="logo-bg" src="images/logo-ll.jpg" alt="logo">
+
+<!-- TITRE -->
 <div class="header">
 La Fabrik' de Lilly
 </div>
 
+<!-- CONTENU -->
 <div class="hero">
 
 <h1>Bienvenue</h1>
