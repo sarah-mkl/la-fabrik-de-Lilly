@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,121 +11,218 @@
 
 body{
     margin:0;
-    font-family: Georgia, serif;
-    background:#f6efe9;
+    font-family:Georgia, serif;
+    background:#f8f4ef;
     color:#2b2b2b;
 }
 
-/* ===== HEADER FIXE LUXE ===== */
-.header{
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(246, 239, 233, 0.88);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(212,175,55,0.25);
-    z-index: 1000;
-    padding: 12px 0;
+/* HEADER */
+
+header{
+    position:absolute;
+    top:0;
+    width:100%;
+    z-index:10;
+    padding:25px 0;
 }
 
-.header-content{
+/* MENU */
+
+nav{
     display:flex;
-    flex-direction:column;
-    align-items:center;
     justify-content:center;
-    gap:4px;
+    gap:40px;
 }
 
-/* LOGO */
-.logo-img{
-    height:55px;
-    object-fit:contain;
+nav a{
+    text-decoration:none;
+    color:#2b2b2b;
+    letter-spacing:2px;
+    font-size:13px;
+    background:rgba(255,255,255,0.75);
+    padding:10px 18px;
+    border-radius:30px;
+    backdrop-filter:blur(5px);
 }
 
-/* NOM DE MARQUE */
-.brand{
-    font-size:20px;
-    font-weight:500;
-    color:#000;
-    letter-spacing:1px;
-}
+/* HERO */
 
-/* ligne dorée élégante */
-.brand::after{
-    content:"";
-    display:block;
-    width:70px;
-    height:2px;
-    margin:6px auto 0;
-    background: linear-gradient(to right, transparent, #d4af37, transparent);
-}
-
-/* ===== SLOGAN ===== */
-.slogan{
-    text-align:center;
-    margin-top:130px;
-    font-style:italic;
-    color:#6b5b53;
-    font-size:16px;
-    padding:0 20px;
-}
-
-/* ===== HERO ===== */
 .hero{
+    height:100vh;
+
+    background:
+    linear-gradient(rgba(255,255,255,0.55),rgba(255,255,255,0.55)),
+    url("images/logo-ll.jpg")
+    center center / 70% no-repeat,
+
+    linear-gradient(180deg,#f8f4ef,#efe5dd);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
     text-align:center;
-    padding:60px 20px;
+
+    padding:20px;
+}
+
+.hero-content{
+    max-width:750px;
+    margin-top:120px;
 }
 
 .hero h1{
-    font-size:32px;
-    margin-bottom:10px;
+    font-size:65px;
+    font-weight:300;
+    letter-spacing:4px;
+    margin-bottom:20px;
     color:#2b2b2b;
 }
 
 .hero p{
-    color:#6b5b53;
-    font-size:17px;
+    font-size:19px;
+    line-height:1.9;
+    color:#4d4d4d;
 }
 
 .btn{
     display:inline-block;
-    margin-top:20px;
-    padding:12px 22px;
-    background:#d4af37;
+    margin-top:35px;
+    padding:15px 30px;
+    background:#2b2b2b;
     color:white;
     text-decoration:none;
-    border-radius:25px;
+    border-radius:40px;
+    letter-spacing:2px;
     transition:0.3s;
 }
 
 .btn:hover{
-    background:#b8922f;
+    background:#b08968;
 }
 
-/* ===== SECTION ===== */
+/* SECTION */
+
 .section{
-    padding:50px 20px;
+    padding:90px 20px;
+    max-width:1200px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    font-size:38px;
+    font-weight:300;
+    letter-spacing:3px;
+    margin-bottom:15px;
+}
+
+.section-text{
+    text-align:center;
+    max-width:750px;
+    margin:auto;
+    color:#666;
+    line-height:1.9;
+    font-size:17px;
+}
+
+/* CARDS */
+
+.grid{
+    margin-top:60px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:white;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+}
+
+.card img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    display:block;
+}
+
+.card-content{
+    padding:25px;
     text-align:center;
 }
 
-.section h2{
-    color:#000;
-    margin-bottom:10px;
+.card h3{
+    margin-top:0;
+    font-size:24px;
+    font-weight:400;
 }
 
-.section p{
-    color:#6b5b53;
+.card p{
+    color:#666;
+    line-height:1.7;
 }
 
-/* ===== FOOTER ===== */
+.price{
+    margin:20px 0;
+    color:#b08968;
+    font-size:24px;
+    font-weight:bold;
+}
+
+/* BUTTON */
+
+button{
+    border:none;
+    background:#2b2b2b;
+    color:white;
+    padding:12px 22px;
+    border-radius:30px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#b08968;
+}
+
+/* BANDEAU */
+
+.values{
+    background:#efe5dd;
+    padding:80px 20px;
+    text-align:center;
+}
+
+.values h2{
+    font-size:38px;
+    font-weight:300;
+    margin-bottom:25px;
+    letter-spacing:2px;
+}
+
+.values p{
+    max-width:800px;
+    margin:auto;
+    line-height:2;
+    color:#555;
+    font-size:17px;
+}
+
+/* FOOTER */
+
 footer{
-    margin-top:50px;
-    padding:20px;
     text-align:center;
+    padding:40px;
+    color:#888;
     font-size:13px;
-    color:#6b5b53;
-    border-top:1px solid rgba(212,175,55,0.3);
+    border-top:1px solid #eee;
 }
 
 </style>
@@ -133,35 +231,132 @@ footer{
 
 <body>
 
-<!-- HEADER -->
-<header class="header">
-    <div class="header-content">
-        <img src="logo.jpg" alt="La Fabrik' de Lilly" class="logo-img">
-        <div class="brand">La Fabrik' de Lilly</div>
-    </div>
+<header>
+
+<nav>
+<a href="index.html">ACCUEIL</a>
+<a href="boutique.html">BOUTIQUE</a>
+<a href="#">À PROPOS</a>
+</nav>
+
 </header>
 
-<!-- SLOGAN -->
-<div class="slogan">
-    Artisanat naturel & fait main, inspiré par la douceur du végetal
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>La Fabrik’ de Lilly</h1>
+
+<p>
+Bougies artisanales à la cire de soja 100% végétale.
+<br>
+Parfums de Grasse sans CMR pour une expérience élégante et sensorielle.
+</p>
+
+<a href="boutique.html" class="btn">
+DÉCOUVRIR LA BOUTIQUE
+</a>
+
 </div>
 
-<!-- HERO -->
-<div class="hero">
-    <h1>Des créations uniques et naturelles</h1>
-    <p>Fondants parfumés, bougies et diffuseurs faits avec amour</p>
-    <a class="btn" href="#">Découvrir la boutique</a>
+</section>
+
+<section class="section">
+
+<h2 class="section-title">Coups de cœur</h2>
+
+<p class="section-text">
+Découvrez les créations préférées de nos clientes.
+</p>
+
+<div class="grid">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+<h3>Bougie Vanille</h3>
+
+<p>
+Une fragrance douce et réconfortante aux notes chaleureuses.
+</p>
+
+<div class="price">
+19,90€
 </div>
 
-<!-- SECTION -->
-<div class="section">
-    <h2>Notre univers</h2>
-    <p>Chaque produit est fabriqué artisanalement avec des ingrédients naturels pour créer une ambiance douce et chaleureuse.</p>
+<button>
+Ajouter au panier
+</button>
+
+</div>
 </div>
 
-<!-- FOOTER -->
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1615529328331-f8917597711f?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+<h3>Fondant Fleur Blanche</h3>
+
+<p>
+Des notes florales raffinées pour une ambiance délicate.
+</p>
+
+<div class="price">
+7,90€
+</div>
+
+<button>
+Ajouter au panier
+</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+<h3>Spray d’ambiance</h3>
+
+<p>
+Une senteur élégante pour parfumer votre intérieur instantanément.
+</p>
+
+<div class="price">
+14,90€
+</div>
+
+<button>
+Ajouter au panier
+</button>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="values">
+
+<h2>Notre engagement</h2>
+
+<p>
+Toutes nos créations sont fabriquées artisanalement avec de la cire de soja 100% végétale et des parfums de Grasse soigneusement sélectionnés, sans substances CMR.
+<br><br>
+La Fabrik’ de Lilly imagine des produits élégants, sensoriels et raffinés pour transformer chaque intérieur en moment de bien-être.
+</p>
+
+</section>
+
 <footer>
-    © 2026 La Fabrik' de Lilly — Tous droits réservés
+
+© 2026 La Fabrik' de Lilly
+
 </footer>
 
 </body>
