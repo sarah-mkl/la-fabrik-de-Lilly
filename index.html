@@ -52,7 +52,12 @@ nav a{
     align-items:center;
     text-align:center;
     padding:20px;
-    background: linear-gradient(180deg,#f8f4ef,#efe5dd);
+
+    /* LOGO EN FOND (WATERMARK) */
+    background:
+        linear-gradient(rgba(248,244,239,0.80), rgba(248,244,239,0.80)),
+        url("images/logo-ll.jpg")
+        center center / 80% no-repeat;
 }
 
 .hero-content{
@@ -67,24 +72,16 @@ nav a{
     margin-bottom:30px;
 }
 
-/* LOGO (REMISE ICI) */
-.hero-logo{
-    width:220px;
-    display:block;
-    margin:0 auto 30px auto;
-}
-
 /* BOUTON */
 .btn{
     display:inline-block;
-    margin-top:40px;
+    margin-top:60px;
     padding:15px 30px;
     background:#2b2b2b;
     color:white;
     text-decoration:none;
     border-radius:40px;
     letter-spacing:2px;
-    transition:0.3s;
 }
 
 .btn:hover{
@@ -127,13 +124,8 @@ footer{
 
 <div class="hero-content">
 
-<!-- 1. TITRE -->
 <h1>La Fabrik’ de Lilly</h1>
 
-<!-- 2. LOGO (REMIS) -->
-<img src="images/logo-ll.jpg" alt="Logo" class="hero-logo">
-
-<!-- 3. BOUTON PLUS BAS -->
 <a href="boutique.html" class="btn">
 Découvrir la boutique
 </a>
