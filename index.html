@@ -11,53 +11,66 @@
 body{
     margin:0;
     font-family: Georgia, serif;
-    background: #f6efe9; /* beige rosé */
+    background:#f6efe9;
     color:#2b2b2b;
 }
 
-/* HEADER */
-header{
+/* ===== HEADER FIXE LUXE ===== */
+.header{
     position: fixed;
-    top:0;
-    width:100%;
-    background:#f6efe9;
+    top: 0;
+    width: 100%;
+    background: rgba(246, 239, 233, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(212,175,55,0.25);
+    z-index: 1000;
+    padding: 12px 0;
+}
+
+.header-content{
     display:flex;
-    justify-content:center;
+    flex-direction:column;
     align-items:center;
-    padding:18px 0;
-    border-bottom:1px solid rgba(212,175,55,0.3);
-    z-index:1000;
+    justify-content:center;
+    gap:4px;
 }
 
 /* LOGO */
-.logo{
-    font-size:28px;
-    font-weight:bold;
-    color:#000; /* noir demandé */
-    letter-spacing:1px;
-    position:relative;
+.logo-img{
+    height:55px;
+    object-fit:contain;
 }
 
-/* petit effet doré autour du logo */
-.logo::after{
+/* NOM DE MARQUE */
+.brand{
+    font-size:20px;
+    font-weight:500;
+    color:#000;
+    letter-spacing:1px;
+}
+
+/* ligne dorée élégante */
+.brand::after{
     content:"";
     display:block;
-    width:60%;
+    width:70px;
     height:2px;
-    background: linear-gradient(to right, transparent, #d4af37, transparent);
     margin:6px auto 0;
+    background: linear-gradient(to right, transparent, #d4af37, transparent);
 }
 
-/* phrase */
+/* ===== SLOGAN ===== */
 .slogan{
     text-align:center;
-    margin-top:110px;
+    margin-top:130px;
     font-style:italic;
     color:#6b5b53;
     font-size:16px;
+    padding:0 20px;
 }
 
-/* HERO */
+/* ===== HERO ===== */
 .hero{
     text-align:center;
     padding:60px 20px;
@@ -74,7 +87,6 @@ header{
     font-size:17px;
 }
 
-/* bouton doré */
 .btn{
     display:inline-block;
     margin-top:20px;
@@ -90,7 +102,7 @@ header{
     background:#b8922f;
 }
 
-/* section */
+/* ===== SECTION ===== */
 .section{
     padding:50px 20px;
     text-align:center;
@@ -105,7 +117,7 @@ header{
     color:#6b5b53;
 }
 
-/* FOOTER */
+/* ===== FOOTER ===== */
 footer{
     margin-top:50px;
     padding:20px;
@@ -121,25 +133,33 @@ footer{
 
 <body>
 
-<header>
-    <div class="logo">La Fabrik' de Lilly</div>
+<!-- HEADER -->
+<header class="header">
+    <div class="header-content">
+        <img src="logo.png" alt="La Fabrik' de Lilly" class="logo-img">
+        <div class="brand">La Fabrik' de Lilly</div>
+    </div>
 </header>
 
+<!-- SLOGAN -->
 <div class="slogan">
     Artisanat naturel & fait main, inspiré par la douceur du bio
 </div>
 
+<!-- HERO -->
 <div class="hero">
     <h1>Des créations uniques et naturelles</h1>
     <p>Fondants parfumés, bougies et diffuseurs faits avec amour</p>
     <a class="btn" href="#">Découvrir la boutique</a>
 </div>
 
+<!-- SECTION -->
 <div class="section">
     <h2>Notre univers</h2>
     <p>Chaque produit est fabriqué artisanalement avec des ingrédients naturels pour créer une ambiance douce et chaleureuse.</p>
 </div>
 
+<!-- FOOTER -->
 <footer>
     © 2026 La Fabrik' de Lilly — Tous droits réservés
 </footer>
