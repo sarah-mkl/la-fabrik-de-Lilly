@@ -47,15 +47,21 @@ nav a{
 
 .hero{
     height:100vh;
-    background: linear-gradient(180deg,#f8f4ef,#efe5dd);
     display:flex;
     justify-content:center;
     align-items:center;
     text-align:center;
+    padding:20px;
+
+    /* LOGO EN FOND PLEIN ÉCRAN */
+    background:
+        linear-gradient(rgba(248,244,239,0.70), rgba(248,244,239,0.70)),
+        url("images/logo-ll.jpg")
+        center center / 60% no-repeat;
 }
 
 .hero-content{
-    max-width:750px;
+    max-width:800px;
 }
 
 /* TITRE */
@@ -66,14 +72,7 @@ nav a{
     margin-bottom:25px;
 }
 
-/* LOGO */
-.hero-logo{
-    width:180px;
-    display:block;
-    margin:0 auto 25px auto;
-}
-
-/* PHRASE */
+/* TEXTE */
 .hero p{
     font-size:19px;
     line-height:1.9;
@@ -122,7 +121,7 @@ nav a{
     font-size:17px;
 }
 
-/* CARDS */
+/* GRID */
 
 .grid{
     margin-top:60px;
@@ -136,6 +135,11 @@ nav a{
     border-radius:25px;
     overflow:hidden;
     box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
 }
 
 .card img{
@@ -149,6 +153,17 @@ nav a{
     text-align:center;
 }
 
+.card h3{
+    margin:0;
+    font-size:24px;
+    font-weight:400;
+}
+
+.card p{
+    color:#666;
+    line-height:1.7;
+}
+
 .price{
     margin:20px 0;
     color:#b08968;
@@ -156,12 +171,16 @@ nav a{
     font-weight:bold;
 }
 
+/* BUTTON */
+
 button{
     border:none;
     background:#2b2b2b;
     color:white;
     padding:12px 22px;
     border-radius:30px;
+    cursor:pointer;
+    transition:0.3s;
 }
 
 button:hover{
@@ -174,6 +193,12 @@ button:hover{
     background:#efe5dd;
     padding:80px 20px;
     text-align:center;
+}
+
+.values h2{
+    font-size:38px;
+    font-weight:300;
+    margin-bottom:25px;
 }
 
 /* FOOTER */
@@ -206,8 +231,6 @@ footer{
 
 <h1>La Fabrik’ de Lilly</h1>
 
-<img class="hero-logo" src="images/logo-ll.jpg" alt="logo">
-
 <p>
 Bougies artisanales à la cire de soja 100% végétale et parfums de Grasse.
 </p>
@@ -230,7 +253,35 @@ Découvrez les créations préférées de nos clientes.
 
 <div class="grid">
 
-<!-- tes produits ici -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>Bougie Vanille</h3>
+<p>Une fragrance douce et réconfortante.</p>
+<div class="price">19,90€</div>
+<button>Ajouter au panier</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1615529328331-f8917597711f?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>Fondant Fleur Blanche</h3>
+<p>Notes florales raffinées.</p>
+<div class="price">7,90€</div>
+<button>Ajouter au panier</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>Spray d’ambiance</h3>
+<p>Senteur élégante pour intérieur.</p>
+<div class="price">14,90€</div>
+<button>Ajouter au panier</button>
+</div>
+</div>
 
 </div>
 
@@ -241,7 +292,7 @@ Découvrez les créations préférées de nos clientes.
 <h2>Notre engagement</h2>
 
 <p>
-Toutes nos créations sont fabriquées artisanalement avec de la cire de soja 100% végétale et des parfums de Grasse.
+Toutes nos créations sont artisanales, à base de cire de soja 100% végétale et parfums de Grasse.
 </p>
 
 </section>
