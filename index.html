@@ -1,167 +1,151 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>La Fabrik' de Lilly</title>
 
-<title>La Fabrik' de Lilly</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: #faf7f2;
+      color: #2b2b2b;
+    }
 
-<style>
+    header {
+      text-align: center;
+      padding: 50px 20px;
+      background: #fff;
+      border-bottom: 1px solid #e6e0d8;
+    }
 
-body{
-    margin:0;
-    font-family: Georgia, serif;
-    background:#f6efe9;
-    color:#2b2b2b;
-}
+    .logo {
+      font-size: 28px;
+      letter-spacing: 3px;
+      font-weight: 400;
+    }
 
-/* ===== HEADER FIXE LUXE ===== */
-.header{
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(246, 239, 233, 0.88);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(212,175,55,0.25);
-    z-index: 1000;
-    padding: 12px 0;
-}
+    .subtitle {
+      color: #777;
+      font-style: italic;
+      margin-top: 10px;
+    }
 
-.header-content{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:4px;
-}
+    nav {
+      text-align: center;
+      padding: 15px;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+    }
 
-/* LOGO */
-.logo-img{
-    height:55px;
-    object-fit:contain;
-}
+    nav a {
+      margin: 0 20px;
+      text-decoration: none;
+      color: #2b2b2b;
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
 
-/* NOM DE MARQUE */
-.brand{
-    font-size:20px;
-    font-weight:500;
-    color:#000;
-    letter-spacing:1px;
-}
+    .hero {
+      height: 75vh;
+      background: url("https://images.unsplash.com/photo-1602524203376-7e4f5b1b6d39") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      color: white;
+    }
 
-/* ligne dorée élégante */
-.brand::after{
-    content:"";
-    display:block;
-    width:70px;
-    height:2px;
-    margin:6px auto 0;
-    background: linear-gradient(to right, transparent, #d4af37, transparent);
-}
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+    }
 
-/* ===== SLOGAN ===== */
-.slogan{
-    text-align:center;
-    margin-top:130px;
-    font-style:italic;
-    color:#6b5b53;
-    font-size:16px;
-    padding:0 20px;
-}
+    .hero-content {
+      position: relative;
+      text-align: center;
+    }
 
-/* ===== HERO ===== */
-.hero{
-    text-align:center;
-    padding:60px 20px;
-}
+    .hero h1 {
+      font-size: 42px;
+      font-weight: 300;
+      letter-spacing: 3px;
+    }
 
-.hero h1{
-    font-size:32px;
-    margin-bottom:10px;
-    color:#2b2b2b;
-}
+    .hero p {
+      font-style: italic;
+    }
 
-.hero p{
-    color:#6b5b53;
-    font-size:17px;
-}
+    .btn {
+      margin-top: 20px;
+      display: inline-block;
+      padding: 12px 25px;
+      background: white;
+      color: black;
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
 
-.btn{
-    display:inline-block;
-    margin-top:20px;
-    padding:12px 22px;
-    background:#d4af37;
-    color:white;
-    text-decoration:none;
-    border-radius:25px;
-    transition:0.3s;
-}
+    .section {
+      max-width: 900px;
+      margin: auto;
+      padding: 70px 20px;
+      text-align: center;
+    }
 
-.btn:hover{
-    background:#b8922f;
-}
+    .section h2 {
+      font-weight: 400;
+      letter-spacing: 2px;
+    }
 
-/* ===== SECTION ===== */
-.section{
-    padding:50px 20px;
-    text-align:center;
-}
+    .section p {
+      line-height: 1.8;
+      color: #555;
+    }
 
-.section h2{
-    color:#000;
-    margin-bottom:10px;
-}
-
-.section p{
-    color:#6b5b53;
-}
-
-/* ===== FOOTER ===== */
-footer{
-    margin-top:50px;
-    padding:20px;
-    text-align:center;
-    font-size:13px;
-    color:#6b5b53;
-    border-top:1px solid rgba(212,175,55,0.3);
-}
-
-</style>
-
+    footer {
+      text-align: center;
+      padding: 40px;
+      font-size: 12px;
+      color: #888;
+      border-top: 1px solid #eee;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header class="header">
-    <div class="header-content">
-        <img src="logo.jpg" alt="La Fabrik' de Lilly" class="logo-img">
-        <div class="brand">La Fabrik' de Lilly</div>
-    </div>
+<header>
+  <div class="logo">LA FABRIK’ DE LILLY</div>
+  <div class="subtitle">Bougies parfumées artisanales</div>
 </header>
 
-<!-- SLOGAN -->
-<div class="slogan">
-    Artisanat naturel & fait main, inspiré par la douceur du végetal
-</div>
+<nav>
+  <a href="index.html">Accueil</a>
+  <a href="boutique.html">Boutique</a>
+</nav>
 
-<!-- HERO -->
-<div class="hero">
-    <h1>Des créations uniques et naturelles</h1>
-    <p>Fondants parfumés, bougies et diffuseurs faits avec amour</p>
-    <a class="btn" href="#">Découvrir la boutique</a>
-</div>
+<section class="hero">
+  <div class="hero-content">
+    <h1>Maison de parfum artisanale</h1>
+    <p>Des senteurs uniques pour des émotions uniques</p>
+    <a class="btn" href="boutique.html">Découvrir</a>
+  </div>
+</section>
 
-<!-- SECTION -->
-<div class="section">
-    <h2>Notre univers</h2>
-    <p>Chaque produit est fabriqué artisanalement avec des ingrédients naturels pour créer une ambiance douce et chaleureuse.</p>
-</div>
+<section class="section">
+  <h2>Notre univers</h2>
+  <p>
+    La Fabrik’ de Lilly crée des bougies inspirées des émotions,
+    des souvenirs et de la nature. Chaque parfum est pensé comme une expérience sensorielle unique.
+  </p>
+</section>
 
-<!-- FOOTER -->
 <footer>
-    © 2026 La Fabrik' de Lilly — Tous droits réservés
+  © 2026 La Fabrik' de Lilly
 </footer>
 
 </body>
