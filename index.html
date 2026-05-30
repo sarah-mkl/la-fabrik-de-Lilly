@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,108 +9,110 @@
 <style>
 
 body{
-margin:0;
-font-family:Georgia, serif;
-background:#f8f4ef;
-color:#2b2b2b;
-text-align:center;
-overflow-x:hidden;
+    margin:0;
+    font-family: Georgia, serif;
+    background: #f6efe9; /* beige rosé */
+    color:#2b2b2b;
 }
 
-/* TITRE HAUT */
-
-.header{
-padding-top:30px;
-font-size:55px;
-letter-spacing:4px;
-font-weight:300;
-color:#8f775f;
+/* HEADER */
+header{
+    position: fixed;
+    top:0;
+    width:100%;
+    background:#f6efe9;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:18px 0;
+    border-bottom:1px solid rgba(212,175,55,0.3);
+    z-index:1000;
 }
 
 /* LOGO */
-
 .logo{
-display:flex;
-justify-content:center;
-align-items:center;
-margin-top:20px;
+    font-size:28px;
+    font-weight:bold;
+    color:#000; /* noir demandé */
+    letter-spacing:1px;
+    position:relative;
 }
 
-.logo img{
-width:650px;
-max-width:90%;
+/* petit effet doré autour du logo */
+.logo::after{
+    content:"";
+    display:block;
+    width:60%;
+    height:2px;
+    background: linear-gradient(to right, transparent, #d4af37, transparent);
+    margin:6px auto 0;
 }
 
-/* TEXTE */
-
-.subtitle{
-max-width:800px;
-margin:30px auto;
-font-size:20px;
-line-height:1.9;
-color:#5d5d5d;
-padding:0 20px;
+/* phrase */
+.slogan{
+    text-align:center;
+    margin-top:110px;
+    font-style:italic;
+    color:#6b5b53;
+    font-size:16px;
 }
 
-/* VALEURS */
-
-.values{
-font-size:18px;
-line-height:2.2;
-color:#8f775f;
-margin-top:10px;
+/* HERO */
+.hero{
+    text-align:center;
+    padding:60px 20px;
 }
 
-/* BOUTON */
+.hero h1{
+    font-size:32px;
+    margin-bottom:10px;
+    color:#2b2b2b;
+}
 
+.hero p{
+    color:#6b5b53;
+    font-size:17px;
+}
+
+/* bouton doré */
 .btn{
-display:inline-block;
-margin-top:40px;
-padding:18px 38px;
-background:#8f775f;
-color:white;
-text-decoration:none;
-border-radius:40px;
-font-size:15px;
-letter-spacing:2px;
-transition:0.3s;
-box-shadow:0 10px 25px rgba(0,0,0,0.10);
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 22px;
+    background:#d4af37;
+    color:white;
+    text-decoration:none;
+    border-radius:25px;
+    transition:0.3s;
 }
 
 .btn:hover{
-transform:translateY(-4px);
-background:#a88c70;
+    background:#b8922f;
 }
 
-/* BAS DE PAGE */
-
-.footer{
-margin-top:60px;
-padding-bottom:40px;
-font-size:13px;
-letter-spacing:2px;
-color:#8c8c8c;
+/* section */
+.section{
+    padding:50px 20px;
+    text-align:center;
 }
 
-@media(max-width:768px){
-
-.header{
-font-size:36px;
-padding-top:20px;
+.section h2{
+    color:#000;
+    margin-bottom:10px;
 }
 
-.logo img{
-width:420px;
+.section p{
+    color:#6b5b53;
 }
 
-.subtitle{
-font-size:16px;
-}
-
-.values{
-font-size:15px;
-}
-
+/* FOOTER */
+footer{
+    margin-top:50px;
+    padding:20px;
+    text-align:center;
+    font-size:13px;
+    color:#6b5b53;
+    border-top:1px solid rgba(212,175,55,0.3);
 }
 
 </style>
@@ -120,38 +121,28 @@ font-size:15px;
 
 <body>
 
-<div class="header">
-La Fabrik' de Lilly
+<header>
+    <div class="logo">La Fabrik' de Lilly</div>
+</header>
+
+<div class="slogan">
+    Artisanat naturel & fait main, inspiré par la douceur du bio
 </div>
 
-<div class="logo">
-<img src="images/logo-ll.jpg" alt="La Fabrik de Lilly">
+<div class="hero">
+    <h1>Des créations uniques et naturelles</h1>
+    <p>Fondants parfumés, bougies et diffuseurs faits avec amour</p>
+    <a class="btn" href="#">Découvrir la boutique</a>
 </div>
 
-<div class="subtitle">
-
-Bougies parfumées artisanales, fondants, sprays d'ambiance,
-diffuseurs voiture et bouquets parfumés conçus avec passion.
-
+<div class="section">
+    <h2>Notre univers</h2>
+    <p>Chaque produit est fabriqué artisanalement avec des ingrédients naturels pour créer une ambiance douce et chaleureuse.</p>
 </div>
 
-<div class="values">
-
-✨ Cire de soja 100% végétale<br>
-✨ Parfums de Grasse sans CMR<br>
-✨ Fabrication artisanale<br>
-✨ Créations parfumées réalisées avec passion
-
-</div>
-
-<a href="menu.html" class="btn">
-DÉCOUVRIR LA BOUTIQUE
-</a>
-
-<div class="footer">
-PARFUMS D'INTÉRIEUR • ARTISANAL • ÉLÉGANT
-</div>
+<footer>
+    © 2026 La Fabrik' de Lilly — Tous droits réservés
+</footer>
 
 </body>
-
 </html>
