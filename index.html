@@ -9,6 +9,7 @@
 
 <style>
 
+/* BASE */
 body{
     margin:0;
     font-family:Georgia, serif;
@@ -16,7 +17,9 @@ body{
     color:#2b2b2b;
 }
 
-/* HERO */
+/* =========================
+        HERO LUXE
+========================= */
 
 .hero{
     min-height:100vh;
@@ -24,55 +27,53 @@ body{
     justify-content:center;
     align-items:center;
     text-align:center;
-    padding:40px 20px;
+    padding:60px 20px;
+}
+
+.hero-content{
+    max-width:800px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:18px;
+    transform: translateY(-10px);
 }
 
 /* LOGO */
 .logo{
-    width:260px;
+    width:240px;
     height:auto;
-    margin-bottom:20px;
-}
-
-/* CONTENU HERO */
-.hero-content{
-    max-width:900px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    padding:20px 20px 60px;
-    transform: translateY(-20px);
 }
 
 /* TITRE */
 .hero h1{
-    font-size:64px;
+    font-size:58px;
     font-weight:300;
-    letter-spacing:4px;
-    margin:10px 0 20px 0;
+    letter-spacing:5px;
+    margin:0;
     color:#1f1f1f;
 }
 
 /* TEXTE HERO */
 .hero-text{
-    max-width:700px;
-    font-size:22px;
-    line-height:1.8;
+    max-width:650px;
+    font-size:18px;
+    line-height:1.9;
     color:#4d4d4d;
-    margin-bottom:40px;
+    margin:0;
 }
 
 /* BOUTON */
 .btn{
     display:inline-block;
+    margin-top:10px;
     padding:18px 40px;
     background:#232323;
     color:white;
     text-decoration:none;
     border-radius:50px;
     letter-spacing:3px;
-    font-size:16px;
+    font-size:15px;
     transition:0.3s;
 }
 
@@ -80,42 +81,48 @@ body{
     background:#b08968;
 }
 
-/* SECTION VALUES */
+/* =========================
+     SAVOIR-FAIRE LUXE
+========================= */
 
 .values{
     background:#efe5dd;
-    padding:90px 30px;
+    padding:100px 20px;
     text-align:center;
 }
 
-/* TITRE */
 .values h2{
-    font-size:42px;
-    margin-bottom:30px;
-    font-weight:400;
+    font-size:40px;
+    font-weight:300;
+    letter-spacing:3px;
+    margin-bottom:40px;
 }
 
-/* TEXTE CONTAINER */
+/* TEXTE PROPRE ALIGNÉ */
 .values-text{
-    max-width:900px;
+    max-width:750px;
     margin:auto;
-    padding:0 20px;
+    display:flex;
+    flex-direction:column;
+    gap:22px;
 }
 
 /* PARAGRAPHES */
 .values-text p{
-    font-size:20px;
+    font-size:18px;
     line-height:1.9;
-    margin-bottom:25px;
     color:#4d4d4d;
+    margin:0;
 
-    /* ✅ FIX PROPRE (plus de mots coupés bizarrement) */
+    /* 🔥 anti-coupure bizarre */
     word-break: normal;
     overflow-wrap: normal;
     hyphens: none;
 }
 
-/* FOOTER */
+/* =========================
+        FOOTER
+========================= */
 
 footer{
     text-align:center;
@@ -126,7 +133,9 @@ footer{
     background:#faf7f2;
 }
 
-/* MOBILE */
+/* =========================
+        MOBILE
+========================= */
 
 @media(max-width:768px){
 
@@ -140,7 +149,7 @@ footer{
 }
 
 .logo{
-    width:180px;
+    width:170px;
 }
 
 .btn{
@@ -163,6 +172,7 @@ footer{
 
 <body>
 
+<!-- HERO -->
 <section class="hero">
 
 <div class="hero-content">
@@ -184,6 +194,7 @@ Découvrir la boutique
 
 </section>
 
+<!-- SAVOIR-FAIRE -->
 <section class="values">
 
 <h2>Notre savoir-faire</h2>
@@ -206,6 +217,7 @@ Plus qu'une bougie, chaque création est une invitation à la détente et au bie
 
 </section>
 
+<!-- FOOTER -->
 <footer>
 © 2026 La Fabrik' de Lilly
 </footer>
