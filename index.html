@@ -32,7 +32,6 @@ body{
     width:260px;
     height:auto;
     margin-bottom:20px;
-    filter:none;
 }
 
 /* CONTENU */
@@ -43,7 +42,7 @@ body{
     align-items:center;
     justify-content:center;
     padding:20px 20px 80px;
-    transform: translatey (-20px);
+    transform: translateY(-20px);
 }
 
 /* TITRE */
@@ -53,7 +52,6 @@ body{
     letter-spacing:4px;
     margin:10px 0 20px 0;
     color:#1f1f1f;
-    top:-20px;
 }
 
 /* TEXTE */
@@ -96,13 +94,20 @@ body{
     font-weight:400;
 }
 
-.values p{
-    max-width:900px;
+.values-text{
+    max-width:850px;
     margin:auto;
-    line-height:1.8;
-    font-size:20px;
 }
 
+.values-text p{
+    font-size:20px;
+    line-height:1.9;
+    margin-bottom:25px;
+    color:#4d4d4d;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+}
 
 /* FOOTER */
 
@@ -141,14 +146,10 @@ footer{
     font-size:30px;
 }
 
-.values p{
+.values-text p{
     font-size:16px;
 }
 
-.values-text p{
-    word-break: normal;
-    overflow-wrap: normal;
-    white-space: normal;
 }
 
 </style>
@@ -160,7 +161,6 @@ footer{
 
 <div class="hero-content">
 
-<!-- LOGO -->
 <img src="images/logo-ll.jpg" class="logo" alt="La Fabrik' de Lilly">
 
 <h1>La Fabrik' de Lilly</h1>
@@ -195,8 +195,6 @@ Plus qu'une bougie, chaque création est une invitation à la détente et au bie
 <p>
 ✨ La Fabrik' de Lilly, l'art de parfumer votre intérieur avec délicatesse.
 </p>
-  
-}
 
 </div>
 
