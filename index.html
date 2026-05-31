@@ -29,7 +29,7 @@ body{
     background:
     linear-gradient(rgba(248,244,239,0.82), rgba(248,244,239,0.82)),
     url("images/logo-ll.jpg")
-    center 120px / 420px no-repeat;
+    center 80px / 420px no-repeat;
 }
 
 .hero-content{
@@ -38,19 +38,19 @@ body{
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    padding:120px 20px 80px;
+    padding:40px 20px 80px;
 }
 
 .hero h1{
     font-size:68px;
     font-weight:300;
     letter-spacing:4px;
-    margin:0;
+    margin:-180px 0 0 0;
     color:#1f1f1f;
 }
 
 .hero-text{
-    margin:300px auto 40px auto;
+    margin:180px auto 40px auto;
     max-width:700px;
     font-size:22px;
     line-height:1.8;
@@ -73,7 +73,7 @@ body{
     background:#b08968;
 }
 
-/* SECTION ENGAGEMENT */
+/* SECTION SAVOIR-FAIRE */
 
 .values{
     background:#efe5dd;
@@ -110,23 +110,224 @@ footer{
 @media(max-width:768px){
 
 .hero{
+    min-height:auto;
+    padding:60px 20px;
+
     background:
     linear-gradient(rgba(248,244,239,0.88), rgba(248,244,239,0.88)),
     url("images/logo-ll.jpg")
-    center 70px / 220px no-repeat;
+    center 60px / 200px no-repeat;
 }
 
 .hero-content{
-    padding:40px 20px 60px;
+    padding:20px;
 }
 
 .hero h1{
     font-size:38px;
     letter-spacing:2px;
+    margin:-70px 0 0 0;
 }
 
 .hero-text{
-    margin:180px auto 30px auto;
+    margin:120px auto 30px auto;
+    font-size:16px;
+    line-height:1.7;
+}
+
+.btn{
+    padding:16px 30px;
+    font-size:15px;
+}
+
+.values{
+    padding:60px 25px;
+}
+
+.values h2{
+    font-size:32px;
+}
+
+.values p{
+    font-size:16px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>La Fabrik' de Lilly</h1>
+
+<p class="hero-text">
+Bougies artisanales à la cire de soja 100% végétale.<br>
+Parfums de Grasse sans CMR pour une expérience élégante et sensorielle.
+</p>
+
+<a href="boutique.html" class="btn">
+Découvrir la boutique
+</a>
+
+</div>
+
+</section>
+
+<section class="values">
+
+<h2>Notre savoir-faire</h2>
+
+<p>
+La passion de l'artisanat, le goût des belles senteurs et l'amour des détails guident chacune de nos créations.
+Plus qu'une bougie, chaque création est une invitation à la détente et au bien-être.
+✨ La Fabrik' de Lilly, l'art de parfumer votre intérieur avec délicatesse.
+</p>
+
+</section>
+
+<footer>
+© 2026 La Fabrik' de Lilly
+</footer>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>La Fabrik' de Lilly</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Georgia, serif;
+    background:#f8f4ef;
+    color:#2b2b2b;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+
+    background:
+    linear-gradient(rgba(248,244,239,0.82), rgba(248,244,239,0.82)),
+    url("images/logo-ll.jpg")
+    center 80px / 420px no-repeat;
+}
+
+.hero-content{
+    max-width:900px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:40px 20px 80px;
+}
+
+.hero h1{
+    font-size:68px;
+    font-weight:300;
+    letter-spacing:4px;
+    margin:-180px 0 0 0;
+    color:#1f1f1f;
+}
+
+.hero-text{
+    margin:180px auto 40px auto;
+    max-width:700px;
+    font-size:22px;
+    line-height:1.8;
+    color:#4d4d4d;
+}
+
+.btn{
+    display:inline-block;
+    padding:18px 40px;
+    background:#232323;
+    color:white;
+    text-decoration:none;
+    border-radius:50px;
+    letter-spacing:3px;
+    font-size:16px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#b08968;
+}
+
+/* SECTION SAVOIR-FAIRE */
+
+.values{
+    background:#efe5dd;
+    padding:90px 30px;
+    text-align:center;
+}
+
+.values h2{
+    font-size:42px;
+    margin-bottom:30px;
+    font-weight:400;
+}
+
+.values p{
+    max-width:900px;
+    margin:auto;
+    line-height:1.8;
+    font-size:20px;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:40px;
+    color:#888;
+    font-size:14px;
+    border-top:1px solid #e8ddd3;
+    background:#faf7f2;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero{
+    min-height:auto;
+    padding:60px 20px;
+
+    background:
+    linear-gradient(rgba(248,244,239,0.88), rgba(248,244,239,0.88)),
+    url("images/logo-ll.jpg")
+    center 60px / 200px no-repeat;
+}
+
+.hero-content{
+    padding:20px;
+}
+
+.hero h1{
+    font-size:38px;
+    letter-spacing:2px;
+    margin:-70px 0 0 0;
+}
+
+.hero-text{
+    margin:120px auto 30px auto;
     font-size:16px;
     line-height:1.7;
 }
