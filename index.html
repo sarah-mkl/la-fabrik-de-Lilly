@@ -14,6 +14,7 @@ body{
     font-family:Georgia, serif;
     background:#f8f4ef;
     color:#2b2b2b;
+    word-wrap: normal;
 }
 
 /* HERO */
@@ -54,7 +55,7 @@ body{
     color:#1f1f1f;
 }
 
-/* TEXTE */
+/* TEXTE HERO */
 .hero-text{
     max-width:700px;
     font-size:22px;
@@ -80,7 +81,7 @@ body{
     background:#b08968;
 }
 
-/* SECTION */
+/* SECTION VALUES */
 
 .values{
     background:#efe5dd;
@@ -88,23 +89,29 @@ body{
     text-align:center;
 }
 
+/* TITRE SECTION */
 .values h2{
     font-size:42px;
     margin-bottom:30px;
     font-weight:400;
 }
 
+/* CONTENEUR TEXTE */
 .values-text{
-    max-width:850px;
+    max-width:900px;
     margin:auto;
+    padding:0 20px;
 }
 
+/* PARAGRAPHES */
 .values-text p{
     font-size:20px;
     line-height:1.9;
     margin-bottom:25px;
     color:#4d4d4d;
-    word-break: normal;
+
+    /* 🔥 FIX PROBLÈME "créations" */
+    word-break: keep-all;
     overflow-wrap: normal;
     hyphens: none;
 }
